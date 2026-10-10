@@ -9,7 +9,14 @@ from typing import Any, Literal
 from uuid import uuid4
 
 import orjson
-from pydantic import BaseModel, ConfigDict, Field, field_validator, model_validator
+from pydantic import (
+    BaseModel,
+    ConfigDict,
+    Field,
+    field_validator,
+    model_serializer,
+    model_validator,
+)
 
 from upf_agent.agent_contracts import AgentBudget
 from upf_agent.contracts import TimeWindow
@@ -71,6 +78,17 @@ class PermissionScope(Model):
     execute: Literal[False] = False
 
 
+class ObjectProfile(Model):
+    role: Literal["upf", "smf", "ran", "unspecified"] = "unspecified"
+    product: str | None = None
+    version: str | None = None
+
+
+def object_product_version(task, object_id):
+    profile = task.object_profiles.get(object_id)
+    return (profile.product, profile.version) if profile else (task.product, task.version)
+
+
 class OrchestrationTask(Model):
     run_id: str = Field(default_factory=lambda: uuid4().hex, pattern=r"^[0-9a-f]{32}$")
     question: str = Field(min_length=1, max_length=2000)
@@ -79,6 +97,7 @@ class OrchestrationTask(Model):
     objects: list[str] = Field(min_length=1)
     product: str | None = None
     version: str | None = None
+    object_profiles: dict[str, ObjectProfile] = Field(default_factory=dict)
     time_window: TimeWindow | None = None
     as_of: datetime = Field(default_factory=lambda: datetime.now(UTC))
     permission: PermissionScope = Field(default_factory=PermissionScope)
@@ -112,7 +131,16 @@ class OrchestrationTask(Model):
             raise ValueError("duplicate objects")
         if self.path.synthetic and not self.synthetic:
             raise ValueError("a real task cannot declare a synthetic resolved path")
+        if self.object_profiles and set(self.object_profiles) != set(self.objects):
+            raise ValueError("object profiles must cover exactly the declared objects")
         return self
+
+    @model_serializer(mode="wrap")
+    def serialize_profile_scope(self, handler):
+        result = handler(self)
+        if not self.object_profiles:
+            result.pop("object_profiles", None)
+        return result
 
 
 class Requirement(Model):

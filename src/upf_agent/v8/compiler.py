@@ -11,6 +11,7 @@ from upf_agent.v8.models import (
     QueryStep,
     Requirement,
     digest,
+    object_product_version,
 )
 
 
@@ -217,8 +218,8 @@ def compile_query_plan(
                 if cap.tool == "search_manual":
                     args = {
                         "query": task.question,
-                        "product": task.product,
-                        "version": task.version,
+                        "product": object_product_version(task, obj)[0],
+                        "version": object_product_version(task, obj)[1],
                         "top_k": 6,
                     }
                 elif cap.tool == "find_log_events":

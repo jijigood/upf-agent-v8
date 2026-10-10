@@ -6,10 +6,11 @@ rechecks the untouched output and physical sources independently.
 
 from upf_agent.v8.compiler import compile_contract, permitted
 from upf_agent.v8.knowledge_applicability import annotate_knowledge
-from upf_agent.v8.models import canonical
+from upf_agent.v8.models import canonical, object_product_version
+from upf_agent.v8.peer_mapping import pair_gaps
 from upf_agent.v8.plan_source_verifier import verify_plan_source
 
-VERSION = "v8-plan-capabilities-1"
+VERSION = "v8-plan-capabilities-2"
 
 
 def compile_capabilities(task, context, bindings, root):
@@ -26,7 +27,8 @@ def compile_capabilities(task, context, bindings, root):
             reasons.append("permission_denied")
         if b.synthetic and not task.synthetic:
             reasons.append("synthetic_source")
-        if not b.version or b.version != task.version:
+        expected_product, expected_version = object_product_version(task, b.object_id)
+        if not b.version or b.version != expected_version:
             reasons.append("version_unknown_or_mismatched")
         if b.valid and not b.valid.start <= context.as_of < b.valid.end:
             reasons.append("outside_validity")
@@ -38,7 +40,7 @@ def compile_capabilities(task, context, bindings, root):
         if b.category == "K":
             # Re-read the registered mapping, including revocation; a cached receipt is not trust.
             annotate_knowledge(root, b)
-            if b.product != task.product or task.template not in b.purposes:
+            if b.product != expected_product or task.template not in b.purposes:
                 reasons.append("knowledge_applicability_unknown")
         if reasons:
             rejected[b.evidence_id] = reasons
@@ -66,47 +68,18 @@ def compile_capabilities(task, context, bindings, root):
                         unresolved.append(f"{obj}:{name}:missing")
                     elif len(values) > 1:
                         unresolved.append(f"{obj}:{name}:conflicting_observations")
+    mapping_gaps = {}
     if fault:
-        pairs = {
-            obj: [b for b in admissible if b.object_id == obj and b.category == "P"]
-            for obj in task.objects
-        }
         for left, right in zip(task.path.positions, task.path.positions[1:], strict=False):
-            for a in pairs[left.object_id]:
-                for b in pairs[right.object_id]:
-                    af, bf = a.fields, b.fields
-                    checks = {
-                        "service_id": af.get("service_id")
-                        == bf.get("service_id")
-                        == task.path.service_id,
-                        "mapping_version": af.get("mapping_version")
-                        == bf.get("mapping_version")
-                        == task.path.version,
-                        "endpoints": af.get("local_endpoint") == bf.get("peer_endpoint")
-                        and af.get("peer_endpoint") == bf.get("local_endpoint"),
-                        "config_version": bool(a.config_version)
-                        and a.config_version == b.config_version,
-                        "observed_window": a.observed.start < b.observed.end
-                        and b.observed.start < a.observed.end,
-                    }
-                    for name, ok in checks.items():
-                        if not ok:
-                            unresolved.append(f"{a.object_id}/{b.object_id}:{name}:mismatch")
-                    for side in [a, b]:
-                        runtime = [
-                            r
-                            for r in admissible
-                            if r.object_id == side.object_id and r.category == "R"
-                        ]
-                        if any(r.config_version != side.config_version for r in runtime):
-                            unresolved.append(
-                                f"{side.object_id}:runtime_pair_config_version:mismatch"
-                            )
+            gaps = pair_gaps(task, admissible, left.object_id, right.object_id)
+            mapping_gaps[f"{left.object_id}/{right.object_id}"] = gaps
+            unresolved.extend(gaps)
     return {
         "version": VERSION,
         "admissible_ids": [b.evidence_id for b in admissible],
         "rejected": rejected,
         "unresolved": sorted(set(unresolved)),
+        "mapping_gaps": mapping_gaps,
         "identity_steps": {obj: f"id{i + 1}" for i, obj in enumerate(task.objects)},
         "interface": "N3" if task.template == "upf_n3_fault" else "N4",
         "configuration_field": field,

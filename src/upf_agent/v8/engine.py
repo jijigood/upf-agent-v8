@@ -35,7 +35,15 @@ class Flow(TypedDict):
 
 
 class OrchestrationEngine:
-    def __init__(self, root: Path):
+    def __init__(self, root: Path, *, requirement_graph_strategy=None, graph_reseed_ids=()):
+        if requirement_graph_strategy not in {None, "bfs", "ppr", "bfs-reseed"}:
+            raise ValueError("unknown requirement graph strategy")
+        if len(graph_reseed_ids) > 100 or requirement_graph_strategy is None and graph_reseed_ids:
+            raise ValueError("reseed cache requires an explicit strategy and at most 100 IDs")
+        self.requirement_graph_strategy = requirement_graph_strategy
+        self.graph_reseed_ids = tuple(dict.fromkeys(graph_reseed_ids))
+        self._requirement_graph_snapshot = None
+        self._requirement_graph_setup_seconds = 0.0
         self.root = root.resolve()
         original = Path("/home/huangxiaolin/upf-agent").resolve()
         if self.root == original or self.root.is_relative_to(original):
@@ -54,6 +62,96 @@ class OrchestrationEngine:
 
     def close(self):
         self.ledger.close()
+
+    def _execution_fingerprint(self):
+        code = execution_fingerprint(self.root)
+        if self.requirement_graph_strategy is None:
+            return code
+        started = perf_counter()
+        self._requirement_graph_snapshot = load_manual_graph(self.root).snapshot()
+        self._requirement_graph_setup_seconds = perf_counter() - started
+        return digest(
+            {
+                "code": code,
+                "requirement_graph": self.requirement_graph_strategy,
+                "reseed_cache": self.graph_reseed_ids,
+                "base_graph_snapshot": digest(self._requirement_graph_snapshot),
+            }
+        )
+
+    def _requirement_graph(self, data, store, seeds, key, started):
+        from upf_agent.v8.graph_query_compiler import compile_requirement_query
+        from upf_agent.v8.knowledge_applicability import KnowledgeRegistry
+        from upf_agent.v8.requirement_graph import execute_requirement_query, knowledge_writeback
+
+        registry = KnowledgeRegistry.load(self.root)
+        snapshot = digest(store.snapshot())  # Setup included in this tool's elapsed time.
+        remaining_nodes, remaining_edges = 100, 200
+        traces, bindings = [], []
+        for requirement in data.contract.requirements:
+            if requirement.kind != "K":
+                continue
+            if remaining_nodes < 2 or remaining_edges < 2:
+                traces.append(
+                    {
+                        "requirement_id": requirement.requirement_id,
+                        "status": "aggregate_scan_budget_exhausted",
+                    }
+                )
+                continue
+            # Reserve half for mandatory same-query writeback revalidation. Discovery and
+            # audit scans BOTH count toward the whole graph dispatch's 100/200 bound.
+            query = compile_requirement_query(
+                data.task,
+                data.contract,
+                requirement,
+                seeds,
+                reseed_ids=self.graph_reseed_ids,
+                max_nodes=remaining_nodes // 2,
+                max_edges=remaining_edges // 2,
+            )
+            result = execute_requirement_query(
+                self.root,
+                store,
+                query,
+                strategy=self.requirement_graph_strategy,
+                registry=registry,
+                snapshot_sha256=snapshot,
+            )
+            new, rejected = knowledge_writeback(
+                self.root,
+                query,
+                result,
+                key,
+                store=store,
+                registry=registry,
+            )
+            result["writeback_rejected"] = rejected
+            result["writeback_evidence_ids"] = [b.evidence_id for b in new]
+            audit = result["writeback_audit_scan"]
+            remaining_nodes -= result["scan"]["nodes_scanned"] + audit["nodes_scanned"]
+            remaining_edges -= (
+                result["scan"]["adjacency_entries_scanned"] + audit["adjacency_entries_scanned"]
+            )
+            traces.append(result)
+            existing = {b.evidence_id for b in [*data.bindings, *bindings]}
+            bindings.extend(b for b in new if b.evidence_id not in existing)
+        folder = self.root / "runs/v8" / data.task.run_id
+        folder.mkdir(parents=True, exist_ok=True)
+        receipt = {
+            "schema": "v8-requirement-graph-dispatch-1",
+            "traces": traces,
+            "bindings": [b.model_dump(mode="json") for b in bindings],
+            "discovery_and_audit_nodes_scanned": 100 - remaining_nodes,
+            "discovery_and_audit_adjacency_entries_scanned": 200 - remaining_edges,
+            "graph_snapshot_setup_seconds": self._requirement_graph_setup_seconds,
+        }
+        (folder / f"requirement-graph-{data.rounds}.json").write_text(
+            json.dumps(receipt, ensure_ascii=False, indent=2) + "\n"
+        )
+        self.ledger.commit_receipt(data.task, key, receipt, bindings, perf_counter() - started)
+        data.bindings = self.ledger.evidence(data.task.run_id)
+        return {"payload": data.model_dump(mode="json")}
 
     def _compile(self, state: Flow):
         data = OrchestrationData.model_validate(state["payload"])
@@ -166,13 +264,31 @@ class OrchestrationEngine:
             "bindings": digest(data.bindings),
             "round": data.rounds,
         }
+        if self.requirement_graph_strategy is not None:
+            from upf_agent.v8.knowledge_applicability import KnowledgeRegistry
+
+            request["requirement_graph"] = {
+                "strategy": self.requirement_graph_strategy,
+                "reseed_cache": self.graph_reseed_ids,
+                "registry_sha256": digest(KnowledgeRegistry.load(self.root)),
+                "base_graph_snapshot": digest(self._requirement_graph_snapshot),
+            }
         key = digest(request)
         try:
             previous = self.ledger.charge(data.task, key, "tool", request)
             if previous is not None:
                 data.bindings = self.ledger.evidence(data.task.run_id)
                 return {"payload": data.model_dump(mode="json")}
-            base = load_manual_graph(self.root)
+            if self.requirement_graph_strategy is None:
+                base = load_manual_graph(self.root)
+            else:
+                from upf_agent.v8.graph import MemoryGraphStore
+
+                if self._requirement_graph_snapshot is None:
+                    raise ValueError("initialize the frozen graph snapshot through run/resume")
+                base = MemoryGraphStore.restore(self._requirement_graph_snapshot)
+            if self.requirement_graph_strategy is not None and data.task.graph_backend != "memory":
+                raise ValueError("requirement graph strategy requires Memory snapshot backend")
             if data.task.graph_backend == "neo4j":
                 config = json.loads((self.root / "config/v8-neo4j.json").read_text())
                 store = Neo4jGraphStore(**config, namespace=f"run-{data.task.run_id}")
@@ -193,6 +309,8 @@ class OrchestrationEngine:
                 else f"binding:{b.evidence_id}:{b.revision}"
                 for b in data.bindings
             ]
+            if self.requirement_graph_strategy is not None:
+                return self._requirement_graph(data, store, seed_ids[:100], key, started)
             query = compile_graph_query(data.task, data.contract.contract_id, seed_ids)
             result = store.query(query)
             folder = self.root / "runs/v8" / data.task.run_id
@@ -207,12 +325,15 @@ class OrchestrationEngine:
             for node in result.nodes:
                 if node.kind not in {"DocumentBlock", "Command"} or not node.attributes.get("text"):
                     continue
-                if node.attributes.get("product") != data.task.product:
-                    continue
                 for req in data.contract.requirements:
                     if req.kind != "K":
                         continue
                     for obj in req.objects:
+                        from upf_agent.v8.models import object_product_version
+
+                        product, _ = object_product_version(data.task, obj)
+                        if node.attributes.get("product") != product:
+                            continue
                         if not permitted(data.task, obj, req.fields):
                             continue
                         if node.object_ids and obj not in node.object_ids:
@@ -230,7 +351,7 @@ class OrchestrationEngine:
                             category="K",
                             fields={"instruction": node.attributes["text"]},
                             source=node.source,
-                            product=data.task.product,
+                            product=product,
                             version=node.version,
                             receipt_id=key,
                             synthetic=node.synthetic,
@@ -432,7 +553,7 @@ class OrchestrationEngine:
             return self._run(task)
 
     def _run(self, task: OrchestrationTask) -> dict:
-        fingerprint = execution_fingerprint(self.root)
+        fingerprint = self._execution_fingerprint()
         if task.execution_fingerprint and task.execution_fingerprint != fingerprint:
             raise ValueError("code or locked configuration changed; restore the run snapshot")
         task.execution_fingerprint = fingerprint
@@ -465,7 +586,7 @@ class OrchestrationEngine:
         task = self.ledger.task(run_id)
         self.active_started = perf_counter()
         self.base_elapsed = self.ledger.inspect(run_id)["elapsed_seconds"]
-        if task.execution_fingerprint != execution_fingerprint(self.root):
+        if task.execution_fingerprint != self._execution_fingerprint():
             raise ValueError("code or locked configuration changed; restore the run snapshot")
         with SqliteSaver.from_conn_string(str(self.root / "data/v8/checkpoints.sqlite3")) as saver:
             graph = self._build(saver)

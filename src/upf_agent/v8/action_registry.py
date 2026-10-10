@@ -2,7 +2,7 @@
 
 from typing import Literal
 
-from pydantic import model_validator
+from pydantic import Field, model_validator
 
 from upf_agent.v8.models import Model
 from upf_agent.v8.plan_ir import REGISTRY_VERSION
@@ -22,6 +22,16 @@ class ConfigurationParams(InterfaceParams):
 
 class PeerParams(Model):
     peer_object_id: str
+    basis: Literal["existing_pair", "collect_then_verify"] = "existing_pair"
+    pending: list[str] = Field(default_factory=list)
+
+    @model_validator(mode="after")
+    def basis_scope(self):
+        if self.basis == "existing_pair" and self.pending:
+            raise ValueError("existing pair cannot declare pending evidence")
+        if self.basis == "collect_then_verify" and not self.pending:
+            raise ValueError("conditional mapping requires explicit pending gaps")
+        return self
 
 
 class LogParams(Model):
@@ -54,7 +64,13 @@ ACTIONS = {
     "CHECK_INTERFACE": (InterfaceParams, "read", "read", ["interface", "state"], False),
     "CHECK_CONFIGURATION": (ConfigurationParams, "read", "read", [], True),
     "READ_LOG": (LogParams, "read", "read", ["event_type"], False),
-    "VERIFY_PEER_MAPPING": (PeerParams, "read", "read", ["mapping_version", "service_id"], False),
+    "VERIFY_PEER_MAPPING": (
+        PeerParams,
+        "read",
+        "read",
+        ["mapping_version", "service_id", "local_endpoint", "peer_endpoint", "direction"],
+        False,
+    ),
     "REQUEST_EVIDENCE": (EvidenceParams, "human", "suggestion", [], False),
     "HUMAN_REVIEW": (EmptyParams, "human", "suggestion", [], False),
     "PROPOSE_CHANGE": (ChangeParams, "suggest", "suggestion", [], True),

@@ -126,9 +126,12 @@ def _eligibility(
         return Code.NOT_APPLICABLE, "synthetic_in_real_task"
     if not b.readable or not authorized:
         return Code.DENIED, "permission_denied"
-    if req.kind == "K" and (not task.product or not b.product):
+    from upf_agent.v8.models import object_product_version
+
+    expected_product, expected_version = object_product_version(task, b.object_id)
+    if req.kind == "K" and (not expected_product or not b.product):
         return Code.UNKNOWN, "unknown_product"
-    if req.kind == "K" and task.product != b.product:
+    if req.kind == "K" and expected_product != b.product:
         return Code.NOT_APPLICABLE, "wrong_product"
     if req.kind == "K" and req.purpose:
         if not b.purposes:
@@ -140,9 +143,9 @@ def _eligibility(
         if expected and b.fields.get("interface") not in (None, expected):
             return Code.NOT_APPLICABLE, "wrong_interface"
     if req.version_required:
-        if not task.version or not b.version or b.version == "unknown":
+        if not expected_version or not b.version or b.version == "unknown":
             return Code.UNKNOWN, "unknown_version"
-        if b.version != task.version:
+        if b.version != expected_version:
             return Code.NOT_APPLICABLE, "wrong_version"
     if b.valid and not b.valid.start <= now < b.valid.end:
         return Code.STALE, "outside_valid_window"

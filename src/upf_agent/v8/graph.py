@@ -9,9 +9,15 @@ from pathlib import Path
 from typing import Protocol
 
 from neo4j import GraphDatabase
-from pydantic import Field, model_validator
+from pydantic import Field, model_serializer, model_validator
 
-from upf_agent.v8.models import Model, OrchestrationTask, SourcePointer, digest
+from upf_agent.v8.models import (
+    Model,
+    OrchestrationTask,
+    SourcePointer,
+    digest,
+    object_product_version,
+)
 
 RELATIONS = frozenset(
     {
@@ -69,6 +75,7 @@ class GraphQueryPlan(Model):
     relations: list[str]
     as_of: datetime
     version: str | None = None
+    object_versions: dict[str, str | None] = Field(default_factory=dict)
     require_version: bool = True
     allow_synthetic: bool = False
     max_hops: int = Field(default=2, ge=0, le=2)
@@ -83,6 +90,13 @@ class GraphQueryPlan(Model):
         if self.as_of.utcoffset() is None:
             raise ValueError("query time must have a timezone")
         return self
+
+    @model_serializer(mode="wrap")
+    def serialize_object_versions(self, handler):
+        result = handler(self)
+        if not self.object_versions:
+            result.pop("object_versions", None)
+        return result
 
 
 class Subgraph(Model):
@@ -104,6 +118,9 @@ def compile_graph_query(
         or ["APPLIES_TO", "DESCRIBES", "CONTAINS", "HAS_INTERFACE", "SUPPORTED_BY", "OBSERVED_ON"],
         as_of=task.as_of,
         version=task.version,
+        object_versions={o: object_product_version(task, o)[1] for o in task.objects}
+        if task.object_profiles
+        else {},
         allow_synthetic=task.synthetic,
         contract_id=contract_id,
     )
@@ -125,9 +142,16 @@ def exclusion(node: GraphNode, plan: GraphQueryPlan) -> str | None:
         if node.attributes["domain"] not in plan.domains:
             return "outside_domain_scope"
     if node.layer in {"knowledge", "runtime"} and plan.require_version:
-        if not plan.version or not node.version or node.version == "unknown":
+        versions = {plan.object_versions.get(obj, plan.version) for obj in node.object_ids}
+        versions = versions or {plan.version}
+        if (
+            None in versions
+            or "unknown" in versions
+            or not node.version
+            or node.version == "unknown"
+        ):
             return "unknown_version"
-        if node.version != plan.version:
+        if versions != {node.version}:
             return "wrong_version"
     if node.valid_from and node.valid_from > plan.as_of:
         return "not_yet_valid"

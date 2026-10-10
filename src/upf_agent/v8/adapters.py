@@ -124,13 +124,16 @@ def read_observation(
 
 
 def legacy_task(task: OrchestrationTask, obj: str) -> AgentTask:
+    from upf_agent.v8.models import object_product_version
+
+    product, version = object_product_version(task, obj)
     return AgentTask(
         run_id=task.run_id,
         question=task.question,
         task_type=TaskType.MANUAL if task.template == "manual_operation" else TaskType.DIAGNOSE,
         device_ids=[obj],
-        product=task.product,
-        version=task.version,
+        product=product,
+        version=version,
         time_window=task.time_window,
         log_generation=task.log_generation,
         topology_generation=task.topology_generation,

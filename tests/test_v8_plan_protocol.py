@@ -326,7 +326,7 @@ def test_peer_mapping_uses_two_authorized_objects_without_invented_pair_target(t
         action_type="VERIFY_PEER_MAPPING",
         target="UPF-A",
         parameters={"peer_object_id": "SMF-B"},
-        depends_on=["identity"],
+        depends_on=["identity", "peer-identity"],
     )
     pair.evidence = [
         EvidenceReference(
@@ -338,6 +338,14 @@ def test_peer_mapping_uses_two_authorized_objects_without_invented_pair_target(t
         for b in items[2]
         if b.category == "P"
     ]
+    plan.steps.append(
+        PlanStep(
+            step_id="peer-identity",
+            text="核对SMF-B身份",
+            action_type="CHECK_IDENTITY",
+            target="SMF-B",
+        )
+    )
     plan.steps.append(pair)
     assert validate(tmp_path, items).raw_plan_validity
     pair.parameters["peer_object_id"] = "outside"

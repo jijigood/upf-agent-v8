@@ -9,9 +9,10 @@ from upf_agent.v8.builders import task_graph
 from upf_agent.v8.fixtures import example
 from upf_agent.v8.graph import GraphEdge, GraphNode, MemoryGraphStore
 from upf_agent.v8.knowledge_applicability import KnowledgeAnnotation, KnowledgeRegistry
-from upf_agent.v8.models import SourcePointer, digest
+from upf_agent.v8.models import ObjectProfile, SourcePointer, digest
 from upf_agent.v8.phase1 import write_json
 from upf_agent.v8.plan_ir import ActionPattern, CaseGold, GoldBranch
+from upf_agent.v8.reference_revision import revise_peer_mapping
 
 SPECS = [
     ("upf_n4_fault", "normal"),
@@ -48,11 +49,35 @@ def prepare_case(root: Path, index: int):
     template, mutation = SPECS[index]
     case_id = f"pilot-{index + 1:02d}"
     task = example(root, name=case_id, template=template)
-    task.run_id = digest([case_id, "phase2-synthetic-dev"])[:32]
+    peer = "RAN-B" if template == "upf_n3_fault" else "SMF-B"
+    if peer != "SMF-B":
+        task.objects = ["UPF-A", peer]
+        task.permission.objects = task.objects
+        task.path.positions[1].object_id = peer
+    task.object_profiles = {
+        "UPF-A": ObjectProfile(role="upf", product="UPF", version="5.0"),
+        peer: ObjectProfile(
+            role="ran" if template == "upf_n3_fault" else "smf",
+            product="SyntheticRAN" if template == "upf_n3_fault" else "SyntheticSMF",
+            version="dev-1",
+        ),
+    }
+    task.run_id = digest([case_id, "phase2-role-aware-dev-2"])[:32]
     task.retrieval_device = "cpu"
     task.model_enabled = False
     relative = task.observation_files[0]
     body = json.loads((root / relative).read_text())
+    body["path"]["objects"] = task.objects
+    for row in body["observations"]:
+        if row["object_id"] == "SMF-B":
+            row["object_id"] = peer
+        profile = task.object_profiles[row["object_id"]]
+        row["product"], row["version"] = profile.product, profile.version
+        if row["category"] == "K":
+            row["fields"]["instruction"] = (
+                f"合成{profile.role}对象专用只读规程：检查声明接口配置和状态；"
+                "仅用于本开发fixture，不是厂商操作手册"
+            )
     runtime = next(r for r in body["observations"] if r["category"] == "R")
     pair = next(r for r in body["observations"] if r["category"] == "P")
     if mutation == "disabled":
@@ -94,9 +119,14 @@ def prepare_case(root: Path, index: int):
     if mutation == "pair_config_conflict":
         pair["config_version"] = "cfg-other"
     # Every case is a development scenario, with shared fixture families explicitly recorded.
+    investigation = (
+        "先核对身份，再查阅适用手册并检查手册指定配置；本任务不要求双侧映射调查；"
+        if template == "manual_operation"
+        else "先核对身份，再调查声明接口/配置及双侧映射；"
+    )
     task.question = (
-        f"合成开发案例{case_id}：{template}。为UPF-A与SMF-B给出只读调查方案，"
-        "先核对身份，再调查声明接口/配置及双侧映射；缺少适用证据时补证或转人工，"
+        f"合成开发案例{case_id}：{template}。为UPF-A与{peer}给出只读调查方案，"
+        f"{investigation}缺少适用证据时补证或转人工，"
         "不得声称根因已确定或任何网络变更已执行。"
     )
     write_json(root / relative, body)
@@ -192,13 +222,20 @@ def prepare_case(root: Path, index: int):
                     depends_on=[identity],
                 )
             )
-        if not unknown:
+        knowledge_available = mutation not in {
+            "unknown_purpose",
+            "wrong_version",
+            "unknown_version",
+        }
+        knowledge_available &= not (mutation == "missing_knowledge" and obj == "UPF-A")
+        field = "mtu" if template == "upf_n3_fault" else "n4_enabled"
+        if knowledge_available and field in task.permission.readable_fields:
             required.append(
                 ActionPattern(
                     pattern_id=f"config-{suffix}",
                     action_type="CHECK_CONFIGURATION",
                     target=obj,
-                    parameters={"field": "mtu" if template == "upf_n3_fault" else "n4_enabled"},
+                    parameters={"field": field},
                     depends_on=[identity],
                 )
             )
@@ -211,16 +248,15 @@ def prepare_case(root: Path, index: int):
         branches.append(
             GoldBranch(
                 branch_id="review",
-                required=[
-                    ActionPattern(pattern_id="review", action_type="HUMAN_REVIEW", target="UPF-A")
-                ],
+                required=[p.model_copy(deep=True) for p in required if p.pattern_id != "gap"]
+                + [ActionPattern(pattern_id="review", action_type="HUMAN_REVIEW", target="UPF-A")],
             )
         )
     # References derive from the case specification before model outputs, never Contract states.
     gold = CaseGold(
         case_id=case_id,
         source_group=case_id,
-        structure_family="example-v8-1",
+        structure_family="example-v8-role-aware-2",
         source_level="D1",
         synthetic=True,
         reviewed=False,
@@ -237,6 +273,7 @@ def prepare_case(root: Path, index: int):
             "no automatic network write",
         ],
     )
+    gold = revise_peer_mapping(task, gold)
     write_json(root / "case-task.json", task.model_dump(mode="json"))
     write_json(root / "case-reference.json", gold.model_dump(mode="json"))
     write_json(
@@ -246,7 +283,11 @@ def prepare_case(root: Path, index: int):
             "template": template,
             "mutation": mutation,
             "calibration_candidate": index < 10,
-            "fixture_generator_family": "example-v8-1",
+            "fixture_generator_family": "example-v8-role-aware-2",
+            "input_revision": "review-remediation-20261010-1",
+            "object_profiles": {
+                k: v.model_dump(mode="json") for k, v in task.object_profiles.items()
+            },
             "synthetic": True,
             "reviewed": False,
             "independent_fault_count_claim": False,

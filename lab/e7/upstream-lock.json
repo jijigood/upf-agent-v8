@@ -1,0 +1,26 @@
+{
+  "schema": "e7-upstream-lock-1",
+  "open5gs": {
+    "version": "2.7.6",
+    "commit": "d9d3abdd480be96fac3bc8a997e83446648763ca",
+    "repository": "https://github.com/open5gs/open5gs",
+    "license_sha256": "57c8ff33c9c0cfc3ef00e650a1cc910d7ee479a8bc509f6c9209a7c2a11399d6"
+  },
+  "ueransim": {
+    "version": "3.2.7",
+    "commit": "1d1e154f869260b5e98f6905827b1bd9b8663afc",
+    "repository": "https://github.com/aligungr/UERANSIM",
+    "license_sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986"
+  },
+  "mongodb": {
+    "version": "7.0.16",
+    "archive": "https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-ubuntu2204-7.0.16.tgz",
+    "archive_sha256": "376c258ae9b104b88814214bc3214a2e0d1300d8192d24d8c46259f364866422"
+  },
+  "base_image_digest": "nvidia/cuda@sha256:ad6d59a3bbf3e82c1c849c9ac09cfc2a3e0bbb8655042fd899be6681b3fe2a85",
+  "lab_image_id": "sha256:0298b2faf2810793b7d21ee61fd9f0189c35e22e3e3565b8dcfd615f78c04a3d",
+  "gpu_used": false,
+  "package_inventory": "runtime/v8-next/wp11/environment-001/image-packages-and-version.txt",
+  "apt_dependencies_byte_rebuild_guaranteed": false,
+  "source_copies": "local build input under runtime, no upstream source inserted into project src"
+}

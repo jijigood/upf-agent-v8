@@ -24,6 +24,9 @@ class P5CommonBackend:
             "confirmed_task": data.task.model_dump(mode="json"),
             "authorized_objects": self.tools.task.objects,
             "permission": self.tools.task.permission.model_dump(mode="json"),
+            "object_profiles": {
+                k: v.model_dump(mode="json") for k, v in self.tools.task.object_profiles.items()
+            },
             "round": data.rounds,
             "evidence": [e.model_dump(mode="json") for e in data.evidence],
             "facts": [f.model_dump(mode="json") for f in data.facts],
