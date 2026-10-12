@@ -1,0 +1,16 @@
+{
+  "case_id": "E1-HO-N019",
+  "capture_root": "/home/huangxiaolin/upf-agent-v8/runtime/v8-next/e1-experiments-20261011/input-expansion-002/captures/withheld-4",
+  "capture_round": 1,
+  "source_sha256": "2413476985a58576fd4967150749a1167e85db71d341d1e462bc23cce7732818",
+  "truth": {
+    "condition": "inner-mtu-576-boundary-control",
+    "target": "10.49.0.2",
+    "verified": true,
+    "basis": "actual controller receipt, separate kernel-state read and small/large probe results",
+    "expert_Gold": false
+  },
+  "independent_Gold_available": false,
+  "expert_review_received": false,
+  "correlation": "fresh UE process after first round; same campaign binaries and failure mechanism"
+}

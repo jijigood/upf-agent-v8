@@ -17,8 +17,8 @@ def _object(pairs):
     return output
 
 
-def translate_plan(raw: str):
-    receipt = TranslationReceipt(raw_sha256=hashlib.sha256(raw.encode()).hexdigest())
+def translate_plan(raw: str, *, plan_type=PlanIR, receipt_type=TranslationReceipt):
+    receipt = receipt_type(raw_sha256=hashlib.sha256(raw.encode()).hexdigest())
     if len(raw) > 100_000:
         receipt.errors.append("raw_plan_too_large")
         return receipt
@@ -28,7 +28,7 @@ def translate_plan(raw: str):
     )
     try:
         value = decoder.decode(raw)
-        receipt.plan = PlanIR.model_validate(value)
+        receipt.plan = plan_type.model_validate(value)
         # Locate original object spans by scanning JSON values rather than substring guesses.
         for pos, char in enumerate(raw):
             if char != "{":

@@ -429,6 +429,7 @@ class ObservedPlanClient(LocalChatClient):
         temperature=0,
         seed=None,
         response_schema=None,
+        response_grammar=None,
     ):
         request = {
             "model": self.model.served_name,
@@ -444,6 +445,11 @@ class ObservedPlanClient(LocalChatClient):
                 "type": "json_schema",
                 "json_schema": {"name": "upf_plan", "strict": True, "schema": response_schema},
             }
+        if response_grammar is not None:
+            if response_schema is not None:
+                raise ValueError("choose a response schema or grammar, not both")
+            request.pop("response_format")
+            request["structured_outputs"] = {"grammar": response_grammar}
         self.budget.check("model", request, reserve_head)
         payload = None
         try:

@@ -1,0 +1,74 @@
+{
+  "run_id": "f939836b8c5f460fb90f564e31293c77",
+  "question": "受控5GC的UE会话建立后收到核心侧ICMP连通性调查请求。根据正常日志、接口、路由和探针资料提出UPF与RAN的只读调查方案；先核验资料是否支持异常，核对适用范围，资料不足或超出能力时请求资料／转人工，不宣称已执行修复。",
+  "template": "log_observation",
+  "path": {
+    "service_id": null,
+    "positions": [],
+    "source_id": null,
+    "source_sha256": null,
+    "source_path": null,
+    "version": null,
+    "resolution": "unknown",
+    "candidates": [],
+    "synthetic": false
+  },
+  "objects": [
+    "upf",
+    "ran"
+  ],
+  "product": "Open5GS",
+  "version": "2.7.6",
+  "object_profiles": {
+    "upf": {
+      "role": "upf",
+      "product": "Open5GS",
+      "version": "2.7.6"
+    },
+    "ran": {
+      "role": "ran",
+      "product": "UERANSIM",
+      "version": "3.2.7"
+    }
+  },
+  "time_window": null,
+  "as_of": "2026-10-11T04:36:39.364070Z",
+  "permission": {
+    "objects": [
+      "upf",
+      "ran"
+    ],
+    "domains": [],
+    "readable_fields": [
+      "event_type",
+      "log_excerpt",
+      "core_interface_inventory",
+      "routing_inventory",
+      "small_probe",
+      "large_probe"
+    ],
+    "revision": "1",
+    "execute": false
+  },
+  "aliases": {},
+  "synthetic": false,
+  "budget": {
+    "max_rounds": 3,
+    "max_tool_calls": 8,
+    "max_model_calls": 8,
+    "timeout_seconds": 180.0
+  },
+  "log_generation": null,
+  "topology_generation": null,
+  "manual_generation": null,
+  "observation_files": [
+    "data/normalized/observations.json"
+  ],
+  "model_profile": "baseline",
+  "model_enabled": false,
+  "retrieval_device": "cpu",
+  "interrupt_before_collect": false,
+  "graph_backend": "memory",
+  "graph_enabled": true,
+  "execution_fingerprint": null
+}

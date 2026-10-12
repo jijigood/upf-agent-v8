@@ -92,7 +92,13 @@ def object_product_version(task, object_id):
 class OrchestrationTask(Model):
     run_id: str = Field(default_factory=lambda: uuid4().hex, pattern=r"^[0-9a-f]{32}$")
     question: str = Field(min_length=1, max_length=2000)
-    template: Literal["upf_n4_fault", "upf_n3_fault", "manual_operation", "log_observation"]
+    template: Literal[
+        "upf_n4_fault",
+        "upf_n3_fault",
+        "manual_operation",
+        "log_observation",
+        "runtime_investigation",
+    ]
     path: BusinessPath = Field(default_factory=BusinessPath)
     objects: list[str] = Field(min_length=1)
     product: str | None = None

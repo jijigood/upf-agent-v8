@@ -36,7 +36,18 @@ class PlanValidationReport(Model):
 
 
 def validate_plan(
-    plan, bindings, task, contract, context, root: Path, *, max_stage=4, stage_trace=None
+    plan,
+    bindings,
+    task,
+    contract,
+    context,
+    root: Path,
+    *,
+    max_stage=4,
+    stage_trace=None,
+    action_registry=None,
+    report_type=PlanValidationReport,
+    peer_reference_categories=None,
 ):
     """Run real cumulative gates. Partial stages are offline experiments only.
 
@@ -50,7 +61,13 @@ def validate_plan(
         if stage_trace is not None:
             stage_trace.append({"stage": stage, "component": component})
 
-    report = PlanValidationReport()
+    report = report_type()
+    actions = ACTIONS if action_registry is None else action_registry
+    peer_categories = (
+        {"VERIFY_PEER_MAPPING": {"P"}}
+        if peer_reference_categories is None
+        else peer_reference_categories
+    )
 
     def issue(code, step=None, severity="hard"):
         report.issues.append(ValidationIssue(code=code, step_id=step, severity=severity))
@@ -140,7 +157,7 @@ def validate_plan(
         ):
             entered(4, "execution_claim")
             issue("execution_claim_or_write", sid)
-        spec = ACTIONS.get(step.action_type)
+        spec = actions.get(step.action_type)
         if spec is None:
             issue("unknown_action", sid)
             continue
@@ -184,9 +201,7 @@ def validate_plan(
             for reason in eligibility[b.evidence_id]:
                 issue(reason, sid)
             if b.object_id != step.target and not (
-                step.action_type == "VERIFY_PEER_MAPPING"
-                and b.category == "P"
-                and b.object_id == peer
+                b.category in peer_categories.get(step.action_type, set()) and b.object_id == peer
             ):
                 issue("evidence_target_mismatch", sid)
             elif b.category == "K" and not eligibility[b.evidence_id]:

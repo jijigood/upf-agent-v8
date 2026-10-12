@@ -1,0 +1,16 @@
+{
+  "schema_version": "v8-e1-file-case-1",
+  "case_id": "E1-HO-N007",
+  "split": "heldout",
+  "visible_root": "heldout/E1-HO-N007/visible",
+  "task_file": "heldout/E1-HO-N007/visible/case-task.json",
+  "reference_file": null,
+  "source_group": "e1-expanded-withheld-2",
+  "structure_family": "reply-blackhole-route",
+  "source_kind": "experimental-injection",
+  "previously_evaluated": false,
+  "raw_source_hashes": {
+    "data/raw/snapshot.json": "ea8b60e057cc12e2118317717d9af8c95a3564655f216653c624f9b8dd2fedbe"
+  },
+  "provenance_file": "gold/provenance/E1-HO-N007.json"
+}

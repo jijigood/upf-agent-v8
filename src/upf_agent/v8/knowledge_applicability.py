@@ -18,7 +18,13 @@ class KnowledgeAnnotation(Model):
     version: str
     object_ids: list[str] = Field(min_length=1)
     purposes: list[
-        Literal["upf_n4_fault", "upf_n3_fault", "manual_operation", "log_observation"]
+        Literal[
+            "upf_n4_fault",
+            "upf_n3_fault",
+            "manual_operation",
+            "log_observation",
+            "runtime_investigation",
+        ]
     ] = Field(min_length=1)
     basis_kind: Literal["expert_review", "trusted_rule"]
     basis_source: str = Field(min_length=1)

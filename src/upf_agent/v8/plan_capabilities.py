@@ -50,6 +50,8 @@ def compile_capabilities(task, context, bindings, root):
     fault = task.template in {"upf_n3_fault", "upf_n4_fault"}
     field = "mtu" if task.template == "upf_n3_fault" else "n4_enabled"
     required_kinds = ["K", "R", "P"] if fault else ["R"]
+    if task.template == "runtime_investigation":
+        required_kinds = ["K", "R"]
     if task.template == "manual_operation":
         required_kinds = ["K"]
     unresolved = []

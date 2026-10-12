@@ -1,0 +1,13 @@
+{
+  "case_id": "E1-CAL-N001",
+  "actual_capture": "/home/huangxiaolin/upf-agent-v8/runtime/v8-next/e1-independent-20261010/new-capture-001",
+  "normal_capture_sha256": "d0dfea158b182234ce65c45959605c7507f9408459f335b5890fdde0825c71b3",
+  "truth": {
+    "condition": "inner-request-filter",
+    "verified": true,
+    "basis": "owned injection receipt plus independent counter/interface read and impaired UE probe",
+    "expert_Gold": false
+  },
+  "independent_Gold_available": false,
+  "expert_review_received": false
+}

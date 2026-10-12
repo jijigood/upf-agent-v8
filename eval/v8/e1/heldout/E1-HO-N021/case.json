@@ -1,0 +1,16 @@
+{
+  "schema_version": "v8-e1-file-case-1",
+  "case_id": "E1-HO-N021",
+  "split": "heldout",
+  "visible_root": "heldout/E1-HO-N021/visible",
+  "task_file": "heldout/E1-HO-N021/visible/case-task.json",
+  "reference_file": null,
+  "source_group": "e1-expanded-withheld-4",
+  "structure_family": "inner-mtu-576-boundary-control",
+  "source_kind": "experimental-injection",
+  "previously_evaluated": false,
+  "raw_source_hashes": {
+    "data/raw/snapshot.json": "f1d217d3d45964e645ba9d7f3d79446ee2751025f584abc7dca6e652218cd817"
+  },
+  "provenance_file": "gold/provenance/E1-HO-N021.json"
+}

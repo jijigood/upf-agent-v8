@@ -1,0 +1,16 @@
+{
+  "case_id": "E1-HO-N017",
+  "capture_root": "/home/huangxiaolin/upf-agent-v8/runtime/v8-next/e1-experiments-20261011/input-expansion-002/captures/withheld-3",
+  "capture_round": 5,
+  "source_sha256": "ce002c403672e317631339b6ea38fe0b7709b8a00fd84457bba8f95aad7a2b72",
+  "truth": {
+    "condition": "reply-policy-prohibit",
+    "target": "10.48.0.10",
+    "verified": true,
+    "basis": "actual controller receipt, separate kernel-state read and small/large probe results",
+    "expert_Gold": false
+  },
+  "independent_Gold_available": false,
+  "expert_review_received": false,
+  "correlation": "fresh UE process after first round; same campaign binaries and failure mechanism"
+}

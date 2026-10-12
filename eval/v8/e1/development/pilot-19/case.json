@@ -1,0 +1,14 @@
+{
+  "schema_version": "v8-e1-file-case-1",
+  "case_id": "pilot-19",
+  "split": "dev",
+  "visible_root": "development/pilot-19/visible",
+  "task_file": "development/pilot-19/visible/case-task.json",
+  "reference_file": "gold/development/pilot-19.json",
+  "source_group": "pilot-19",
+  "structure_family": "example-v8-role-aware-2",
+  "source_kind": "legacy-development",
+  "previously_evaluated": true,
+  "raw_source_hashes": {},
+  "provenance_file": "gold/provenance/pilot-19.json"
+}

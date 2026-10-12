@@ -1,0 +1,16 @@
+{
+  "schema_version": "v8-e1-file-case-1",
+  "case_id": "E1-HO-N016",
+  "split": "heldout",
+  "visible_root": "heldout/E1-HO-N016/visible",
+  "task_file": "heldout/E1-HO-N016/visible/case-task.json",
+  "reference_file": null,
+  "source_group": "e1-expanded-withheld-3",
+  "structure_family": "reply-policy-prohibit",
+  "source_kind": "experimental-injection",
+  "previously_evaluated": false,
+  "raw_source_hashes": {
+    "data/raw/snapshot.json": "f1ed2bbbb916a8a855a81768b4bff98faa77a4708c9d79aee2e06dc79805dd43"
+  },
+  "provenance_file": "gold/provenance/E1-HO-N016.json"
+}

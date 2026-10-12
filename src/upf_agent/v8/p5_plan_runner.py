@@ -60,7 +60,7 @@ class P5CommonBackend:
         )
 
 
-def run_p5(root, task, tools, client):
+def run_p5(root, task, tools, client, *, profile_scoped=False):
     # Empty legacy device_ids avoids P5's single-device log-filter restriction.
     # The shared tool backend enforces the actual multi-object PermissionScope on every read.
     generation = digest([task.observation_files, "public-synthetic-generation"])[:20]
@@ -70,8 +70,8 @@ def run_p5(root, task, tools, client):
         question=task.question,
         task_type=TaskType.DIAGNOSE,
         device_ids=[],
-        product=task.product,
-        version=task.version,
+        product=None if profile_scoped else task.product,
+        version=None if profile_scoped else task.version,
         mode="agent",
         retrieval_device="cpu",
         budget=budget,

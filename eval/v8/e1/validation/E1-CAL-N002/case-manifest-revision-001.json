@@ -1,0 +1,16 @@
+{
+  "schema_version": "v8-e1-file-case-1",
+  "case_id": "E1-CAL-N002",
+  "split": "validation",
+  "visible_root": "validation/E1-CAL-N002/visible",
+  "task_file": "validation/E1-CAL-N002/visible/case-task.json",
+  "reference_file": null,
+  "source_group": "new-e1-inner-dataplane-campaign-001",
+  "structure_family": "inner-icmp-directional-filter",
+  "source_kind": "experimental-injection",
+  "previously_evaluated": false,
+  "raw_source_hashes": {
+    "data/raw/snapshot.json": "8321ff2b64e1f5de65258dc55ccc793ce8c9073d7d8ed9eeb9d5ce3ffa9a59dc"
+  },
+  "provenance_file": "gold/provenance/E1-CAL-N002.json"
+}

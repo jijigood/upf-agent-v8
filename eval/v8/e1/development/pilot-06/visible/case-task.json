@@ -1,0 +1,93 @@
+{
+  "run_id": "7745e664c2a869f9e772399ba0f3d0c8",
+  "question": "合成开发案例pilot-06：upf_n4_fault。为UPF-A与SMF-B给出只读调查方案，先核对身份，再调查声明接口/配置及双侧映射；缺少适用证据时补证或转人工，不得声称根因已确定或任何网络变更已执行。",
+  "template": "upf_n4_fault",
+  "path": {
+    "service_id": "service-001",
+    "positions": [
+      {
+        "object_id": "UPF-A",
+        "domain": "domain-0",
+        "interface": "N4"
+      },
+      {
+        "object_id": "SMF-B",
+        "domain": "domain-1",
+        "interface": "N4"
+      }
+    ],
+    "source_id": "synthetic-pilot-06",
+    "source_sha256": "96bdb07564a919abf79e459dbdc2ad3030162c571d4f39c379777f1939e8fb28",
+    "source_path": "data/fixtures/v8/pilot-06.json",
+    "version": "map-1",
+    "resolution": "resolved",
+    "candidates": [],
+    "synthetic": true
+  },
+  "objects": [
+    "UPF-A",
+    "SMF-B"
+  ],
+  "product": "UPF",
+  "version": "5.0",
+  "object_profiles": {
+    "UPF-A": {
+      "role": "upf",
+      "product": "UPF",
+      "version": "5.0"
+    },
+    "SMF-B": {
+      "role": "smf",
+      "product": "SyntheticSMF",
+      "version": "dev-1"
+    }
+  },
+  "time_window": null,
+  "as_of": "2026-10-07T00:00:00Z",
+  "permission": {
+    "objects": [
+      "UPF-A",
+      "SMF-B"
+    ],
+    "domains": [
+      "domain-0",
+      "domain-1"
+    ],
+    "readable_fields": [
+      "instruction",
+      "interface",
+      "state",
+      "n4_enabled",
+      "mtu",
+      "event_type",
+      "service_id",
+      "local_endpoint",
+      "peer_endpoint",
+      "direction",
+      "mapping_version"
+    ],
+    "revision": "1",
+    "execute": false
+  },
+  "aliases": {},
+  "synthetic": true,
+  "budget": {
+    "max_rounds": 3,
+    "max_tool_calls": 8,
+    "max_model_calls": 8,
+    "timeout_seconds": 180.0
+  },
+  "log_generation": null,
+  "topology_generation": null,
+  "manual_generation": null,
+  "observation_files": [
+    "data/fixtures/v8/pilot-06.json"
+  ],
+  "model_profile": "baseline",
+  "model_enabled": false,
+  "retrieval_device": "cpu",
+  "interrupt_before_collect": false,
+  "graph_backend": "memory",
+  "graph_enabled": true,
+  "execution_fingerprint": null
+}

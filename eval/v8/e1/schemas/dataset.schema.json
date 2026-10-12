@@ -1,0 +1,39 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "v8-e1-file-dataset-1",
+      "default": "v8-e1-file-dataset-1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "cases": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Cases",
+      "type": "array"
+    },
+    "reviews_file": {
+      "default": "reviews/received-reviews.json",
+      "title": "Reviews File",
+      "type": "string"
+    },
+    "history_file": {
+      "default": "history-index.json",
+      "title": "History File",
+      "type": "string"
+    },
+    "status": {
+      "const": "draft",
+      "default": "draft",
+      "title": "Status",
+      "type": "string"
+    }
+  },
+  "required": [
+    "cases"
+  ],
+  "title": "DatasetIndex",
+  "type": "object"
+}

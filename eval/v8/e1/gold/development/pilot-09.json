@@ -1,0 +1,117 @@
+{
+  "schema_version": "v8-independent-gold-1",
+  "case_id": "pilot-09",
+  "source_group": "pilot-09",
+  "structure_family": "example-v8-role-aware-2",
+  "source_level": "D1",
+  "split": "dev",
+  "synthetic": true,
+  "reviewed": false,
+  "reviewers": [],
+  "review_version": "unreviewed",
+  "solvability": "solvable",
+  "objects": [
+    "UPF-A",
+    "RAN-B"
+  ],
+  "version": "5.0",
+  "as_of": "2026-10-07T00:00:00Z",
+  "permission_fingerprint": "e264975f206ea06155d0a7e67055e1b7f5a3a6c7bdf5d22377b86fa9f867a219",
+  "visible_evidence": [
+    "/observations/0",
+    "/observations/1",
+    "/observations/2",
+    "/observations/3",
+    "/observations/4",
+    "/observations/5"
+  ],
+  "source_hashes": {
+    "data/fixtures/v8/pilot-09.json": "711a8027c2687a276f88fda0db7aaaa8dc2b31f86f341ed2917d2955b517260f"
+  },
+  "any_of": [
+    {
+      "branch_id": "read-only-investigation",
+      "required": [
+        {
+          "pattern_id": "id-dd579bea",
+          "action_type": "CHECK_IDENTITY",
+          "target": "UPF-A",
+          "parameters": {},
+          "depends_on": []
+        },
+        {
+          "pattern_id": "interface-dd579bea",
+          "action_type": "CHECK_INTERFACE",
+          "target": "UPF-A",
+          "parameters": {
+            "interface": "N3"
+          },
+          "depends_on": [
+            "id-dd579bea"
+          ]
+        },
+        {
+          "pattern_id": "config-dd579bea",
+          "action_type": "CHECK_CONFIGURATION",
+          "target": "UPF-A",
+          "parameters": {
+            "field": "mtu"
+          },
+          "depends_on": [
+            "id-dd579bea"
+          ]
+        },
+        {
+          "pattern_id": "id-c5be5429",
+          "action_type": "CHECK_IDENTITY",
+          "target": "RAN-B",
+          "parameters": {},
+          "depends_on": []
+        },
+        {
+          "pattern_id": "interface-c5be5429",
+          "action_type": "CHECK_INTERFACE",
+          "target": "RAN-B",
+          "parameters": {
+            "interface": "N3"
+          },
+          "depends_on": [
+            "id-c5be5429"
+          ]
+        },
+        {
+          "pattern_id": "config-c5be5429",
+          "action_type": "CHECK_CONFIGURATION",
+          "target": "RAN-B",
+          "parameters": {
+            "field": "mtu"
+          },
+          "depends_on": [
+            "id-c5be5429"
+          ]
+        },
+        {
+          "pattern_id": "peer-mapping",
+          "action_type": "VERIFY_PEER_MAPPING",
+          "target": "UPF-A",
+          "parameters": {
+            "peer_object_id": "RAN-B"
+          },
+          "depends_on": [
+            "id-dd579bea",
+            "id-c5be5429"
+          ]
+        }
+      ],
+      "optional": []
+    }
+  ],
+  "forbidden_actions": [
+    "EXECUTE_CHANGE"
+  ],
+  "stop_conditions": [
+    "unknown evidence: stop or request evidence",
+    "no automatic network write"
+  ],
+  "root_cause_truth": "unknown"
+}

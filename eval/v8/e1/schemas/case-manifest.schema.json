@@ -1,0 +1,94 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "v8-e1-file-case-1",
+      "default": "v8-e1-file-case-1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "case_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,79}$",
+      "title": "Case Id",
+      "type": "string"
+    },
+    "split": {
+      "enum": [
+        "dev",
+        "validation",
+        "heldout"
+      ],
+      "title": "Split",
+      "type": "string"
+    },
+    "visible_root": {
+      "title": "Visible Root",
+      "type": "string"
+    },
+    "task_file": {
+      "title": "Task File",
+      "type": "string"
+    },
+    "reference_file": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Reference File"
+    },
+    "source_group": {
+      "minLength": 1,
+      "title": "Source Group",
+      "type": "string"
+    },
+    "structure_family": {
+      "minLength": 1,
+      "title": "Structure Family",
+      "type": "string"
+    },
+    "source_kind": {
+      "enum": [
+        "legacy-development",
+        "experimental-injection",
+        "manual-log",
+        "benchmark",
+        "new-synthetic"
+      ],
+      "title": "Source Kind",
+      "type": "string"
+    },
+    "previously_evaluated": {
+      "title": "Previously Evaluated",
+      "type": "boolean"
+    },
+    "raw_source_hashes": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "title": "Raw Source Hashes",
+      "type": "object"
+    },
+    "provenance_file": {
+      "title": "Provenance File",
+      "type": "string"
+    }
+  },
+  "required": [
+    "case_id",
+    "split",
+    "visible_root",
+    "task_file",
+    "source_group",
+    "structure_family",
+    "source_kind",
+    "previously_evaluated",
+    "provenance_file"
+  ],
+  "title": "CaseManifest",
+  "type": "object"
+}

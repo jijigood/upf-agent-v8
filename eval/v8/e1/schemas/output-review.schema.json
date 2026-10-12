@@ -1,0 +1,72 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "case_id": {
+      "title": "Case Id",
+      "type": "string"
+    },
+    "method": {
+      "title": "Method",
+      "type": "string"
+    },
+    "raw_plan_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Raw Plan Sha256",
+      "type": "string"
+    },
+    "reference_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Reference Sha256",
+      "type": "string"
+    },
+    "reviewer": {
+      "minLength": 1,
+      "title": "Reviewer",
+      "type": "string"
+    },
+    "role": {
+      "default": "reviewer",
+      "enum": [
+        "reviewer",
+        "adjudicator"
+      ],
+      "title": "Role",
+      "type": "string"
+    },
+    "semantic_valid": {
+      "title": "Semantic Valid",
+      "type": "boolean"
+    },
+    "review_version": {
+      "minLength": 1,
+      "title": "Review Version",
+      "type": "string"
+    },
+    "review_source": {
+      "minLength": 1,
+      "title": "Review Source",
+      "type": "string"
+    },
+    "notes": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "title": "Notes",
+      "type": "array"
+    }
+  },
+  "required": [
+    "case_id",
+    "method",
+    "raw_plan_sha256",
+    "reference_sha256",
+    "reviewer",
+    "semantic_valid",
+    "review_version",
+    "review_source",
+    "notes"
+  ],
+  "title": "OutputReview",
+  "type": "object"
+}

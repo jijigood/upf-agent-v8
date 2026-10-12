@@ -1,0 +1,16 @@
+{
+  "schema_version": "v8-e1-file-case-1",
+  "case_id": "E1-CAL-N010",
+  "split": "validation",
+  "visible_root": "validation/E1-CAL-N010/visible",
+  "task_file": "validation/E1-CAL-N010/visible/case-task.json",
+  "reference_file": null,
+  "source_group": "e1-expanded-validation-3",
+  "structure_family": "ogstun-administrative-state",
+  "source_kind": "experimental-injection",
+  "previously_evaluated": false,
+  "raw_source_hashes": {
+    "data/raw/snapshot.json": "e71d9ab1682a33cc2a5b6cac7089df93f3a18207ae3e3ee2ac9ddc8d8ee4a740"
+  },
+  "provenance_file": "gold/provenance/E1-CAL-N010.json"
+}

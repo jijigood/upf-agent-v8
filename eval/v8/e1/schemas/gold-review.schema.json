@@ -1,0 +1,53 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "case_id": {
+      "title": "Case Id",
+      "type": "string"
+    },
+    "reviewer": {
+      "minLength": 1,
+      "title": "Reviewer",
+      "type": "string"
+    },
+    "reference_sha256": {
+      "title": "Reference Sha256",
+      "type": "string"
+    },
+    "decision": {
+      "enum": [
+        "approve",
+        "request_changes"
+      ],
+      "title": "Decision",
+      "type": "string"
+    },
+    "notes": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Notes",
+      "type": "array"
+    },
+    "review_version": {
+      "minLength": 1,
+      "title": "Review Version",
+      "type": "string"
+    },
+    "review_source": {
+      "minLength": 1,
+      "title": "Review Source",
+      "type": "string"
+    }
+  },
+  "required": [
+    "case_id",
+    "reviewer",
+    "reference_sha256",
+    "decision",
+    "review_version",
+    "review_source"
+  ],
+  "title": "GoldReview",
+  "type": "object"
+}

@@ -1,0 +1,73 @@
+{
+  "run_id": "761e59375973444b97ae4d0a1084030e",
+  "question": "新采集的受控5GC中，UE会话建立后到核心侧的ICMP探针异常。根据提供的正常日志、接口和抓包资料给出UPF与RAN的只读调查方案；说明还需哪些资料，证据不足时停止，不推断已知根因或已执行修复。",
+  "template": "log_observation",
+  "path": {
+    "service_id": null,
+    "positions": [],
+    "source_id": null,
+    "source_sha256": null,
+    "source_path": null,
+    "version": null,
+    "resolution": "unknown",
+    "candidates": [],
+    "synthetic": false
+  },
+  "objects": [
+    "upf",
+    "ran"
+  ],
+  "product": "Open5GS",
+  "version": "2.7.6",
+  "object_profiles": {
+    "upf": {
+      "role": "upf",
+      "product": "Open5GS",
+      "version": "2.7.6"
+    },
+    "ran": {
+      "role": "ran",
+      "product": "UERANSIM",
+      "version": "3.2.7"
+    }
+  },
+  "time_window": null,
+  "as_of": "2026-10-10T15:51:10.294417Z",
+  "permission": {
+    "objects": [
+      "upf",
+      "ran"
+    ],
+    "domains": [],
+    "readable_fields": [
+      "event_type",
+      "log_excerpt",
+      "core_interface_inventory",
+      "normal_probe_returncode",
+      "normal_probe_output"
+    ],
+    "revision": "1",
+    "execute": false
+  },
+  "aliases": {},
+  "synthetic": false,
+  "budget": {
+    "max_rounds": 3,
+    "max_tool_calls": 8,
+    "max_model_calls": 8,
+    "timeout_seconds": 180.0
+  },
+  "log_generation": null,
+  "topology_generation": null,
+  "manual_generation": null,
+  "observation_files": [
+    "data/normalized/observations-002.json"
+  ],
+  "model_profile": "baseline",
+  "model_enabled": false,
+  "retrieval_device": "cpu",
+  "interrupt_before_collect": false,
+  "graph_backend": "memory",
+  "graph_enabled": true,
+  "execution_fingerprint": null
+}

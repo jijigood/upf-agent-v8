@@ -85,7 +85,21 @@ def _direct(task, tools):
 
 
 def run_method(
-    project, case_root, output, case_task, gold, method, client_factory=ObservedPlanClient
+    project,
+    case_root,
+    output,
+    case_task,
+    gold,
+    method,
+    client_factory=ObservedPlanClient,
+    *,
+    tools_factory=CommonEvidenceTools,
+    calibration_candidate=None,
+    plan_generator=None,
+    plan_translator=None,
+    plan_validator=None,
+    plan_scorer=None,
+    p5_runner=None,
 ):
     run_root = output / "runtime"
     run_root.mkdir(parents=True)
@@ -101,7 +115,7 @@ def run_method(
         task.run_id, sink=lambda event: append_jsonl(output / "traces.jsonl", event)
     )
     budget = PlanBudget(task, collector)
-    tools = CommonEvidenceTools(run_root, task, contract, budget)
+    tools = tools_factory(run_root, task, contract, budget)
     config = load_model_config(project / "config/models.yaml")
     failure = None
     native = None
@@ -115,7 +129,7 @@ def run_method(
             if method == METHODS[0]:
                 method_context = _direct(task, tools)
             elif method == METHODS[1]:
-                native = run_p5(run_root, task, tools, client)
+                native = (p5_runner or run_p5)(run_root, task, tools, client)
                 method_context = {
                     "native_report": native.report.model_dump(mode="json"),
                     "rounds": native.rounds,
@@ -169,7 +183,7 @@ def run_method(
         else:
             bindings = list(tools.bindings.values())
         context = EvaluationContext.from_task(task, contract, f"{gold.case_id}-plan-1")
-        raw = generate_plan(
+        raw = (plan_generator or generate_plan)(
             method,
             task,
             context,
@@ -178,11 +192,14 @@ def run_method(
             method_context=method_context,
             source_root=run_root,
         )
-    translation = translate_plan(raw.content)
-    validation = validate_plan(translation.plan, bindings, task, contract, context, run_root)
-    metrics = score_case(translation.plan, validation, gold)
+    translation = (plan_translator or translate_plan)(raw.content)
+    validation = (plan_validator or validate_plan)(
+        translation.plan, bindings, task, contract, context, run_root
+    )
+    metrics = (plan_scorer or score_case)(translation.plan, validation, gold)
     if failure or raw.error or raw.finish_reason == "length":
-        metrics["reference_pass"] = False
+        if metrics["reference_pass"] is not None:
+            metrics["reference_pass"] = False
         if metrics["vpr"] is not None:
             metrics["vpr"] = False
     metrics.update(
@@ -193,7 +210,13 @@ def run_method(
         finish_reason=raw.finish_reason,
         elapsed_seconds=budget.elapsed(),
         context_preparation_included=True,
-        calibration_candidate=int(gold.case_id.split("-")[1]) <= 10,
+        calibration_candidate=(
+            gold.case_id.startswith("pilot-")
+            and gold.case_id.removeprefix("pilot-").isdigit()
+            and int(gold.case_id.removeprefix("pilot-")) <= 10
+        )
+        if calibration_candidate is None
+        else calibration_candidate,
     )
     for name, value in [
         ("task", task),

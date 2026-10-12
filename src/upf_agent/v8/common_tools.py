@@ -16,8 +16,8 @@ from upf_agent.v8.models import EvidenceBinding, SourcePointer
 class CommonEvidenceTools:
     version = "v8-common-synthetic-tools-2"
 
-    def __init__(self, root: Path, task, contract, budget):
-        if not task.synthetic:
+    def __init__(self, root: Path, task, contract, budget, *, allow_real=False):
+        if not task.synthetic and not allow_real:
             raise ValueError("public synthetic adapter requires a synthetic task")
         self.root, self.task, self.contract, self.budget = root, task, contract, budget
         self.bindings = {}
@@ -33,8 +33,11 @@ class CommonEvidenceTools:
             if hashlib.sha256(raw).hexdigest() != self.source_hashes[relative]:
                 raise ValueError("frozen source changed during method run")
             body = json.loads(raw)
-            if body.get("synthetic") is not True:
-                raise ValueError("synthetic tool adapter requires explicit synthetic source")
+            if (
+                not isinstance(body.get("synthetic"), bool)
+                or body["synthetic"] != self.task.synthetic
+            ):
+                raise ValueError("tool adapter source/task provenance mismatch")
             for index, record in enumerate(body.get("observations", [])):
                 obj = record.get("object_id")
                 if not permitted(self.task, obj, []):
@@ -121,7 +124,7 @@ class CommonEvidenceTools:
                     {
                         "device_id": record["object_id"],
                         "relative_path": relative,
-                        "synthetic": True,
+                        "synthetic": body["synthetic"],
                         "record": record,
                     },
                 )
@@ -152,7 +155,7 @@ class CommonEvidenceTools:
                         version=record.get("version"),
                         config_version=record.get("config_version"),
                         receipt_id=entry.evidence_id,
-                        synthetic=True,
+                        synthetic=body["synthetic"],
                         source_verified=True,
                         purposes=[],
                         corroborated=body.get("corroborated") is True,

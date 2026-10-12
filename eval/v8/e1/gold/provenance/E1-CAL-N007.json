@@ -1,0 +1,16 @@
+{
+  "case_id": "E1-CAL-N007",
+  "capture_root": "/home/huangxiaolin/upf-agent-v8/runtime/v8-next/e1-experiments-20261011/input-expansion-002/captures/validation-2",
+  "capture_round": 1,
+  "source_sha256": "b7206d8109d2df3b3e8013890d6c2d54fd9bcc9babe2b07986166763eea32a45",
+  "truth": {
+    "condition": "inner-reply-filter",
+    "target": "10.45.0.2",
+    "verified": true,
+    "basis": "actual controller receipt, separate kernel-state read and small/large probe results",
+    "expert_Gold": false
+  },
+  "independent_Gold_available": false,
+  "expert_review_received": false,
+  "correlation": "fresh UE process after first round; same campaign binaries and failure mechanism"
+}
