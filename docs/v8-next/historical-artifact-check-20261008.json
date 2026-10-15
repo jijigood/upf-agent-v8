@@ -1,0 +1,46 @@
+{
+  "interpretation": "Historical saved flags and hashes only; not a new 16000-batch run or blind heldout acceptance.",
+  "local_csv_files": 16,
+  "saved_batch_rows": 16000,
+  "saved_semantic_equal_flags": 16000,
+  "summary_batches": 16000,
+  "summary_consistent": 16000,
+  "acceptance_input_hash_checks": {
+    "experiments/v8/local-final-001/summary.json": {
+      "exists": true,
+      "sha_matches": true
+    },
+    "experiments/v8/local-final-001/freeze.json": {
+      "exists": true,
+      "sha_matches": true
+    },
+    "experiments/v8/heldout/heldout-final-001/summary.json": {
+      "exists": true,
+      "sha_matches": true
+    },
+    "experiments/v8/heldout/heldout-final-001/freeze.json": {
+      "exists": true,
+      "sha_matches": true
+    },
+    "experiments/v8/graph/summary.json": {
+      "exists": true,
+      "sha_matches": true
+    },
+    "evidence/u6/recovery-validation.json": {
+      "exists": true,
+      "sha_matches": true
+    },
+    "evidence/u6/neo4j-runtime-verification.json": {
+      "exists": true,
+      "sha_matches": true
+    },
+    "evidence/u6/known-input-replay-001/summary.json": {
+      "exists": true,
+      "sha_matches": true
+    },
+    "evidence/u6/v8-delivery-regression.log": {
+      "exists": true,
+      "sha_matches": true
+    }
+  }
+}

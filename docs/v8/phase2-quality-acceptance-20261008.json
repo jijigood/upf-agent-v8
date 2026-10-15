@@ -1,0 +1,1200 @@
+{
+  "schema_version": "v8-phase2-quality-delivery-1",
+  "created_at_utc": "2026-10-08T14:09:11.581109+00:00",
+  "engineering_pass": true,
+  "phase_complete": false,
+  "quality_pass": false,
+  "synthetic": true,
+  "reviewed": false,
+  "source_sha256": "bc81a6a4a0e3a18546eb60e628f4c66b2010c77a74e3415e42255f16e5967dc9",
+  "source_versions": {
+    "pilot_source_sha256": "0d8bdbb582688ced6ffd4e7711630d62fdc6ee022dd3817a13ef171d56098601",
+    "delivery_source_sha256": "bc81a6a4a0e3a18546eb60e628f4c66b2010c77a74e3415e42255f16e5967dc9",
+    "changed_file": "src/upf_agent/v8/plan_generator.py",
+    "ast_unchanged": true,
+    "after_all_three_pilots_closed": true
+  },
+  "tests": {
+    "passed": 468,
+    "seconds": 40.84,
+    "new_quality_tests": 9,
+    "ruff_pass": true
+  },
+  "real_method_runs_added": 32,
+  "not_pooled": true,
+  "new_independent_fault_count": 0,
+  "new_heldout_consumed": false,
+  "batches": {
+    "quality-pilot-001": {
+      "protocol": {
+        "schema_version": "v8-phase2-pilot-1",
+        "cases": 5,
+        "selected_case_ids": [
+          1,
+          5,
+          13,
+          15,
+          23
+        ],
+        "case_selection": "development subset",
+        "methods": [
+          "DirectLLM+CommonPlanHead",
+          "P5+CommonPlanHead",
+          "v8-no-graph+CommonPlanHead",
+          "v8-full+CommonPlanHead"
+        ],
+        "synthetic": true,
+        "reviewed": false,
+        "split": "dev",
+        "new_heldout_consumed": false,
+        "tool_adapter": "v8-common-synthetic-tools-1",
+        "common_head": "v8-plan-head-2",
+        "max_model_requests": 8,
+        "max_tool_dispatches": 8,
+        "max_rounds": 3,
+        "timeout_seconds": 180,
+        "head_max_tokens": 2048,
+        "temperature": 0,
+        "seed": null,
+        "vpr_claim": false,
+        "independent_fault_count_claim": false,
+        "p5_scope_adapter": "P5 device_ids=[]; shared backend enforces multi-object PermissionScope",
+        "direct_context_preparation": "public tools charged and recorded",
+        "method_order": "fixed pilot order; not suitable for latency superiority claims"
+      },
+      "summary": {
+        "schema_version": "v8-phase2-pilot-1",
+        "cases": 5,
+        "method_runs": 20,
+        "synthetic": true,
+        "reviewed": false,
+        "new_heldout_consumed": false,
+        "real_network_writes": 0,
+        "source_unchanged": true,
+        "summaries": {
+          "DirectLLM+CommonPlanHead": {
+            "runs": 5,
+            "parsed": 5,
+            "validator_pass_count": 3,
+            "validator_pass_rate": 0.6,
+            "reference_pass_count": 3,
+            "vpr_denominator": 0,
+            "vpr": null,
+            "vpr_wilson95": null,
+            "hard_violation_count": 2,
+            "parse_failure_count": 0,
+            "unscorable_count": 0
+          },
+          "P5+CommonPlanHead": {
+            "runs": 5,
+            "parsed": 4,
+            "validator_pass_count": 1,
+            "validator_pass_rate": 0.2,
+            "reference_pass_count": 1,
+            "vpr_denominator": 0,
+            "vpr": null,
+            "vpr_wilson95": null,
+            "hard_violation_count": 3,
+            "parse_failure_count": 1,
+            "unscorable_count": 1
+          },
+          "v8-no-graph+CommonPlanHead": {
+            "runs": 5,
+            "parsed": 5,
+            "validator_pass_count": 3,
+            "validator_pass_rate": 0.6,
+            "reference_pass_count": 3,
+            "vpr_denominator": 0,
+            "vpr": null,
+            "vpr_wilson95": null,
+            "hard_violation_count": 2,
+            "parse_failure_count": 0,
+            "unscorable_count": 0
+          },
+          "v8-full+CommonPlanHead": {
+            "runs": 5,
+            "parsed": 5,
+            "validator_pass_count": 2,
+            "validator_pass_rate": 0.4,
+            "reference_pass_count": 2,
+            "vpr_denominator": 0,
+            "vpr": null,
+            "vpr_wilson95": null,
+            "hard_violation_count": 3,
+            "parse_failure_count": 0,
+            "unscorable_count": 0
+          }
+        },
+        "method_failures": 0,
+        "generation_errors": 0,
+        "truncated_outputs": 0,
+        "expert_review_pending": true,
+        "scale_decision": "defer 60/150 until protocol failures repaired and independent review calibrated",
+        "execution_pass": true,
+        "quality_pass": false,
+        "limitations": [
+          "synthetic development fixture families, not independent real faults",
+          "no expert Gold, no VPR superiority claim",
+          "pilot JSON translation only; ordinary text preserved as parse failure",
+          "fixed method order; no performance superiority claim"
+        ]
+      },
+      "audit": {
+        "schema_version": "v8-quality-repeat-audit-1",
+        "synthetic": true,
+        "reviewed": false,
+        "new_heldout_consumed": false,
+        "runs_recomputed": 20,
+        "cost_records_recomputed": 20,
+        "verified_hashes": {
+          "pilot-final-001": 2793,
+          "quality-pilot-001": 590
+        },
+        "identical_frozen_references": [
+          "pilot-01",
+          "pilot-05",
+          "pilot-13",
+          "pilot-15",
+          "pilot-23"
+        ],
+        "new_model_calls_during_audit": 0,
+        "per_method": {
+          "DirectLLM+CommonPlanHead": {
+            "old": {
+              "runs": 5,
+              "parsed": 5,
+              "validator_pass_count": 2,
+              "validator_pass_rate": 0.4,
+              "reference_pass_count": 1,
+              "vpr_denominator": 0,
+              "vpr": null,
+              "vpr_wilson95": null,
+              "hard_violation_count": 3,
+              "parse_failure_count": 0,
+              "unscorable_count": 0
+            },
+            "new": {
+              "runs": 5,
+              "parsed": 5,
+              "validator_pass_count": 3,
+              "validator_pass_rate": 0.6,
+              "reference_pass_count": 3,
+              "vpr_denominator": 0,
+              "vpr": null,
+              "vpr_wilson95": null,
+              "hard_violation_count": 2,
+              "parse_failure_count": 0,
+              "unscorable_count": 0
+            }
+          },
+          "P5+CommonPlanHead": {
+            "old": {
+              "runs": 5,
+              "parsed": 3,
+              "validator_pass_count": 0,
+              "validator_pass_rate": 0.0,
+              "reference_pass_count": 0,
+              "vpr_denominator": 0,
+              "vpr": null,
+              "vpr_wilson95": null,
+              "hard_violation_count": 3,
+              "parse_failure_count": 2,
+              "unscorable_count": 2
+            },
+            "new": {
+              "runs": 5,
+              "parsed": 4,
+              "validator_pass_count": 1,
+              "validator_pass_rate": 0.2,
+              "reference_pass_count": 1,
+              "vpr_denominator": 0,
+              "vpr": null,
+              "vpr_wilson95": null,
+              "hard_violation_count": 3,
+              "parse_failure_count": 1,
+              "unscorable_count": 1
+            }
+          },
+          "v8-no-graph+CommonPlanHead": {
+            "old": {
+              "runs": 5,
+              "parsed": 4,
+              "validator_pass_count": 3,
+              "validator_pass_rate": 0.6,
+              "reference_pass_count": 3,
+              "vpr_denominator": 0,
+              "vpr": null,
+              "vpr_wilson95": null,
+              "hard_violation_count": 1,
+              "parse_failure_count": 1,
+              "unscorable_count": 1
+            },
+            "new": {
+              "runs": 5,
+              "parsed": 5,
+              "validator_pass_count": 3,
+              "validator_pass_rate": 0.6,
+              "reference_pass_count": 3,
+              "vpr_denominator": 0,
+              "vpr": null,
+              "vpr_wilson95": null,
+              "hard_violation_count": 2,
+              "parse_failure_count": 0,
+              "unscorable_count": 0
+            }
+          },
+          "v8-full+CommonPlanHead": {
+            "old": {
+              "runs": 5,
+              "parsed": 5,
+              "validator_pass_count": 3,
+              "validator_pass_rate": 0.6,
+              "reference_pass_count": 0,
+              "vpr_denominator": 0,
+              "vpr": null,
+              "vpr_wilson95": null,
+              "hard_violation_count": 2,
+              "parse_failure_count": 0,
+              "unscorable_count": 0
+            },
+            "new": {
+              "runs": 5,
+              "parsed": 5,
+              "validator_pass_count": 2,
+              "validator_pass_rate": 0.4,
+              "reference_pass_count": 2,
+              "vpr_denominator": 0,
+              "vpr": null,
+              "vpr_wilson95": null,
+              "hard_violation_count": 3,
+              "parse_failure_count": 0,
+              "unscorable_count": 0
+            }
+          }
+        },
+        "changes": [
+          {
+            "case_id": "pilot-01",
+            "method": "DirectLLM+CommonPlanHead",
+            "old_parsed": true,
+            "new_parsed": true,
+            "old_validator": false,
+            "new_validator": true,
+            "old_reference": false,
+            "new_reference": true,
+            "explicit_generation_fields": true
+          },
+          {
+            "case_id": "pilot-01",
+            "method": "P5+CommonPlanHead",
+            "old_parsed": true,
+            "new_parsed": true,
+            "old_validator": false,
+            "new_validator": false,
+            "old_reference": false,
+            "new_reference": false,
+            "explicit_generation_fields": true
+          },
+          {
+            "case_id": "pilot-01",
+            "method": "v8-no-graph+CommonPlanHead",
+            "old_parsed": true,
+            "new_parsed": true,
+            "old_validator": true,
+            "new_validator": true,
+            "old_reference": true,
+            "new_reference": true,
+            "explicit_generation_fields": true
+          },
+          {
+            "case_id": "pilot-01",
+            "method": "v8-full+CommonPlanHead",
+            "old_parsed": true,
+            "new_parsed": true,
+            "old_validator": true,
+            "new_validator": true,
+            "old_reference": false,
+            "new_reference": true,
+            "explicit_generation_fields": true
+          },
+          {
+            "case_id": "pilot-05",
+            "method": "DirectLLM+CommonPlanHead",
+            "old_parsed": true,
+            "new_parsed": true,
+            "old_validator": false,
+            "new_validator": false,
+            "old_reference": false,
+            "new_reference": false,
+            "explicit_generation_fields": true
+          },
+          {
+            "case_id": "pilot-05",
+            "method": "P5+CommonPlanHead",
+            "old_parsed": true,
+            "new_parsed": true,
+            "old_validator": false,
+            "new_validator": false,
+            "old_reference": false,
+            "new_reference": false,
+            "explicit_generation_fields": true
+          },
+          {
+            "case_id": "pilot-05",
+            "method": "v8-no-graph+CommonPlanHead",
+            "old_parsed": false,
+            "new_parsed": true,
+            "old_validator": false,
+            "new_validator": false,
+            "old_reference": false,
+            "new_reference": false,
+            "explicit_generation_fields": true
+          },
+          {
+            "case_id": "pilot-05",
+            "method": "v8-full+CommonPlanHead",
+            "old_parsed": true,
+            "new_parsed": true,
+            "old_validator": false,
+            "new_validator": false,
+            "old_reference": false,
+            "new_reference": false,
+            "explicit_generation_fields": true
+          },
+          {
+            "case_id": "pilot-13",
+            "method": "DirectLLM+CommonPlanHead",
+            "old_parsed": true,
+            "new_parsed": true,
+            "old_validator": true,
+            "new_validator": true,
+            "old_reference": true,
+            "new_reference": true,
+            "explicit_generation_fields": true
+          },
+          {
+            "case_id": "pilot-13",
+            "method": "P5+CommonPlanHead",
+            "old_parsed": false,
+            "new_parsed": true,
+            "old_validator": false,
+            "new_validator": true,
+            "old_reference": false,
+            "new_reference": true,
+            "explicit_generation_fields": true
+          },
+          {
+            "case_id": "pilot-13",
+            "method": "v8-no-graph+CommonPlanHead",
+            "old_parsed": true,
+            "new_parsed": true,
+            "old_validator": true,
+            "new_validator": true,
+            "old_reference": true,
+            "new_reference": true,
+            "explicit_generation_fields": true
+          },
+          {
+            "case_id": "pilot-13",
+            "method": "v8-full+CommonPlanHead",
+            "old_parsed": true,
+            "new_parsed": true,
+            "old_validator": true,
+            "new_validator": true,
+            "old_reference": false,
+            "new_reference": true,
+            "explicit_generation_fields": true
+          },
+          {
+            "case_id": "pilot-15",
+            "method": "DirectLLM+CommonPlanHead",
+            "old_parsed": true,
+            "new_parsed": true,
+            "old_validator": false,
+            "new_validator": false,
+            "old_reference": false,
+            "new_reference": false,
+            "explicit_generation_fields": true
+          },
+          {
+            "case_id": "pilot-15",
+            "method": "P5+CommonPlanHead",
+            "old_parsed": false,
+            "new_parsed": false,
+            "old_validator": false,
+            "new_validator": false,
+            "old_reference": false,
+            "new_reference": false,
+            "explicit_generation_fields": false
+          },
+          {
+            "case_id": "pilot-15",
+            "method": "v8-no-graph+CommonPlanHead",
+            "old_parsed": true,
+            "new_parsed": true,
+            "old_validator": false,
+            "new_validator": false,
+            "old_reference": false,
+            "new_reference": false,
+            "explicit_generation_fields": true
+          },
+          {
+            "case_id": "pilot-15",
+            "method": "v8-full+CommonPlanHead",
+            "old_parsed": true,
+            "new_parsed": true,
+            "old_validator": false,
+            "new_validator": false,
+            "old_reference": false,
+            "new_reference": false,
+            "explicit_generation_fields": true
+          },
+          {
+            "case_id": "pilot-23",
+            "method": "DirectLLM+CommonPlanHead",
+            "old_parsed": true,
+            "new_parsed": true,
+            "old_validator": true,
+            "new_validator": true,
+            "old_reference": false,
+            "new_reference": true,
+            "explicit_generation_fields": true
+          },
+          {
+            "case_id": "pilot-23",
+            "method": "P5+CommonPlanHead",
+            "old_parsed": true,
+            "new_parsed": true,
+            "old_validator": false,
+            "new_validator": false,
+            "old_reference": false,
+            "new_reference": false,
+            "explicit_generation_fields": true
+          },
+          {
+            "case_id": "pilot-23",
+            "method": "v8-no-graph+CommonPlanHead",
+            "old_parsed": true,
+            "new_parsed": true,
+            "old_validator": true,
+            "new_validator": true,
+            "old_reference": true,
+            "new_reference": true,
+            "explicit_generation_fields": true
+          },
+          {
+            "case_id": "pilot-23",
+            "method": "v8-full+CommonPlanHead",
+            "old_parsed": true,
+            "new_parsed": true,
+            "old_validator": true,
+            "new_validator": false,
+            "old_reference": false,
+            "new_reference": false,
+            "explicit_generation_fields": true
+          }
+        ],
+        "vpr": null,
+        "limitations": [
+          "failure-selected synthetic development subset",
+          "single stochastic repeat; seed unspecified",
+          "joint prompt/schema/input presentation revision; no isolated causal attribution",
+          "expert review pending; not new independent cases"
+        ]
+      }
+    },
+    "quality-pilot-002": {
+      "protocol": {
+        "schema_version": "v8-phase2-pilot-1",
+        "cases": 1,
+        "selected_case_ids": [
+          23
+        ],
+        "case_selection": "development subset",
+        "methods": [
+          "DirectLLM+CommonPlanHead",
+          "P5+CommonPlanHead",
+          "v8-no-graph+CommonPlanHead",
+          "v8-full+CommonPlanHead"
+        ],
+        "synthetic": true,
+        "reviewed": false,
+        "split": "dev",
+        "new_heldout_consumed": false,
+        "tool_adapter": "v8-common-synthetic-tools-1",
+        "common_head": "v8-plan-head-3",
+        "max_model_requests": 8,
+        "max_tool_dispatches": 8,
+        "max_rounds": 3,
+        "timeout_seconds": 180,
+        "head_max_tokens": 2048,
+        "temperature": 0,
+        "seed": null,
+        "vpr_claim": false,
+        "independent_fault_count_claim": false,
+        "p5_scope_adapter": "P5 device_ids=[]; shared backend enforces multi-object PermissionScope",
+        "direct_context_preparation": "public tools charged and recorded",
+        "method_order": "fixed pilot order; not suitable for latency superiority claims"
+      },
+      "summary": {
+        "schema_version": "v8-phase2-pilot-1",
+        "cases": 1,
+        "method_runs": 4,
+        "synthetic": true,
+        "reviewed": false,
+        "new_heldout_consumed": false,
+        "real_network_writes": 0,
+        "source_unchanged": true,
+        "summaries": {
+          "DirectLLM+CommonPlanHead": {
+            "runs": 1,
+            "parsed": 0,
+            "validator_pass_count": 0,
+            "validator_pass_rate": 0.0,
+            "reference_pass_count": 0,
+            "vpr_denominator": 0,
+            "vpr": null,
+            "vpr_wilson95": null,
+            "hard_violation_count": 0,
+            "parse_failure_count": 1,
+            "unscorable_count": 1
+          },
+          "P5+CommonPlanHead": {
+            "runs": 1,
+            "parsed": 1,
+            "validator_pass_count": 0,
+            "validator_pass_rate": 0.0,
+            "reference_pass_count": 0,
+            "vpr_denominator": 0,
+            "vpr": null,
+            "vpr_wilson95": null,
+            "hard_violation_count": 1,
+            "parse_failure_count": 0,
+            "unscorable_count": 0
+          },
+          "v8-no-graph+CommonPlanHead": {
+            "runs": 1,
+            "parsed": 0,
+            "validator_pass_count": 0,
+            "validator_pass_rate": 0.0,
+            "reference_pass_count": 0,
+            "vpr_denominator": 0,
+            "vpr": null,
+            "vpr_wilson95": null,
+            "hard_violation_count": 0,
+            "parse_failure_count": 1,
+            "unscorable_count": 1
+          },
+          "v8-full+CommonPlanHead": {
+            "runs": 1,
+            "parsed": 0,
+            "validator_pass_count": 0,
+            "validator_pass_rate": 0.0,
+            "reference_pass_count": 0,
+            "vpr_denominator": 0,
+            "vpr": null,
+            "vpr_wilson95": null,
+            "hard_violation_count": 0,
+            "parse_failure_count": 1,
+            "unscorable_count": 1
+          }
+        },
+        "method_failures": 0,
+        "generation_errors": 0,
+        "truncated_outputs": 0,
+        "expert_review_pending": true,
+        "scale_decision": "defer 60/150 until protocol failures repaired and independent review calibrated",
+        "execution_pass": true,
+        "quality_pass": false,
+        "limitations": [
+          "synthetic development fixture families, not independent real faults",
+          "no expert Gold, no VPR superiority claim",
+          "pilot JSON translation only; ordinary text preserved as parse failure",
+          "fixed method order; no performance superiority claim"
+        ]
+      },
+      "audit": {
+        "schema_version": "v8-quality-repeat-audit-1",
+        "synthetic": true,
+        "reviewed": false,
+        "new_heldout_consumed": false,
+        "runs_recomputed": 4,
+        "cost_records_recomputed": 4,
+        "verified_hashes": {
+          "quality-pilot-001": 590,
+          "quality-pilot-002": 126
+        },
+        "identical_frozen_references": [
+          "pilot-23"
+        ],
+        "new_model_calls_during_audit": 0,
+        "per_method": {
+          "DirectLLM+CommonPlanHead": {
+            "old": {
+              "runs": 1,
+              "parsed": 1,
+              "validator_pass_count": 1,
+              "validator_pass_rate": 1.0,
+              "reference_pass_count": 1,
+              "vpr_denominator": 0,
+              "vpr": null,
+              "vpr_wilson95": null,
+              "hard_violation_count": 0,
+              "parse_failure_count": 0,
+              "unscorable_count": 0
+            },
+            "new": {
+              "runs": 1,
+              "parsed": 0,
+              "validator_pass_count": 0,
+              "validator_pass_rate": 0.0,
+              "reference_pass_count": 0,
+              "vpr_denominator": 0,
+              "vpr": null,
+              "vpr_wilson95": null,
+              "hard_violation_count": 0,
+              "parse_failure_count": 1,
+              "unscorable_count": 1
+            }
+          },
+          "P5+CommonPlanHead": {
+            "old": {
+              "runs": 1,
+              "parsed": 1,
+              "validator_pass_count": 0,
+              "validator_pass_rate": 0.0,
+              "reference_pass_count": 0,
+              "vpr_denominator": 0,
+              "vpr": null,
+              "vpr_wilson95": null,
+              "hard_violation_count": 1,
+              "parse_failure_count": 0,
+              "unscorable_count": 0
+            },
+            "new": {
+              "runs": 1,
+              "parsed": 1,
+              "validator_pass_count": 0,
+              "validator_pass_rate": 0.0,
+              "reference_pass_count": 0,
+              "vpr_denominator": 0,
+              "vpr": null,
+              "vpr_wilson95": null,
+              "hard_violation_count": 1,
+              "parse_failure_count": 0,
+              "unscorable_count": 0
+            }
+          },
+          "v8-no-graph+CommonPlanHead": {
+            "old": {
+              "runs": 1,
+              "parsed": 1,
+              "validator_pass_count": 1,
+              "validator_pass_rate": 1.0,
+              "reference_pass_count": 1,
+              "vpr_denominator": 0,
+              "vpr": null,
+              "vpr_wilson95": null,
+              "hard_violation_count": 0,
+              "parse_failure_count": 0,
+              "unscorable_count": 0
+            },
+            "new": {
+              "runs": 1,
+              "parsed": 0,
+              "validator_pass_count": 0,
+              "validator_pass_rate": 0.0,
+              "reference_pass_count": 0,
+              "vpr_denominator": 0,
+              "vpr": null,
+              "vpr_wilson95": null,
+              "hard_violation_count": 0,
+              "parse_failure_count": 1,
+              "unscorable_count": 1
+            }
+          },
+          "v8-full+CommonPlanHead": {
+            "old": {
+              "runs": 1,
+              "parsed": 1,
+              "validator_pass_count": 0,
+              "validator_pass_rate": 0.0,
+              "reference_pass_count": 0,
+              "vpr_denominator": 0,
+              "vpr": null,
+              "vpr_wilson95": null,
+              "hard_violation_count": 1,
+              "parse_failure_count": 0,
+              "unscorable_count": 0
+            },
+            "new": {
+              "runs": 1,
+              "parsed": 0,
+              "validator_pass_count": 0,
+              "validator_pass_rate": 0.0,
+              "reference_pass_count": 0,
+              "vpr_denominator": 0,
+              "vpr": null,
+              "vpr_wilson95": null,
+              "hard_violation_count": 0,
+              "parse_failure_count": 1,
+              "unscorable_count": 1
+            }
+          }
+        },
+        "changes": [
+          {
+            "case_id": "pilot-23",
+            "method": "DirectLLM+CommonPlanHead",
+            "old_parsed": true,
+            "new_parsed": false,
+            "old_validator": true,
+            "new_validator": false,
+            "old_reference": true,
+            "new_reference": false,
+            "explicit_generation_fields": false
+          },
+          {
+            "case_id": "pilot-23",
+            "method": "P5+CommonPlanHead",
+            "old_parsed": true,
+            "new_parsed": true,
+            "old_validator": false,
+            "new_validator": false,
+            "old_reference": false,
+            "new_reference": false,
+            "explicit_generation_fields": true
+          },
+          {
+            "case_id": "pilot-23",
+            "method": "v8-no-graph+CommonPlanHead",
+            "old_parsed": true,
+            "new_parsed": false,
+            "old_validator": true,
+            "new_validator": false,
+            "old_reference": true,
+            "new_reference": false,
+            "explicit_generation_fields": false
+          },
+          {
+            "case_id": "pilot-23",
+            "method": "v8-full+CommonPlanHead",
+            "old_parsed": true,
+            "new_parsed": false,
+            "old_validator": false,
+            "new_validator": false,
+            "old_reference": false,
+            "new_reference": false,
+            "explicit_generation_fields": false
+          }
+        ],
+        "vpr": null,
+        "limitations": [
+          "failure-selected synthetic development subset",
+          "single stochastic repeat; seed unspecified",
+          "joint prompt/schema/input presentation revision; no isolated causal attribution",
+          "expert review pending; not new independent cases"
+        ]
+      }
+    },
+    "quality-pilot-003": {
+      "protocol": {
+        "schema_version": "v8-phase2-pilot-1",
+        "cases": 2,
+        "selected_case_ids": [
+          15,
+          23
+        ],
+        "case_selection": "development subset",
+        "methods": [
+          "DirectLLM+CommonPlanHead",
+          "P5+CommonPlanHead",
+          "v8-no-graph+CommonPlanHead",
+          "v8-full+CommonPlanHead"
+        ],
+        "synthetic": true,
+        "reviewed": false,
+        "split": "dev",
+        "new_heldout_consumed": false,
+        "tool_adapter": "v8-common-synthetic-tools-1",
+        "common_head": "v8-plan-head-4",
+        "max_model_requests": 8,
+        "max_tool_dispatches": 8,
+        "max_rounds": 3,
+        "timeout_seconds": 180,
+        "head_max_tokens": 2048,
+        "temperature": 0,
+        "seed": null,
+        "vpr_claim": false,
+        "independent_fault_count_claim": false,
+        "p5_scope_adapter": "P5 device_ids=[]; shared backend enforces multi-object PermissionScope",
+        "direct_context_preparation": "public tools charged and recorded",
+        "method_order": "fixed pilot order; not suitable for latency superiority claims"
+      },
+      "summary": {
+        "schema_version": "v8-phase2-pilot-1",
+        "cases": 2,
+        "method_runs": 8,
+        "synthetic": true,
+        "reviewed": false,
+        "new_heldout_consumed": false,
+        "real_network_writes": 0,
+        "source_unchanged": true,
+        "summaries": {
+          "DirectLLM+CommonPlanHead": {
+            "runs": 2,
+            "parsed": 2,
+            "validator_pass_count": 1,
+            "validator_pass_rate": 0.5,
+            "reference_pass_count": 0,
+            "vpr_denominator": 0,
+            "vpr": null,
+            "vpr_wilson95": null,
+            "hard_violation_count": 1,
+            "parse_failure_count": 0,
+            "unscorable_count": 0
+          },
+          "P5+CommonPlanHead": {
+            "runs": 2,
+            "parsed": 2,
+            "validator_pass_count": 0,
+            "validator_pass_rate": 0.0,
+            "reference_pass_count": 0,
+            "vpr_denominator": 0,
+            "vpr": null,
+            "vpr_wilson95": null,
+            "hard_violation_count": 2,
+            "parse_failure_count": 0,
+            "unscorable_count": 0
+          },
+          "v8-no-graph+CommonPlanHead": {
+            "runs": 2,
+            "parsed": 2,
+            "validator_pass_count": 0,
+            "validator_pass_rate": 0.0,
+            "reference_pass_count": 0,
+            "vpr_denominator": 0,
+            "vpr": null,
+            "vpr_wilson95": null,
+            "hard_violation_count": 2,
+            "parse_failure_count": 0,
+            "unscorable_count": 0
+          },
+          "v8-full+CommonPlanHead": {
+            "runs": 2,
+            "parsed": 2,
+            "validator_pass_count": 1,
+            "validator_pass_rate": 0.5,
+            "reference_pass_count": 1,
+            "vpr_denominator": 0,
+            "vpr": null,
+            "vpr_wilson95": null,
+            "hard_violation_count": 1,
+            "parse_failure_count": 0,
+            "unscorable_count": 0
+          }
+        },
+        "method_failures": 0,
+        "generation_errors": 0,
+        "truncated_outputs": 0,
+        "expert_review_pending": true,
+        "scale_decision": "defer 60/150 until protocol failures repaired and independent review calibrated",
+        "execution_pass": true,
+        "quality_pass": false,
+        "limitations": [
+          "synthetic development fixture families, not independent real faults",
+          "no expert Gold, no VPR superiority claim",
+          "pilot JSON translation only; ordinary text preserved as parse failure",
+          "fixed method order; no performance superiority claim"
+        ]
+      },
+      "audit": {
+        "schema_version": "v8-quality-repeat-audit-1",
+        "synthetic": true,
+        "reviewed": false,
+        "new_heldout_consumed": false,
+        "runs_recomputed": 8,
+        "cost_records_recomputed": 8,
+        "verified_hashes": {
+          "pilot-final-001": 2793,
+          "quality-pilot-003": 242
+        },
+        "identical_frozen_references": [
+          "pilot-15",
+          "pilot-23"
+        ],
+        "new_model_calls_during_audit": 0,
+        "per_method": {
+          "DirectLLM+CommonPlanHead": {
+            "old": {
+              "runs": 2,
+              "parsed": 2,
+              "validator_pass_count": 1,
+              "validator_pass_rate": 0.5,
+              "reference_pass_count": 0,
+              "vpr_denominator": 0,
+              "vpr": null,
+              "vpr_wilson95": null,
+              "hard_violation_count": 1,
+              "parse_failure_count": 0,
+              "unscorable_count": 0
+            },
+            "new": {
+              "runs": 2,
+              "parsed": 2,
+              "validator_pass_count": 1,
+              "validator_pass_rate": 0.5,
+              "reference_pass_count": 0,
+              "vpr_denominator": 0,
+              "vpr": null,
+              "vpr_wilson95": null,
+              "hard_violation_count": 1,
+              "parse_failure_count": 0,
+              "unscorable_count": 0
+            }
+          },
+          "P5+CommonPlanHead": {
+            "old": {
+              "runs": 2,
+              "parsed": 1,
+              "validator_pass_count": 0,
+              "validator_pass_rate": 0.0,
+              "reference_pass_count": 0,
+              "vpr_denominator": 0,
+              "vpr": null,
+              "vpr_wilson95": null,
+              "hard_violation_count": 1,
+              "parse_failure_count": 1,
+              "unscorable_count": 1
+            },
+            "new": {
+              "runs": 2,
+              "parsed": 2,
+              "validator_pass_count": 0,
+              "validator_pass_rate": 0.0,
+              "reference_pass_count": 0,
+              "vpr_denominator": 0,
+              "vpr": null,
+              "vpr_wilson95": null,
+              "hard_violation_count": 2,
+              "parse_failure_count": 0,
+              "unscorable_count": 0
+            }
+          },
+          "v8-no-graph+CommonPlanHead": {
+            "old": {
+              "runs": 2,
+              "parsed": 2,
+              "validator_pass_count": 1,
+              "validator_pass_rate": 0.5,
+              "reference_pass_count": 1,
+              "vpr_denominator": 0,
+              "vpr": null,
+              "vpr_wilson95": null,
+              "hard_violation_count": 1,
+              "parse_failure_count": 0,
+              "unscorable_count": 0
+            },
+            "new": {
+              "runs": 2,
+              "parsed": 2,
+              "validator_pass_count": 0,
+              "validator_pass_rate": 0.0,
+              "reference_pass_count": 0,
+              "vpr_denominator": 0,
+              "vpr": null,
+              "vpr_wilson95": null,
+              "hard_violation_count": 2,
+              "parse_failure_count": 0,
+              "unscorable_count": 0
+            }
+          },
+          "v8-full+CommonPlanHead": {
+            "old": {
+              "runs": 2,
+              "parsed": 2,
+              "validator_pass_count": 1,
+              "validator_pass_rate": 0.5,
+              "reference_pass_count": 0,
+              "vpr_denominator": 0,
+              "vpr": null,
+              "vpr_wilson95": null,
+              "hard_violation_count": 1,
+              "parse_failure_count": 0,
+              "unscorable_count": 0
+            },
+            "new": {
+              "runs": 2,
+              "parsed": 2,
+              "validator_pass_count": 1,
+              "validator_pass_rate": 0.5,
+              "reference_pass_count": 1,
+              "vpr_denominator": 0,
+              "vpr": null,
+              "vpr_wilson95": null,
+              "hard_violation_count": 1,
+              "parse_failure_count": 0,
+              "unscorable_count": 0
+            }
+          }
+        },
+        "changes": [
+          {
+            "case_id": "pilot-15",
+            "method": "DirectLLM+CommonPlanHead",
+            "old_parsed": true,
+            "new_parsed": true,
+            "old_validator": false,
+            "new_validator": false,
+            "old_reference": false,
+            "new_reference": false,
+            "explicit_generation_fields": true
+          },
+          {
+            "case_id": "pilot-15",
+            "method": "P5+CommonPlanHead",
+            "old_parsed": false,
+            "new_parsed": true,
+            "old_validator": false,
+            "new_validator": false,
+            "old_reference": false,
+            "new_reference": false,
+            "explicit_generation_fields": true
+          },
+          {
+            "case_id": "pilot-15",
+            "method": "v8-no-graph+CommonPlanHead",
+            "old_parsed": true,
+            "new_parsed": true,
+            "old_validator": false,
+            "new_validator": false,
+            "old_reference": false,
+            "new_reference": false,
+            "explicit_generation_fields": true
+          },
+          {
+            "case_id": "pilot-15",
+            "method": "v8-full+CommonPlanHead",
+            "old_parsed": true,
+            "new_parsed": true,
+            "old_validator": false,
+            "new_validator": false,
+            "old_reference": false,
+            "new_reference": false,
+            "explicit_generation_fields": true
+          },
+          {
+            "case_id": "pilot-23",
+            "method": "DirectLLM+CommonPlanHead",
+            "old_parsed": true,
+            "new_parsed": true,
+            "old_validator": true,
+            "new_validator": true,
+            "old_reference": false,
+            "new_reference": false,
+            "explicit_generation_fields": true
+          },
+          {
+            "case_id": "pilot-23",
+            "method": "P5+CommonPlanHead",
+            "old_parsed": true,
+            "new_parsed": true,
+            "old_validator": false,
+            "new_validator": false,
+            "old_reference": false,
+            "new_reference": false,
+            "explicit_generation_fields": true
+          },
+          {
+            "case_id": "pilot-23",
+            "method": "v8-no-graph+CommonPlanHead",
+            "old_parsed": true,
+            "new_parsed": true,
+            "old_validator": true,
+            "new_validator": false,
+            "old_reference": true,
+            "new_reference": false,
+            "explicit_generation_fields": true
+          },
+          {
+            "case_id": "pilot-23",
+            "method": "v8-full+CommonPlanHead",
+            "old_parsed": true,
+            "new_parsed": true,
+            "old_validator": true,
+            "new_validator": true,
+            "old_reference": false,
+            "new_reference": true,
+            "explicit_generation_fields": true
+          }
+        ],
+        "vpr": null,
+        "limitations": [
+          "failure-selected synthetic development subset",
+          "single stochastic repeat; seed unspecified",
+          "joint prompt/schema/input presentation revision; no isolated causal attribution",
+          "expert review pending; not new independent cases"
+        ]
+      }
+    }
+  },
+  "evaluator_and_engine_source_unchanged": {
+    "plan_ir.py": true,
+    "plan_translator.py": true,
+    "plan_validator.py": true,
+    "plan_metrics.py": true,
+    "action_registry.py": true,
+    "plan_source_verifier.py": true,
+    "engine.py": true,
+    "compiler.py": true,
+    "knowledge_applicability.py": true,
+    "store.py": true
+  },
+  "preservation": {
+    "legacy_source_files_checked": 55,
+    "raw_files_checked": 7,
+    "original_upgrade_documents_checked": 1,
+    "staged_patch_unchanged": true,
+    "git_head_unchanged": true
+  },
+  "expert_review": {
+    "candidate_cases": 10,
+    "paired_cases": 0,
+    "agreement_rate": null,
+    "vpr": null
+  },
+  "remaining": [
+    "unknown/missing knowledge abstention",
+    "object-scoped reference semantics",
+    "required evidence-request steps",
+    "structured generation cost and shared budget calibration",
+    "independent expert double review and adjudication",
+    "formal scale decision"
+  ],
+  "delivery_freeze": "runtime/v8-next/phase2/quality-delivery-freeze-001",
+  "evidence_sha256": {
+    "runtime/v8-next/phase2/quality-full-regression-final.log": "a5ffcd1f4b6e5ce11e398f871d81e25b3f1476b9a710352fdcfdd686df535302",
+    "runtime/v8-next/phase2/quality-lint-final.log": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+    "runtime/v8-next/phase2/quality-lint-003.log": "82ea0de4b7796919c7c5890c5745599843e9d75ef942fef25b45ecbf6ab43f8a",
+    "runtime/v8-next/phase2/quality-style-receipt.json": "9b4985ab8b960e4912b1cfb805cec66fbed544c1a3ca93a8d15c3e13bc8aebbb",
+    "runtime/v8-next/phase2/quality-model-environment-001.json": "44f91ae812b7ae84ae5737e479fadf7621d13db7f8bc6939164d56e6c6716c4c",
+    "runtime/v8-next/phase2/quality-pilot-001/protocol.json": "ab789791a7a79062c86ccea23019cfbe984f3f3805b2e6579b719a7395676a97",
+    "runtime/v8-next/phase2/quality-pilot-001/summary.json": "f25eea589f4bd54a1ebd0d7b6acec72237ef3a68dd24992728626208ac3b29c3",
+    "runtime/v8-next/phase2/quality-pilot-001/common-head.json": "a4ee8d56b901418636c7a8632cd4108e8cc212f5dab39d4d96cfee135dc03728",
+    "runtime/v8-next/phase2/quality-pilot-001/source_manifest.json": "1d40599e7d13676add5700453067ef674c6b8f4c1d5b57e0a5c389ce24bf0e37",
+    "runtime/v8-next/phase2/quality-pilot-001/sha256_manifest.json": "c09dcb1584467b0d75429157eb101b1d568b512b0368be3d8e4659c5c2af5b98",
+    "runtime/v8-next/phase2/quality-paired-audit-001.json": "79c68a67eebd5756cccac5a6c716a1b7b246542e83ca23c42216884e0ef344ef",
+    "runtime/v8-next/phase2/quality-pilot-002/protocol.json": "16b65736bb656f901cd317286ac7f74159023df44075a77b6f58711fe6d9c053",
+    "runtime/v8-next/phase2/quality-pilot-002/summary.json": "584adac204de6c4322cce0da9acb40cd5bc0e5bfa8c042952ea4597b02d9139f",
+    "runtime/v8-next/phase2/quality-pilot-002/common-head.json": "9d4939a9baad9da81a93c2cd3ec9820e4568fd7b9573e2249a500b24549f1c6a",
+    "runtime/v8-next/phase2/quality-pilot-002/source_manifest.json": "7956335800b3df6f74a60922add4f9bf88820759744dc81a8909fe44acc5362b",
+    "runtime/v8-next/phase2/quality-pilot-002/sha256_manifest.json": "b22d8272b93e51b7ff1bb8ff63797f8262200c141e52d178b5943e75f3290f39",
+    "runtime/v8-next/phase2/quality-paired-audit-002.json": "99aec91d9d18f2c1824319db2cedb07c71af6992931213bf7cdd81949a062b42",
+    "runtime/v8-next/phase2/quality-pilot-003/protocol.json": "f5e6a5ce91754d0df2f3f5f9857a43db4ada93e4d542d6bb3372caae09df930e",
+    "runtime/v8-next/phase2/quality-pilot-003/summary.json": "540ab2532701e3fe9766c739281c7224af36cd2886198c97a5af7dcc0c396dd3",
+    "runtime/v8-next/phase2/quality-pilot-003/common-head.json": "28092f6cef147f348a1c04c53fb9f15ae2583a37fbf4911213cbdb785299bbef",
+    "runtime/v8-next/phase2/quality-pilot-003/source_manifest.json": "a93fcb9cbcec984a3d907791b75919115247edcae0e5a204cca395149c296e2b",
+    "runtime/v8-next/phase2/quality-pilot-003/sha256_manifest.json": "14a2370cd8481d28958c6a0c8cd6c0053ae4649ea7281ccbd23c2ada9c679e52",
+    "runtime/v8-next/phase2/quality-paired-audit-003.json": "5a9f343ea4d13481688c63363bbc85ad8bd4437a7e61641f0e3c664b56c396af"
+  }
+}

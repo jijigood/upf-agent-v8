@@ -1,0 +1,53 @@
+{
+  "schema_version": "v8-next-phase1-delivery-1",
+  "created_at_utc": "2026-10-08T04:06:04.977949+00:00",
+  "scope": "WP00/WP01 engineering foundation; full P5 and PlanIR remain next-stage work",
+  "baseline": {
+    "path": "runtime/v8-next/phase1/baseline-20261008T033156Z",
+    "manifest_sha256": "c0a0885562a5a292b8144077429e789c84ec1e3c76fb7064577ee6bad644abcf"
+  },
+  "final_batch": "runtime/v8-next/phase1/acceptance-final-003",
+  "source_manifest_sha256": "bbd5a45ce088380eb1d4aa924c802330942b71c89f779c510adfd3f951de9a42",
+  "tests": {
+    "passed": 393,
+    "seconds": 26.82,
+    "new_tests": 22,
+    "pre_fix_regressions_failed": 7
+  },
+  "lint_passed": true,
+  "differential": {
+    "matrix": "S/M x 1/5/10 fields x 3 seeds x 10 batches",
+    "batches": 180,
+    "complete_equal": 180,
+    "stale_action_batches": 0,
+    "performance_claim": false
+  },
+  "boundaries": {
+    "cases": 30,
+    "complete_equal": 30
+  },
+  "engine_templates_completed": 4,
+  "engine_tool_dispatches": 12,
+  "model_calls": 0,
+  "real_network_writes": 0,
+  "new_heldout_consumed": false,
+  "staged_patch_preserved": true,
+  "raw_sources_preserved": true,
+  "evidence_sha256": {
+    "runtime/v8-next/phase1/full-regression-delivery.log": "eac4da9f7246879fc31f0dbd172d702c858b53d8ca4589d5390ea88caf1bb638",
+    "runtime/v8-next/phase1/pre-fix-regression.log": "2692a05b710c0eb7f2fc5cfbc5bc0ebe89fa6b7f77396d78e4ac97cc1be8cde2",
+    "runtime/v8-next/phase1/lint-final.log": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+    "runtime/v8-next/phase1/acceptance-final-003/summary.json": "6fe77ab8d0c79396b65b917e8fc15e69c6c5e0206efdde7d4eeb3fd34cacac59",
+    "runtime/v8-next/phase1/acceptance-final-003/source_manifest.json": "54b280355a457df40f40dcbbfc496824460c2957d76d5ae36a7e5247a3a91c4b",
+    "runtime/v8-next/phase1/acceptance-final-003/batches.csv": "372acdc964ce83f815562433d0eab9d54b8ff441434f01149535299351eb319b",
+    "runtime/v8-next/phase1/acceptance-final-003/boundary-cases.json": "4a055e4766a931f22ac991309158e01ee0e91603506fd850260d257c1c2ae5af",
+    "runtime/v8-next/phase1/acceptance-final-003/method_manifest.json": "ac5c9bbbe24dafccd3371e2f554886452d647eba4bf3c0a796eab92b45bda847"
+  },
+  "limitations": [
+    "synthetic=true, reviewed=false",
+    "No live full P5 comparison or PlanIR evaluation yet",
+    "No four-mode full-scale performance claim",
+    "Read audit covers current rule declarations and observed branches"
+  ],
+  "pass": true
+}

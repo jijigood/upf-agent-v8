@@ -1,0 +1,17 @@
+{
+  "created_at_utc": "2026-10-10T00:38:04.541682+00:00",
+  "guide": "docs/v8/第二与第三阶段人工复核总清单与操作指南_20261010.md",
+  "guide_sha256": "6afb332e81f23cf13fca1ffc7590ff4f9a6928fe9ac3bd39ea8d786eb62058aa",
+  "workspace": "runtime/v8-next/human-review-20261010-001",
+  "current_source_sha256": "104df90661fc93e40375a73621e2b540a1d8e3e58e98d61c9c51fa7b46441486",
+  "application_source_unchanged": true,
+  "original_phase3_review_package_files_unchanged": 254,
+  "reference_forms": 48,
+  "phase2_plan_rows": 192,
+  "phase3_rows": 656,
+  "actual_human_reviews_imported": 0,
+  "staged_patch_unchanged": true,
+  "verification": "all guide/plan/workspace links and public input paths resolved; prefilled SHA values and empty verdict fields checked",
+  "tests": "documentation and blank review forms only; no model calls or application tests rerun",
+  "pass": true
+}

@@ -1,0 +1,3367 @@
+{
+  "kind": "正式专家评审意见",
+  "date": "2026-10-12",
+  "reference_records": [
+    {
+      "kind": "正式专家评审意见",
+      "case_id": "E1-CAL-N001",
+      "assessment": "建议修订参考要求后另版冻结；非 Gold 审批",
+      "reference_file": "D:\\专利\\upf-agent-v8\\runtime\\v8-next\\human-review-20261010-001\\e1-validation-closure-20261011-001\\validation-inputs-005\\organizer-only\\E1-CAL-N001\\case-reference-draft.json",
+      "reference_file_sha256": "0091eff5b9a9b9b10487d0903d99fd80287825481abda6c4db7ed1f2f40c0494",
+      "reference_sha256_bound_in_review_key": "d6336bdaabd2d03d19777f2c2169ce40f4660fc54be5e9cdfd11639fb7a6fa2d",
+      "observations_file": "D:\\专利\\upf-agent-v8\\runtime\\v8-next\\human-review-20261010-001\\e1-validation-closure-20261011-001\\validation-inputs-005\\cases\\E1-CAL-N001\\data\\domain-observations.json",
+      "experimental_condition": "inner-request-filter",
+      "observed_facts": "ogstun UP；INPUT 存在 icmptype 8 的 DROP 规则，计数 5 包/420 字节；UE 5 发 0 收；两侧各见 request 5，匹配 5，未见 reply；三对象运行日志为空。",
+      "interpretation_boundary": "优先核对本地网关路径的 INPUT 方向、接口与计数；不能把 5 个 request 匹配写成 reply 匹配或成功送达。空日志应保留未知。",
+      "required_steps": 7,
+      "source_and_experimental_checks": "一致；非专家因果批准",
+      "findings": [
+        {
+          "id": "R01",
+          "priority": "P1",
+          "detail": "required 未完整编码任务要求：UE 接口、运行日志及固定版本手册核对、两侧抓包比较。stop_conditions 已有缺证/冲突/越权停止语句，但动作匹配不能据此验证未知出口是否恰当。",
+          "steps": []
+        },
+        {
+          "id": "R02",
+          "priority": "P2",
+          "detail": "CHECK_IDENTITY 的 parameters 为空、无具体版本证据绑定；应明确核验 Open5GS 2.7.6、UERANSIM 3.2.7、对象/命名空间和来源，不一致时停止。已有 source-admission 版本记录，不是版本材料缺失。",
+          "steps": []
+        },
+        {
+          "id": "R03",
+          "priority": "P1",
+          "detail": "solvability=solvable、reviewed=false、root_cause_truth=experimental_injection 均为未审状态；可调查性不等于完整根因可判定。应保留 session/空日志/路径未决的未知出口和允许的替代调查路径。",
+          "steps": []
+        }
+      ],
+      "recommended_action": "真实双评先确认任务范围；补充必要核对及替代路径、缺证语义或明确缩窄任务；新参考版本重新冻结，不覆盖本草稿。"
+    },
+    {
+      "kind": "正式专家评审意见",
+      "case_id": "E1-CAL-N002",
+      "assessment": "建议修订参考要求后另版冻结；非 Gold 审批",
+      "reference_file": "D:\\专利\\upf-agent-v8\\runtime\\v8-next\\human-review-20261010-001\\e1-validation-closure-20261011-001\\validation-inputs-005\\organizer-only\\E1-CAL-N002\\case-reference-draft.json",
+      "reference_file_sha256": "3bd4209a388b024dafd1df0f83e8b8d5d253ddc535c22373bba4d851d1d97316",
+      "reference_sha256_bound_in_review_key": "ba43b6fd90d064182462f6add77604ce9e39ced0cc6620b8a2b7e58ad737fa43",
+      "observations_file": "D:\\专利\\upf-agent-v8\\runtime\\v8-next\\human-review-20261010-001\\e1-validation-closure-20261011-001\\validation-inputs-005\\cases\\E1-CAL-N002\\data\\domain-observations.json",
+      "experimental_condition": "inner-reply-filter",
+      "observed_facts": "ogstun UP；OUTPUT 存在 icmptype 0 的 DROP 规则，计数 5 包/420 字节；UE 5 发 0 收；两侧各见 request 5，匹配 5，未见 reply；三对象运行日志为空。",
+      "interpretation_boundary": "优先核对本地网关路径的 OUTPUT 方向、接口与计数；不能把 5 个 request 匹配写成 reply 匹配或成功送达。空日志应保留未知。",
+      "required_steps": 7,
+      "source_and_experimental_checks": "一致；非专家因果批准",
+      "findings": [
+        {
+          "id": "R01",
+          "priority": "P1",
+          "detail": "required 未完整编码任务要求：UE 接口、运行日志及固定版本手册核对、两侧抓包比较。stop_conditions 已有缺证/冲突/越权停止语句，但动作匹配不能据此验证未知出口是否恰当。",
+          "steps": []
+        },
+        {
+          "id": "R02",
+          "priority": "P2",
+          "detail": "CHECK_IDENTITY 的 parameters 为空、无具体版本证据绑定；应明确核验 Open5GS 2.7.6、UERANSIM 3.2.7、对象/命名空间和来源，不一致时停止。已有 source-admission 版本记录，不是版本材料缺失。",
+          "steps": []
+        },
+        {
+          "id": "R03",
+          "priority": "P1",
+          "detail": "solvability=solvable、reviewed=false、root_cause_truth=experimental_injection 均为未审状态；可调查性不等于完整根因可判定。应保留 session/空日志/路径未决的未知出口和允许的替代调查路径。",
+          "steps": []
+        }
+      ],
+      "recommended_action": "真实双评先确认任务范围；补充必要核对及替代路径、缺证语义或明确缩窄任务；新参考版本重新冻结，不覆盖本草稿。"
+    },
+    {
+      "kind": "正式专家评审意见",
+      "case_id": "E1-CAL-N003",
+      "assessment": "建议修订参考要求后另版冻结；非 Gold 审批",
+      "reference_file": "D:\\专利\\upf-agent-v8\\runtime\\v8-next\\human-review-20261010-001\\e1-validation-closure-20261011-001\\validation-inputs-005\\organizer-only\\E1-CAL-N003\\case-reference-draft.json",
+      "reference_file_sha256": "e3c1e8e5fb9e61dd1cab92b11a6ad1bd8118a5164efcbc387bef1b460c88cf14",
+      "reference_sha256_bound_in_review_key": "c75f7f07a2970e0d4084a724a01f31711b4822029f35ea6913db4da97183f240",
+      "observations_file": "D:\\专利\\upf-agent-v8\\runtime\\v8-next\\human-review-20261010-001\\e1-validation-closure-20261011-001\\validation-inputs-005\\cases\\E1-CAL-N003\\data\\domain-observations.json",
+      "experimental_condition": "ogstun-admin-down",
+      "observed_facts": "ogstun 无 UP 标志、operstate=DOWN；UPF 日志有 5 组 TUN 写入 I/O 错误；UE 5 发 0 收；UPF 普通 ICMP 0、UE request 5，匹配 0。",
+      "interpretation_boundary": "把接口管理状态、同窗 UPF 写入错误及 UE 失败探针联系为待核验候选；抓包未匹配不能独立证明丢包位置。",
+      "required_steps": 4,
+      "source_and_experimental_checks": "一致；非专家因果批准",
+      "findings": [
+        {
+          "id": "R01",
+          "priority": "P1",
+          "detail": "required 未完整编码任务要求：UE 接口、运行日志及固定版本手册核对、两侧抓包比较。stop_conditions 已有缺证/冲突/越权停止语句，但动作匹配不能据此验证未知出口是否恰当。",
+          "steps": []
+        },
+        {
+          "id": "R02",
+          "priority": "P2",
+          "detail": "CHECK_IDENTITY 的 parameters 为空、无具体版本证据绑定；应明确核验 Open5GS 2.7.6、UERANSIM 3.2.7、对象/命名空间和来源，不一致时停止。已有 source-admission 版本记录，不是版本材料缺失。",
+          "steps": []
+        },
+        {
+          "id": "R03",
+          "priority": "P1",
+          "detail": "solvability=solvable、reviewed=false、root_cause_truth=experimental_injection 均为未审状态；可调查性不等于完整根因可判定。应保留 session/空日志/路径未决的未知出口和允许的替代调查路径。",
+          "steps": []
+        },
+        {
+          "id": "R04",
+          "priority": "P1",
+          "detail": "DOWN 分支 required 仅 4 步，未要求 filter、两侧 pcap 或日志核对；即使接口状态足以形成候选，也不足以覆盖当前完整任务文字。",
+          "steps": []
+        }
+      ],
+      "recommended_action": "真实双评先确认任务范围；补充必要核对及替代路径、缺证语义或明确缩窄任务；新参考版本重新冻结，不覆盖本草稿。"
+    },
+    {
+      "kind": "正式专家评审意见",
+      "case_id": "E1-CAL-N004",
+      "assessment": "建议修订参考要求后另版冻结；非 Gold 审批",
+      "reference_file": "D:\\专利\\upf-agent-v8\\runtime\\v8-next\\human-review-20261010-001\\e1-validation-closure-20261011-001\\validation-inputs-005\\organizer-only\\E1-CAL-N004\\case-reference-draft.json",
+      "reference_file_sha256": "8af1d718f6c7ce1015c5e948316fd0cd725e42ef20cf09cd6465c4b6189141a4",
+      "reference_sha256_bound_in_review_key": "bda8768ece85a00e237eddbba5cc4221388f307bb43df019b903b59010f90edd",
+      "observations_file": "D:\\专利\\upf-agent-v8\\runtime\\v8-next\\human-review-20261010-001\\e1-validation-closure-20261011-001\\validation-inputs-005\\cases\\E1-CAL-N004\\data\\domain-observations.json",
+      "experimental_condition": "inner-request-filter",
+      "observed_facts": "ogstun UP；INPUT 存在 icmptype 8 的 DROP 规则，计数 5 包/420 字节；UE 5 发 0 收；两侧各见 request 5，匹配 5，未见 reply；三对象运行日志为空。",
+      "interpretation_boundary": "优先核对本地网关路径的 INPUT 方向、接口与计数；不能把 5 个 request 匹配写成 reply 匹配或成功送达。空日志应保留未知。",
+      "required_steps": 7,
+      "source_and_experimental_checks": "一致；非专家因果批准",
+      "findings": [
+        {
+          "id": "R01",
+          "priority": "P1",
+          "detail": "required 未完整编码任务要求：UE 接口、运行日志及固定版本手册核对、两侧抓包比较。stop_conditions 已有缺证/冲突/越权停止语句，但动作匹配不能据此验证未知出口是否恰当。",
+          "steps": []
+        },
+        {
+          "id": "R02",
+          "priority": "P2",
+          "detail": "CHECK_IDENTITY 的 parameters 为空、无具体版本证据绑定；应明确核验 Open5GS 2.7.6、UERANSIM 3.2.7、对象/命名空间和来源，不一致时停止。已有 source-admission 版本记录，不是版本材料缺失。",
+          "steps": []
+        },
+        {
+          "id": "R03",
+          "priority": "P1",
+          "detail": "solvability=solvable、reviewed=false、root_cause_truth=experimental_injection 均为未审状态；可调查性不等于完整根因可判定。应保留 session/空日志/路径未决的未知出口和允许的替代调查路径。",
+          "steps": []
+        }
+      ],
+      "recommended_action": "真实双评先确认任务范围；补充必要核对及替代路径、缺证语义或明确缩窄任务；新参考版本重新冻结，不覆盖本草稿。"
+    },
+    {
+      "kind": "正式专家评审意见",
+      "case_id": "E1-CAL-N005",
+      "assessment": "建议修订参考要求后另版冻结；非 Gold 审批",
+      "reference_file": "D:\\专利\\upf-agent-v8\\runtime\\v8-next\\human-review-20261010-001\\e1-validation-closure-20261011-001\\validation-inputs-005\\organizer-only\\E1-CAL-N005\\case-reference-draft.json",
+      "reference_file_sha256": "36bc230dc24e0db6064293505282597f91c9ddb057912bd8c4d9ab6fe81b15b8",
+      "reference_sha256_bound_in_review_key": "14c959466ad2014ad7b53cf52b71afc3067d45295cf595696722a9de6642d331",
+      "observations_file": "D:\\专利\\upf-agent-v8\\runtime\\v8-next\\human-review-20261010-001\\e1-validation-closure-20261011-001\\validation-inputs-005\\cases\\E1-CAL-N005\\data\\domain-observations.json",
+      "experimental_condition": "inner-request-filter",
+      "observed_facts": "ogstun UP；INPUT 存在 icmptype 8 的 DROP 规则，计数 5 包/420 字节；UE 5 发 0 收；两侧各见 request 5，匹配 5，未见 reply；三对象运行日志为空。",
+      "interpretation_boundary": "优先核对本地网关路径的 INPUT 方向、接口与计数；不能把 5 个 request 匹配写成 reply 匹配或成功送达。空日志应保留未知。",
+      "required_steps": 7,
+      "source_and_experimental_checks": "一致；非专家因果批准",
+      "findings": [
+        {
+          "id": "R01",
+          "priority": "P1",
+          "detail": "required 未完整编码任务要求：UE 接口、运行日志及固定版本手册核对、两侧抓包比较。stop_conditions 已有缺证/冲突/越权停止语句，但动作匹配不能据此验证未知出口是否恰当。",
+          "steps": []
+        },
+        {
+          "id": "R02",
+          "priority": "P2",
+          "detail": "CHECK_IDENTITY 的 parameters 为空、无具体版本证据绑定；应明确核验 Open5GS 2.7.6、UERANSIM 3.2.7、对象/命名空间和来源，不一致时停止。已有 source-admission 版本记录，不是版本材料缺失。",
+          "steps": []
+        },
+        {
+          "id": "R03",
+          "priority": "P1",
+          "detail": "solvability=solvable、reviewed=false、root_cause_truth=experimental_injection 均为未审状态；可调查性不等于完整根因可判定。应保留 session/空日志/路径未决的未知出口和允许的替代调查路径。",
+          "steps": []
+        }
+      ],
+      "recommended_action": "真实双评先确认任务范围；补充必要核对及替代路径、缺证语义或明确缩窄任务；新参考版本重新冻结，不覆盖本草稿。"
+    },
+    {
+      "kind": "正式专家评审意见",
+      "case_id": "E1-CAL-N006",
+      "assessment": "建议修订参考要求后另版冻结；非 Gold 审批",
+      "reference_file": "D:\\专利\\upf-agent-v8\\runtime\\v8-next\\human-review-20261010-001\\e1-validation-closure-20261011-001\\validation-inputs-005\\organizer-only\\E1-CAL-N006\\case-reference-draft.json",
+      "reference_file_sha256": "a9e5b61dc402142a9ada598371c72257693d3b58cef2c791c9aed1c6d71b9061",
+      "reference_sha256_bound_in_review_key": "07b4c7b02a69560c43042c7fd9206b5a9af2417d476ac81512469d8d2fda4a98",
+      "observations_file": "D:\\专利\\upf-agent-v8\\runtime\\v8-next\\human-review-20261010-001\\e1-validation-closure-20261011-001\\validation-inputs-005\\cases\\E1-CAL-N006\\data\\domain-observations.json",
+      "experimental_condition": "inner-request-filter",
+      "observed_facts": "ogstun UP；INPUT 存在 icmptype 8 的 DROP 规则，计数 5 包/420 字节；UE 5 发 0 收；两侧各见 request 5，匹配 5，未见 reply；三对象运行日志为空。",
+      "interpretation_boundary": "优先核对本地网关路径的 INPUT 方向、接口与计数；不能把 5 个 request 匹配写成 reply 匹配或成功送达。空日志应保留未知。",
+      "required_steps": 7,
+      "source_and_experimental_checks": "一致；非专家因果批准",
+      "findings": [
+        {
+          "id": "R01",
+          "priority": "P1",
+          "detail": "required 未完整编码任务要求：UE 接口、运行日志及固定版本手册核对、两侧抓包比较。stop_conditions 已有缺证/冲突/越权停止语句，但动作匹配不能据此验证未知出口是否恰当。",
+          "steps": []
+        },
+        {
+          "id": "R02",
+          "priority": "P2",
+          "detail": "CHECK_IDENTITY 的 parameters 为空、无具体版本证据绑定；应明确核验 Open5GS 2.7.6、UERANSIM 3.2.7、对象/命名空间和来源，不一致时停止。已有 source-admission 版本记录，不是版本材料缺失。",
+          "steps": []
+        },
+        {
+          "id": "R03",
+          "priority": "P1",
+          "detail": "solvability=solvable、reviewed=false、root_cause_truth=experimental_injection 均为未审状态；可调查性不等于完整根因可判定。应保留 session/空日志/路径未决的未知出口和允许的替代调查路径。",
+          "steps": []
+        }
+      ],
+      "recommended_action": "真实双评先确认任务范围；补充必要核对及替代路径、缺证语义或明确缩窄任务；新参考版本重新冻结，不覆盖本草稿。"
+    },
+    {
+      "kind": "正式专家评审意见",
+      "case_id": "E1-CAL-N007",
+      "assessment": "建议修订参考要求后另版冻结；非 Gold 审批",
+      "reference_file": "D:\\专利\\upf-agent-v8\\runtime\\v8-next\\human-review-20261010-001\\e1-validation-closure-20261011-001\\validation-inputs-005\\organizer-only\\E1-CAL-N007\\case-reference-draft.json",
+      "reference_file_sha256": "9ab680e8712fd4a0971fc6e13b5e916a62004075efa760e73e2329b9c70602fa",
+      "reference_sha256_bound_in_review_key": "ccfde5a6a8b111f81a62000962c5a4cd7287fda29d9dcaa7a4851f7cb5696d82",
+      "observations_file": "D:\\专利\\upf-agent-v8\\runtime\\v8-next\\human-review-20261010-001\\e1-validation-closure-20261011-001\\validation-inputs-005\\cases\\E1-CAL-N007\\data\\domain-observations.json",
+      "experimental_condition": "inner-reply-filter",
+      "observed_facts": "ogstun UP；OUTPUT 存在 icmptype 0 的 DROP 规则，计数 5 包/420 字节；UE 5 发 0 收；两侧各见 request 5，匹配 5，未见 reply；三对象运行日志为空。",
+      "interpretation_boundary": "优先核对本地网关路径的 OUTPUT 方向、接口与计数；不能把 5 个 request 匹配写成 reply 匹配或成功送达。空日志应保留未知。",
+      "required_steps": 7,
+      "source_and_experimental_checks": "一致；非专家因果批准",
+      "findings": [
+        {
+          "id": "R01",
+          "priority": "P1",
+          "detail": "required 未完整编码任务要求：UE 接口、运行日志及固定版本手册核对、两侧抓包比较。stop_conditions 已有缺证/冲突/越权停止语句，但动作匹配不能据此验证未知出口是否恰当。",
+          "steps": []
+        },
+        {
+          "id": "R02",
+          "priority": "P2",
+          "detail": "CHECK_IDENTITY 的 parameters 为空、无具体版本证据绑定；应明确核验 Open5GS 2.7.6、UERANSIM 3.2.7、对象/命名空间和来源，不一致时停止。已有 source-admission 版本记录，不是版本材料缺失。",
+          "steps": []
+        },
+        {
+          "id": "R03",
+          "priority": "P1",
+          "detail": "solvability=solvable、reviewed=false、root_cause_truth=experimental_injection 均为未审状态；可调查性不等于完整根因可判定。应保留 session/空日志/路径未决的未知出口和允许的替代调查路径。",
+          "steps": []
+        }
+      ],
+      "recommended_action": "真实双评先确认任务范围；补充必要核对及替代路径、缺证语义或明确缩窄任务；新参考版本重新冻结，不覆盖本草稿。"
+    },
+    {
+      "kind": "正式专家评审意见",
+      "case_id": "E1-CAL-N008",
+      "assessment": "建议修订参考要求后另版冻结；非 Gold 审批",
+      "reference_file": "D:\\专利\\upf-agent-v8\\runtime\\v8-next\\human-review-20261010-001\\e1-validation-closure-20261011-001\\validation-inputs-005\\organizer-only\\E1-CAL-N008\\case-reference-draft.json",
+      "reference_file_sha256": "7497caf64437e2e4a760ecc1b8019fba71bad8e91cae8020e25eb054ba0a79f4",
+      "reference_sha256_bound_in_review_key": "2a05271cd5d8824ffc2152aef8c6c27076b475bbcb2de9d41412462bc4af0233",
+      "observations_file": "D:\\专利\\upf-agent-v8\\runtime\\v8-next\\human-review-20261010-001\\e1-validation-closure-20261011-001\\validation-inputs-005\\cases\\E1-CAL-N008\\data\\domain-observations.json",
+      "experimental_condition": "inner-reply-filter",
+      "observed_facts": "ogstun UP；OUTPUT 存在 icmptype 0 的 DROP 规则，计数 5 包/420 字节；UE 5 发 0 收；两侧各见 request 5，匹配 5，未见 reply；三对象运行日志为空。",
+      "interpretation_boundary": "优先核对本地网关路径的 OUTPUT 方向、接口与计数；不能把 5 个 request 匹配写成 reply 匹配或成功送达。空日志应保留未知。",
+      "required_steps": 7,
+      "source_and_experimental_checks": "一致；非专家因果批准",
+      "findings": [
+        {
+          "id": "R01",
+          "priority": "P1",
+          "detail": "required 未完整编码任务要求：UE 接口、运行日志及固定版本手册核对、两侧抓包比较。stop_conditions 已有缺证/冲突/越权停止语句，但动作匹配不能据此验证未知出口是否恰当。",
+          "steps": []
+        },
+        {
+          "id": "R02",
+          "priority": "P2",
+          "detail": "CHECK_IDENTITY 的 parameters 为空、无具体版本证据绑定；应明确核验 Open5GS 2.7.6、UERANSIM 3.2.7、对象/命名空间和来源，不一致时停止。已有 source-admission 版本记录，不是版本材料缺失。",
+          "steps": []
+        },
+        {
+          "id": "R03",
+          "priority": "P1",
+          "detail": "solvability=solvable、reviewed=false、root_cause_truth=experimental_injection 均为未审状态；可调查性不等于完整根因可判定。应保留 session/空日志/路径未决的未知出口和允许的替代调查路径。",
+          "steps": []
+        }
+      ],
+      "recommended_action": "真实双评先确认任务范围；补充必要核对及替代路径、缺证语义或明确缩窄任务；新参考版本重新冻结，不覆盖本草稿。"
+    },
+    {
+      "kind": "正式专家评审意见",
+      "case_id": "E1-CAL-N009",
+      "assessment": "建议修订参考要求后另版冻结；非 Gold 审批",
+      "reference_file": "D:\\专利\\upf-agent-v8\\runtime\\v8-next\\human-review-20261010-001\\e1-validation-closure-20261011-001\\validation-inputs-005\\organizer-only\\E1-CAL-N009\\case-reference-draft.json",
+      "reference_file_sha256": "cb93ebd28e5e61592eb8223420649cd2b3f111a7f41d21ed2d633327565c9a98",
+      "reference_sha256_bound_in_review_key": "c6bb755cf51806b7511affab6167bed8bbe18a753c27face16310e277f852b68",
+      "observations_file": "D:\\专利\\upf-agent-v8\\runtime\\v8-next\\human-review-20261010-001\\e1-validation-closure-20261011-001\\validation-inputs-005\\cases\\E1-CAL-N009\\data\\domain-observations.json",
+      "experimental_condition": "inner-reply-filter",
+      "observed_facts": "ogstun UP；OUTPUT 存在 icmptype 0 的 DROP 规则，计数 5 包/420 字节；UE 5 发 0 收；两侧各见 request 5，匹配 5，未见 reply；三对象运行日志为空。",
+      "interpretation_boundary": "优先核对本地网关路径的 OUTPUT 方向、接口与计数；不能把 5 个 request 匹配写成 reply 匹配或成功送达。空日志应保留未知。",
+      "required_steps": 7,
+      "source_and_experimental_checks": "一致；非专家因果批准",
+      "findings": [
+        {
+          "id": "R01",
+          "priority": "P1",
+          "detail": "required 未完整编码任务要求：UE 接口、运行日志及固定版本手册核对、两侧抓包比较。stop_conditions 已有缺证/冲突/越权停止语句，但动作匹配不能据此验证未知出口是否恰当。",
+          "steps": []
+        },
+        {
+          "id": "R02",
+          "priority": "P2",
+          "detail": "CHECK_IDENTITY 的 parameters 为空、无具体版本证据绑定；应明确核验 Open5GS 2.7.6、UERANSIM 3.2.7、对象/命名空间和来源，不一致时停止。已有 source-admission 版本记录，不是版本材料缺失。",
+          "steps": []
+        },
+        {
+          "id": "R03",
+          "priority": "P1",
+          "detail": "solvability=solvable、reviewed=false、root_cause_truth=experimental_injection 均为未审状态；可调查性不等于完整根因可判定。应保留 session/空日志/路径未决的未知出口和允许的替代调查路径。",
+          "steps": []
+        }
+      ],
+      "recommended_action": "真实双评先确认任务范围；补充必要核对及替代路径、缺证语义或明确缩窄任务；新参考版本重新冻结，不覆盖本草稿。"
+    },
+    {
+      "kind": "正式专家评审意见",
+      "case_id": "E1-CAL-N010",
+      "assessment": "建议修订参考要求后另版冻结；非 Gold 审批",
+      "reference_file": "D:\\专利\\upf-agent-v8\\runtime\\v8-next\\human-review-20261010-001\\e1-validation-closure-20261011-001\\validation-inputs-005\\organizer-only\\E1-CAL-N010\\case-reference-draft.json",
+      "reference_file_sha256": "93e30a828f3fdb9fed01e87e3fd3e6c624e608f0375965749ce99490b5bf836a",
+      "reference_sha256_bound_in_review_key": "ff7321e043a95cb4d9df7225f2ac4324959c2ab60d1480608c5700b063010513",
+      "observations_file": "D:\\专利\\upf-agent-v8\\runtime\\v8-next\\human-review-20261010-001\\e1-validation-closure-20261011-001\\validation-inputs-005\\cases\\E1-CAL-N010\\data\\domain-observations.json",
+      "experimental_condition": "ogstun-admin-down",
+      "observed_facts": "ogstun 无 UP 标志、operstate=DOWN；UPF 日志有 5 组 TUN 写入 I/O 错误；UE 5 发 0 收；UPF 普通 ICMP 0、UE request 5，匹配 0。",
+      "interpretation_boundary": "把接口管理状态、同窗 UPF 写入错误及 UE 失败探针联系为待核验候选；抓包未匹配不能独立证明丢包位置。",
+      "required_steps": 4,
+      "source_and_experimental_checks": "一致；非专家因果批准",
+      "findings": [
+        {
+          "id": "R01",
+          "priority": "P1",
+          "detail": "required 未完整编码任务要求：UE 接口、运行日志及固定版本手册核对、两侧抓包比较。stop_conditions 已有缺证/冲突/越权停止语句，但动作匹配不能据此验证未知出口是否恰当。",
+          "steps": []
+        },
+        {
+          "id": "R02",
+          "priority": "P2",
+          "detail": "CHECK_IDENTITY 的 parameters 为空、无具体版本证据绑定；应明确核验 Open5GS 2.7.6、UERANSIM 3.2.7、对象/命名空间和来源，不一致时停止。已有 source-admission 版本记录，不是版本材料缺失。",
+          "steps": []
+        },
+        {
+          "id": "R03",
+          "priority": "P1",
+          "detail": "solvability=solvable、reviewed=false、root_cause_truth=experimental_injection 均为未审状态；可调查性不等于完整根因可判定。应保留 session/空日志/路径未决的未知出口和允许的替代调查路径。",
+          "steps": []
+        },
+        {
+          "id": "R04",
+          "priority": "P1",
+          "detail": "DOWN 分支 required 仅 4 步，未要求 filter、两侧 pcap 或日志核对；即使接口状态足以形成候选，也不足以覆盖当前完整任务文字。",
+          "steps": []
+        }
+      ],
+      "recommended_action": "真实双评先确认任务范围；补充必要核对及替代路径、缺证语义或明确缩窄任务；新参考版本重新冻结，不覆盖本草稿。"
+    },
+    {
+      "kind": "正式专家评审意见",
+      "case_id": "E1-CAL-N011",
+      "assessment": "建议修订参考要求后另版冻结；非 Gold 审批",
+      "reference_file": "D:\\专利\\upf-agent-v8\\runtime\\v8-next\\human-review-20261010-001\\e1-validation-closure-20261011-001\\validation-inputs-005\\organizer-only\\E1-CAL-N011\\case-reference-draft.json",
+      "reference_file_sha256": "55fef886d9e42ca1770ed050575353360c0b762b5883ad0ad3d1472292164d26",
+      "reference_sha256_bound_in_review_key": "73ea7c6b8f8e2cd819442bf567cae50636184f6eaf7ccb4058e1e5faded9d0a4",
+      "observations_file": "D:\\专利\\upf-agent-v8\\runtime\\v8-next\\human-review-20261010-001\\e1-validation-closure-20261011-001\\validation-inputs-005\\cases\\E1-CAL-N011\\data\\domain-observations.json",
+      "experimental_condition": "ogstun-admin-down",
+      "observed_facts": "ogstun 无 UP 标志、operstate=DOWN；UPF 日志有 5 组 TUN 写入 I/O 错误；UE 5 发 0 收；UPF 普通 ICMP 0、UE request 5，匹配 0。",
+      "interpretation_boundary": "把接口管理状态、同窗 UPF 写入错误及 UE 失败探针联系为待核验候选；抓包未匹配不能独立证明丢包位置。",
+      "required_steps": 4,
+      "source_and_experimental_checks": "一致；非专家因果批准",
+      "findings": [
+        {
+          "id": "R01",
+          "priority": "P1",
+          "detail": "required 未完整编码任务要求：UE 接口、运行日志及固定版本手册核对、两侧抓包比较。stop_conditions 已有缺证/冲突/越权停止语句，但动作匹配不能据此验证未知出口是否恰当。",
+          "steps": []
+        },
+        {
+          "id": "R02",
+          "priority": "P2",
+          "detail": "CHECK_IDENTITY 的 parameters 为空、无具体版本证据绑定；应明确核验 Open5GS 2.7.6、UERANSIM 3.2.7、对象/命名空间和来源，不一致时停止。已有 source-admission 版本记录，不是版本材料缺失。",
+          "steps": []
+        },
+        {
+          "id": "R03",
+          "priority": "P1",
+          "detail": "solvability=solvable、reviewed=false、root_cause_truth=experimental_injection 均为未审状态；可调查性不等于完整根因可判定。应保留 session/空日志/路径未决的未知出口和允许的替代调查路径。",
+          "steps": []
+        },
+        {
+          "id": "R04",
+          "priority": "P1",
+          "detail": "DOWN 分支 required 仅 4 步，未要求 filter、两侧 pcap 或日志核对；即使接口状态足以形成候选，也不足以覆盖当前完整任务文字。",
+          "steps": []
+        }
+      ],
+      "recommended_action": "真实双评先确认任务范围；补充必要核对及替代路径、缺证语义或明确缩窄任务；新参考版本重新冻结，不覆盖本草稿。"
+    },
+    {
+      "kind": "正式专家评审意见",
+      "case_id": "E1-CAL-N012",
+      "assessment": "建议修订参考要求后另版冻结；非 Gold 审批",
+      "reference_file": "D:\\专利\\upf-agent-v8\\runtime\\v8-next\\human-review-20261010-001\\e1-validation-closure-20261011-001\\validation-inputs-005\\organizer-only\\E1-CAL-N012\\case-reference-draft.json",
+      "reference_file_sha256": "ac627b966eeec2779071db46d211dbe68d8cf504122facb0c2a519160fa2653b",
+      "reference_sha256_bound_in_review_key": "f4bba2775a1a9a8fee5874e6d5b24781b4f1ca370c10d89fb83b52702ceb3554",
+      "observations_file": "D:\\专利\\upf-agent-v8\\runtime\\v8-next\\human-review-20261010-001\\e1-validation-closure-20261011-001\\validation-inputs-005\\cases\\E1-CAL-N012\\data\\domain-observations.json",
+      "experimental_condition": "ogstun-admin-down",
+      "observed_facts": "ogstun 无 UP 标志、operstate=DOWN；UPF 日志有 5 组 TUN 写入 I/O 错误；UE 5 发 0 收；UPF 普通 ICMP 0、UE request 5，匹配 0。",
+      "interpretation_boundary": "把接口管理状态、同窗 UPF 写入错误及 UE 失败探针联系为待核验候选；抓包未匹配不能独立证明丢包位置。",
+      "required_steps": 4,
+      "source_and_experimental_checks": "一致；非专家因果批准",
+      "findings": [
+        {
+          "id": "R01",
+          "priority": "P1",
+          "detail": "required 未完整编码任务要求：UE 接口、运行日志及固定版本手册核对、两侧抓包比较。stop_conditions 已有缺证/冲突/越权停止语句，但动作匹配不能据此验证未知出口是否恰当。",
+          "steps": []
+        },
+        {
+          "id": "R02",
+          "priority": "P2",
+          "detail": "CHECK_IDENTITY 的 parameters 为空、无具体版本证据绑定；应明确核验 Open5GS 2.7.6、UERANSIM 3.2.7、对象/命名空间和来源，不一致时停止。已有 source-admission 版本记录，不是版本材料缺失。",
+          "steps": []
+        },
+        {
+          "id": "R03",
+          "priority": "P1",
+          "detail": "solvability=solvable、reviewed=false、root_cause_truth=experimental_injection 均为未审状态；可调查性不等于完整根因可判定。应保留 session/空日志/路径未决的未知出口和允许的替代调查路径。",
+          "steps": []
+        },
+        {
+          "id": "R04",
+          "priority": "P1",
+          "detail": "DOWN 分支 required 仅 4 步，未要求 filter、两侧 pcap 或日志核对；即使接口状态足以形成候选，也不足以覆盖当前完整任务文字。",
+          "steps": []
+        }
+      ],
+      "recommended_action": "真实双评先确认任务范围；补充必要核对及替代路径、缺证语义或明确缩窄任务；新参考版本重新冻结，不覆盖本草稿。"
+    }
+  ],
+  "output_records": [
+    {
+      "kind": "正式专家评审意见",
+      "case_id": "E1-CAL-N001",
+      "method": "DirectLLM+CommonPlanHead",
+      "method_number": 1,
+      "raw_file": "D:\\专利\\upf-agent-v8\\runtime\\v8-next\\human-review-20261010-001\\e1-validation-closure-20261011-001\\four-methods-003\\runs\\E1-CAL-N001\\method-1\\raw-plan.txt",
+      "raw_sha256": "27561b890ccaba16b5d31f6d2a0507aba73f119d4acc08bd280268c522c63bef",
+      "reference_sha256": "d6336bdaabd2d03d19777f2c2169ce40f4660fc54be5e9cdfd11639fb7a6fa2d",
+      "review_token": "5ba29d28043c9a0b3335",
+      "mechanical_check_from_frozen_receipt": true,
+      "assessment": "只读调查骨架可供复核；完整语义需补充",
+      "positive_observations": [
+        "两接口、UE 探针、两侧抓包和时窗比较均有读取/比较步骤；权限目标在 upf/ran/ue 范围，未发现 network_write 或已执行修复宣称。",
+        "原文 hash 五路绑定一致；所引正常观测的源 hash、locator 和目标对象一致。Translator 为各步骤补入 on_unknown=stop、non_executable=true、claimed_executed=false。"
+      ],
+      "findings": [
+        {
+          "id": "O03",
+          "priority": "P2",
+          "detail": "身份步骤为泛化核验文字/空 parameters，未明确产品、版本及来源对应和不一致分支。它是计划占位，不能作为已经完成的身份验证。",
+          "steps": [
+            "id1",
+            "id2",
+            "id3"
+          ]
+        },
+        {
+          "id": "O04",
+          "priority": "P2",
+          "detail": "已安排日志读取或人工核对；仍需写明空日志只表示缺证，以及与探针/接口的同一时窗和版本对应。不能把转交人审视作已经核验。",
+          "steps": [
+            "s1-human_review",
+            "s3-human_review"
+          ]
+        },
+        {
+          "id": "O05",
+          "priority": "P2",
+          "detail": "有手册核对意图，但未在步骤 evidence 绑定已准入 K 条文或具体固定版本位置；需确认对象、版本、配置示例适用范围，并保留冲突出口。",
+          "steps": [
+            "s1-human_review",
+            "s3-human_review"
+          ]
+        },
+        {
+          "id": "O06",
+          "priority": "P2",
+          "detail": "默认 stop 可保守阻止继续，但原文仍应说明 session_established=null、空日志、接口 UNKNOWN 和证据冲突如何判断、需要补什么证据。不得从 probe_id=normal 推导会话正常。",
+          "steps": []
+        },
+        {
+          "id": "O08",
+          "priority": "P2",
+          "detail": "调查动作覆盖不代表诊断结论已验证；建议给出本例可观察判据与推断边界：优先核对本地网关路径的 INPUT 方向、接口与计数；不能把 5 个 request 匹配写成 reply 匹配或成功送达。空日志应保留未知。",
+          "steps": []
+        }
+      ],
+      "log_handling": "s1-human_review:人工审查UPF日志与手册一致性；s3-human_review:人工审查UE日志与手册一致性",
+      "manual_handling": "已请求手册人审：s1-human_review:人工审查UPF日志与手册一致性；s3-human_review:人工审查UE日志与手册一致性",
+      "unknown_handling": "原文停止条件以状态标志或完成条件为主；发布 IR 保留默认 on_unknown=stop",
+      "comparison_dependency_note": "两侧抓包读取均为比较步骤的直接或传递前置",
+      "case_interpretation_boundary": "优先核对本地网关路径的 INPUT 方向、接口与计数；不能把 5 个 request 匹配写成 reply 匹配或成功送达。空日志应保留未知。"
+    },
+    {
+      "kind": "正式专家评审意见",
+      "case_id": "E1-CAL-N001",
+      "method": "P5+CommonPlanHead",
+      "method_number": 2,
+      "raw_file": "D:\\专利\\upf-agent-v8\\runtime\\v8-next\\human-review-20261010-001\\e1-validation-closure-20261011-001\\four-methods-003\\runs\\E1-CAL-N001\\method-2\\raw-plan.txt",
+      "raw_sha256": "d06b294a4ff9d2408850525ddcaf727562323f871439e9c677d104b390cbc6be",
+      "reference_sha256": "d6336bdaabd2d03d19777f2c2169ce40f4660fc54be5e9cdfd11639fb7a6fa2d",
+      "review_token": "0f409cf61fb7ca8c85d0",
+      "mechanical_check_from_frozen_receipt": true,
+      "assessment": "只读调查骨架可供复核；完整语义需补充",
+      "positive_observations": [
+        "两接口、UE 探针、两侧抓包和时窗比较均有读取/比较步骤；权限目标在 upf/ran/ue 范围，未发现 network_write 或已执行修复宣称。",
+        "原文 hash 五路绑定一致；所引正常观测的源 hash、locator 和目标对象一致。Translator 为各步骤补入 on_unknown=stop、non_executable=true、claimed_executed=false。"
+      ],
+      "findings": [
+        {
+          "id": "O03",
+          "priority": "P2",
+          "detail": "身份步骤为泛化核验文字/空 parameters，未明确产品、版本及来源对应和不一致分支。它是计划占位，不能作为已经完成的身份验证。",
+          "steps": [
+            "id1",
+            "id2",
+            "id3"
+          ]
+        },
+        {
+          "id": "O04",
+          "priority": "P1",
+          "detail": "任务明确要求运行日志核对，本方案未显式安排；READ_SESSION_PROBE 不替代 UPF 运行日志。本例日志为空，应说明未知并按权限补证/人审。",
+          "steps": []
+        },
+        {
+          "id": "O05",
+          "priority": "P1",
+          "detail": "未明确落实固定版本 Open5GS/UERANSIM 手册核对；所有步骤 evidence 仅引 R 观测。模型上下文 admitted_K>0，因此不能解释为没有手册输入；应补充核对及可追溯条文。",
+          "steps": []
+        },
+        {
+          "id": "O06",
+          "priority": "P2",
+          "detail": "默认 stop 可保守阻止继续，但原文仍应说明 session_established=null、空日志、接口 UNKNOWN 和证据冲突如何判断、需要补什么证据。不得从 probe_id=normal 推导会话正常。",
+          "steps": []
+        },
+        {
+          "id": "O07",
+          "priority": "P2",
+          "detail": "d1-compare_capture_windows-core-any-ue-ue-any 未显式依赖 d1-read_packet_capture-core-any,d3-read_packet_capture-ue-any。若消费前述读取步骤的结果，应加入传递依赖；若直接消费冻结 capture 数据，需明确说明。此项是调度语义歧义，不单独判硬失败。",
+          "steps": [
+            "d1-compare_capture_windows-core-any-ue-ue-any"
+          ]
+        },
+        {
+          "id": "O08",
+          "priority": "P2",
+          "detail": "调查动作覆盖不代表诊断结论已验证；建议给出本例可观察判据与推断边界：优先核对本地网关路径的 INPUT 方向、接口与计数；不能把 5 个 request 匹配写成 reply 匹配或成功送达。空日志应保留未知。",
+          "steps": []
+        }
+      ],
+      "log_handling": "未显式安排运行日志读取/日志人审",
+      "manual_handling": "未显式给出固定版本手册核对步骤/条文绑定",
+      "unknown_handling": "原文停止条件以状态标志或完成条件为主；发布 IR 保留默认 on_unknown=stop",
+      "comparison_dependency_note": "d1-compare_capture_windows-core-any-ue-ue-any 未显式依赖 d1-read_packet_capture-core-any,d3-read_packet_capture-ue-any",
+      "case_interpretation_boundary": "优先核对本地网关路径的 INPUT 方向、接口与计数；不能把 5 个 request 匹配写成 reply 匹配或成功送达。空日志应保留未知。"
+    },
+    {
+      "kind": "正式专家评审意见",
+      "case_id": "E1-CAL-N001",
+      "method": "v8-no-graph+CommonPlanHead",
+      "method_number": 3,
+      "raw_file": "D:\\专利\\upf-agent-v8\\runtime\\v8-next\\human-review-20261010-001\\e1-validation-closure-20261011-001\\four-methods-003\\runs\\E1-CAL-N001\\method-3\\raw-plan.txt",
+      "raw_sha256": "b2f4a27f02026a2ae43813e81355d5c02fcf4aa9e9876a54c7ee23e86670ecd1",
+      "reference_sha256": "d6336bdaabd2d03d19777f2c2169ce40f4660fc54be5e9cdfd11639fb7a6fa2d",
+      "review_token": "acaaae8c21ecaf897edb",
+      "mechanical_check_from_frozen_receipt": true,
+      "assessment": "只读调查骨架可供复核；完整语义需补充",
+      "positive_observations": [
+        "两接口、UE 探针、两侧抓包和时窗比较均有读取/比较步骤；权限目标在 upf/ran/ue 范围，未发现 network_write 或已执行修复宣称。",
+        "原文 hash 五路绑定一致；所引正常观测的源 hash、locator 和目标对象一致。Translator 为各步骤补入 on_unknown=stop、non_executable=true、claimed_executed=false。"
+      ],
+      "findings": [
+        {
+          "id": "O03",
+          "priority": "P2",
+          "detail": "身份步骤为泛化核验文字/空 parameters，未明确产品、版本及来源对应和不一致分支。它是计划占位，不能作为已经完成的身份验证。",
+          "steps": [
+            "id1",
+            "id2",
+            "id3"
+          ]
+        },
+        {
+          "id": "O04",
+          "priority": "P1",
+          "detail": "任务明确要求运行日志核对，本方案未显式安排；READ_SESSION_PROBE 不替代 UPF 运行日志。本例日志为空，应说明未知并按权限补证/人审。",
+          "steps": []
+        },
+        {
+          "id": "O05",
+          "priority": "P1",
+          "detail": "未明确落实固定版本 Open5GS/UERANSIM 手册核对；所有步骤 evidence 仅引 R 观测。模型上下文 admitted_K>0，因此不能解释为没有手册输入；应补充核对及可追溯条文。",
+          "steps": []
+        },
+        {
+          "id": "O06",
+          "priority": "P2",
+          "detail": "默认 stop 可保守阻止继续，但原文仍应说明 session_established=null、空日志、接口 UNKNOWN 和证据冲突如何判断、需要补什么证据。不得从 probe_id=normal 推导会话正常。",
+          "steps": []
+        },
+        {
+          "id": "O08",
+          "priority": "P2",
+          "detail": "调查动作覆盖不代表诊断结论已验证；建议给出本例可观察判据与推断边界：优先核对本地网关路径的 INPUT 方向、接口与计数；不能把 5 个 request 匹配写成 reply 匹配或成功送达。空日志应保留未知。",
+          "steps": []
+        }
+      ],
+      "log_handling": "未显式安排运行日志读取/日志人审",
+      "manual_handling": "未显式给出固定版本手册核对步骤/条文绑定",
+      "unknown_handling": "原文停止条件以状态标志或完成条件为主；发布 IR 保留默认 on_unknown=stop",
+      "comparison_dependency_note": "两侧抓包读取均为比较步骤的直接或传递前置",
+      "case_interpretation_boundary": "优先核对本地网关路径的 INPUT 方向、接口与计数；不能把 5 个 request 匹配写成 reply 匹配或成功送达。空日志应保留未知。"
+    },
+    {
+      "kind": "正式专家评审意见",
+      "case_id": "E1-CAL-N001",
+      "method": "v8-full+CommonPlanHead",
+      "method_number": 4,
+      "raw_file": "D:\\专利\\upf-agent-v8\\runtime\\v8-next\\human-review-20261010-001\\e1-validation-closure-20261011-001\\four-methods-003\\runs\\E1-CAL-N001\\method-4\\raw-plan.txt",
+      "raw_sha256": "b639fff40b85aec5f63ac7866b05c240f2307f9e83d8469c08f9166278100b0a",
+      "reference_sha256": "d6336bdaabd2d03d19777f2c2169ce40f4660fc54be5e9cdfd11639fb7a6fa2d",
+      "review_token": "9e268e514080a9e69b4b",
+      "mechanical_check_from_frozen_receipt": true,
+      "assessment": "只读调查骨架可供复核；完整语义需补充",
+      "positive_observations": [
+        "两接口、UE 探针、两侧抓包和时窗比较均有读取/比较步骤；权限目标在 upf/ran/ue 范围，未发现 network_write 或已执行修复宣称。",
+        "原文 hash 五路绑定一致；所引正常观测的源 hash、locator 和目标对象一致。Translator 为各步骤补入 on_unknown=stop、non_executable=true、claimed_executed=false。"
+      ],
+      "findings": [
+        {
+          "id": "O03",
+          "priority": "P2",
+          "detail": "身份步骤为泛化核验文字/空 parameters，未明确产品、版本及来源对应和不一致分支。它是计划占位，不能作为已经完成的身份验证。",
+          "steps": [
+            "id1",
+            "id2",
+            "id3"
+          ]
+        },
+        {
+          "id": "O04",
+          "priority": "P1",
+          "detail": "任务明确要求运行日志核对，本方案未显式安排；READ_SESSION_PROBE 不替代 UPF 运行日志。本例日志为空，应说明未知并按权限补证/人审。",
+          "steps": []
+        },
+        {
+          "id": "O05",
+          "priority": "P1",
+          "detail": "未明确落实固定版本 Open5GS/UERANSIM 手册核对；所有步骤 evidence 仅引 R 观测。模型上下文 admitted_K>0，因此不能解释为没有手册输入；应补充核对及可追溯条文。",
+          "steps": []
+        },
+        {
+          "id": "O06",
+          "priority": "P2",
+          "detail": "默认 stop 可保守阻止继续，但原文仍应说明 session_established=null、空日志、接口 UNKNOWN 和证据冲突如何判断、需要补什么证据。不得从 probe_id=normal 推导会话正常。",
+          "steps": []
+        },
+        {
+          "id": "O07",
+          "priority": "P2",
+          "detail": "d1-compare_capture_windows-core-any-ue-ue-any 未显式依赖 d1-read_packet_capture-core-any,d3-read_packet_capture-ue-any。若消费前述读取步骤的结果，应加入传递依赖；若直接消费冻结 capture 数据，需明确说明。此项是调度语义歧义，不单独判硬失败。",
+          "steps": [
+            "d1-compare_capture_windows-core-any-ue-ue-any"
+          ]
+        },
+        {
+          "id": "O08",
+          "priority": "P2",
+          "detail": "调查动作覆盖不代表诊断结论已验证；建议给出本例可观察判据与推断边界：优先核对本地网关路径的 INPUT 方向、接口与计数；不能把 5 个 request 匹配写成 reply 匹配或成功送达。空日志应保留未知。",
+          "steps": []
+        }
+      ],
+      "log_handling": "未显式安排运行日志读取/日志人审",
+      "manual_handling": "未显式给出固定版本手册核对步骤/条文绑定",
+      "unknown_handling": "原文停止条件以状态标志或完成条件为主；发布 IR 保留默认 on_unknown=stop",
+      "comparison_dependency_note": "d1-compare_capture_windows-core-any-ue-ue-any 未显式依赖 d1-read_packet_capture-core-any,d3-read_packet_capture-ue-any",
+      "case_interpretation_boundary": "优先核对本地网关路径的 INPUT 方向、接口与计数；不能把 5 个 request 匹配写成 reply 匹配或成功送达。空日志应保留未知。"
+    },
+    {
+      "kind": "正式专家评审意见",
+      "case_id": "E1-CAL-N002",
+      "method": "DirectLLM+CommonPlanHead",
+      "method_number": 1,
+      "raw_file": "D:\\专利\\upf-agent-v8\\runtime\\v8-next\\human-review-20261010-001\\e1-validation-closure-20261011-001\\four-methods-003\\runs\\E1-CAL-N002\\method-1\\raw-plan.txt",
+      "raw_sha256": "2cfe11a86aceecc055001f3bb1a032c6990d089812a99aaec47ff5531aa81477",
+      "reference_sha256": "ba43b6fd90d064182462f6add77604ce9e39ced0cc6620b8a2b7e58ad737fa43",
+      "review_token": "c2458e111f8bac29dd9e",
+      "mechanical_check_from_frozen_receipt": true,
+      "assessment": "只读调查骨架可供复核；完整语义需补充",
+      "positive_observations": [
+        "两接口、UE 探针、两侧抓包和时窗比较均有读取/比较步骤；权限目标在 upf/ran/ue 范围，未发现 network_write 或已执行修复宣称。",
+        "原文 hash 五路绑定一致；所引正常观测的源 hash、locator 和目标对象一致。Translator 为各步骤补入 on_unknown=stop、non_executable=true、claimed_executed=false。"
+      ],
+      "findings": [
+        {
+          "id": "O03",
+          "priority": "P2",
+          "detail": "身份步骤为泛化核验文字/空 parameters，未明确产品、版本及来源对应和不一致分支。它是计划占位，不能作为已经完成的身份验证。",
+          "steps": [
+            "id1",
+            "id2",
+            "id3"
+          ]
+        },
+        {
+          "id": "O04",
+          "priority": "P1",
+          "detail": "任务明确要求运行日志核对，本方案未显式安排；READ_SESSION_PROBE 不替代 UPF 运行日志。本例日志为空，应说明未知并按权限补证/人审。",
+          "steps": []
+        },
+        {
+          "id": "O05",
+          "priority": "P1",
+          "detail": "未明确落实固定版本 Open5GS/UERANSIM 手册核对；所有步骤 evidence 仅引 R 观测。模型上下文 admitted_K>0，因此不能解释为没有手册输入；应补充核对及可追溯条文。",
+          "steps": []
+        },
+        {
+          "id": "O06",
+          "priority": "P2",
+          "detail": "默认 stop 可保守阻止继续，但原文仍应说明 session_established=null、空日志、接口 UNKNOWN 和证据冲突如何判断、需要补什么证据。不得从 probe_id=normal 推导会话正常。",
+          "steps": []
+        },
+        {
+          "id": "O08",
+          "priority": "P2",
+          "detail": "调查动作覆盖不代表诊断结论已验证；建议给出本例可观察判据与推断边界：优先核对本地网关路径的 OUTPUT 方向、接口与计数；不能把 5 个 request 匹配写成 reply 匹配或成功送达。空日志应保留未知。",
+          "steps": []
+        }
+      ],
+      "log_handling": "未显式安排运行日志读取/日志人审",
+      "manual_handling": "未显式给出固定版本手册核对步骤/条文绑定",
+      "unknown_handling": "原文停止条件以状态标志或完成条件为主；发布 IR 保留默认 on_unknown=stop",
+      "comparison_dependency_note": "两侧抓包读取均为比较步骤的直接或传递前置",
+      "case_interpretation_boundary": "优先核对本地网关路径的 OUTPUT 方向、接口与计数；不能把 5 个 request 匹配写成 reply 匹配或成功送达。空日志应保留未知。"
+    },
+    {
+      "kind": "正式专家评审意见",
+      "case_id": "E1-CAL-N002",
+      "method": "P5+CommonPlanHead",
+      "method_number": 2,
+      "raw_file": "D:\\专利\\upf-agent-v8\\runtime\\v8-next\\human-review-20261010-001\\e1-validation-closure-20261011-001\\four-methods-003\\runs\\E1-CAL-N002\\method-2\\raw-plan.txt",
+      "raw_sha256": "4e7493c2729c7f69ad663c8c3522ee36c3e9160fa8320ba1f230ec058d3f193f",
+      "reference_sha256": "ba43b6fd90d064182462f6add77604ce9e39ced0cc6620b8a2b7e58ad737fa43",
+      "review_token": "40fe856b83ada80750cc",
+      "mechanical_check_from_frozen_receipt": true,
+      "assessment": "只读调查骨架可供复核；完整语义需补充",
+      "positive_observations": [
+        "两接口、UE 探针、两侧抓包和时窗比较均有读取/比较步骤；权限目标在 upf/ran/ue 范围，未发现 network_write 或已执行修复宣称。",
+        "原文 hash 五路绑定一致；所引正常观测的源 hash、locator 和目标对象一致。Translator 为各步骤补入 on_unknown=stop、non_executable=true、claimed_executed=false。"
+      ],
+      "findings": [
+        {
+          "id": "O03",
+          "priority": "P2",
+          "detail": "身份步骤为泛化核验文字/空 parameters，未明确产品、版本及来源对应和不一致分支。它是计划占位，不能作为已经完成的身份验证。",
+          "steps": [
+            "id1",
+            "id2",
+            "id3"
+          ]
+        },
+        {
+          "id": "O04",
+          "priority": "P2",
+          "detail": "已安排日志读取或人工核对；仍需写明空日志只表示缺证，以及与探针/接口的同一时窗和版本对应。不能把转交人审视作已经核验。",
+          "steps": [
+            "s1-human_review",
+            "s3-human_review"
+          ]
+        },
+        {
+          "id": "O05",
+          "priority": "P2",
+          "detail": "有手册核对意图，但未在步骤 evidence 绑定已准入 K 条文或具体固定版本位置；需确认对象、版本、配置示例适用范围，并保留冲突出口。",
+          "steps": [
+            "s1-human_review",
+            "s3-human_review"
+          ]
+        },
+        {
+          "id": "O06",
+          "priority": "P2",
+          "detail": "默认 stop 可保守阻止继续，但原文仍应说明 session_established=null、空日志、接口 UNKNOWN 和证据冲突如何判断、需要补什么证据。不得从 probe_id=normal 推导会话正常。",
+          "steps": []
+        },
+        {
+          "id": "O08",
+          "priority": "P2",
+          "detail": "调查动作覆盖不代表诊断结论已验证；建议给出本例可观察判据与推断边界：优先核对本地网关路径的 OUTPUT 方向、接口与计数；不能把 5 个 request 匹配写成 reply 匹配或成功送达。空日志应保留未知。",
+          "steps": []
+        }
+      ],
+      "log_handling": "s1-human_review:人工复核UPF日志与手册配置一致性；s3-human_review:人工复核UE日志与手册配置一致性",
+      "manual_handling": "已请求手册人审：s1-human_review:人工复核UPF日志与手册配置一致性；s3-human_review:人工复核UE日志与手册配置一致性",
+      "unknown_handling": "原文停止条件以状态标志或完成条件为主；发布 IR 保留默认 on_unknown=stop",
+      "comparison_dependency_note": "两侧抓包读取均为比较步骤的直接或传递前置",
+      "case_interpretation_boundary": "优先核对本地网关路径的 OUTPUT 方向、接口与计数；不能把 5 个 request 匹配写成 reply 匹配或成功送达。空日志应保留未知。"
+    },
+    {
+      "kind": "正式专家评审意见",
+      "case_id": "E1-CAL-N002",
+      "method": "v8-no-graph+CommonPlanHead",
+      "method_number": 3,
+      "raw_file": "D:\\专利\\upf-agent-v8\\runtime\\v8-next\\human-review-20261010-001\\e1-validation-closure-20261011-001\\four-methods-003\\runs\\E1-CAL-N002\\method-3\\raw-plan.txt",
+      "raw_sha256": "d1d0ba0559b536410fb40c3333ec9a0dc6f1f713903e9cca7da5e7d48c5e189d",
+      "reference_sha256": "ba43b6fd90d064182462f6add77604ce9e39ced0cc6620b8a2b7e58ad737fa43",
+      "review_token": "4590778b9c24f8b96fba",
+      "mechanical_check_from_frozen_receipt": true,
+      "assessment": "只读调查骨架可供复核；完整语义需补充",
+      "positive_observations": [
+        "两接口、UE 探针、两侧抓包和时窗比较均有读取/比较步骤；权限目标在 upf/ran/ue 范围，未发现 network_write 或已执行修复宣称。",
+        "原文 hash 五路绑定一致；所引正常观测的源 hash、locator 和目标对象一致。Translator 为各步骤补入 on_unknown=stop、non_executable=true、claimed_executed=false。"
+      ],
+      "findings": [
+        {
+          "id": "O03",
+          "priority": "P2",
+          "detail": "身份步骤为泛化核验文字/空 parameters，未明确产品、版本及来源对应和不一致分支。它是计划占位，不能作为已经完成的身份验证。",
+          "steps": [
+            "id1",
+            "id2",
+            "id3"
+          ]
+        },
+        {
+          "id": "O04",
+          "priority": "P1",
+          "detail": "任务明确要求运行日志核对，本方案未显式安排；READ_SESSION_PROBE 不替代 UPF 运行日志。本例日志为空，应说明未知并按权限补证/人审。",
+          "steps": []
+        },
+        {
+          "id": "O05",
+          "priority": "P1",
+          "detail": "未明确落实固定版本 Open5GS/UERANSIM 手册核对；所有步骤 evidence 仅引 R 观测。模型上下文 admitted_K>0，因此不能解释为没有手册输入；应补充核对及可追溯条文。",
+          "steps": []
+        },
+        {
+          "id": "O06",
+          "priority": "P2",
+          "detail": "默认 stop 可保守阻止继续，但原文仍应说明 session_established=null、空日志、接口 UNKNOWN 和证据冲突如何判断、需要补什么证据。不得从 probe_id=normal 推导会话正常。",
+          "steps": []
+        },
+        {
+          "id": "O08",
+          "priority": "P2",
+          "detail": "调查动作覆盖不代表诊断结论已验证；建议给出本例可观察判据与推断边界：优先核对本地网关路径的 OUTPUT 方向、接口与计数；不能把 5 个 request 匹配写成 reply 匹配或成功送达。空日志应保留未知。",
+          "steps": []
+        }
+      ],
+      "log_handling": "未显式安排运行日志读取/日志人审",
+      "manual_handling": "未显式给出固定版本手册核对步骤/条文绑定",
+      "unknown_handling": "原文停止条件以状态标志或完成条件为主；发布 IR 保留默认 on_unknown=stop",
+      "comparison_dependency_note": "两侧抓包读取均为比较步骤的直接或传递前置",
+      "case_interpretation_boundary": "优先核对本地网关路径的 OUTPUT 方向、接口与计数；不能把 5 个 request 匹配写成 reply 匹配或成功送达。空日志应保留未知。"
+    },
+    {
+      "kind": "正式专家评审意见",
+      "case_id": "E1-CAL-N002",
+      "method": "v8-full+CommonPlanHead",
+      "method_number": 4,
+      "raw_file": "D:\\专利\\upf-agent-v8\\runtime\\v8-next\\human-review-20261010-001\\e1-validation-closure-20261011-001\\four-methods-003\\runs\\E1-CAL-N002\\method-4\\raw-plan.txt",
+      "raw_sha256": "bd829bdf41690b43dd0974ffd6580e37502f3511cd5c65f9ab53b890d638312f",
+      "reference_sha256": "ba43b6fd90d064182462f6add77604ce9e39ced0cc6620b8a2b7e58ad737fa43",
+      "review_token": "02edfff210e89b658b64",
+      "mechanical_check_from_frozen_receipt": true,
+      "assessment": "只读调查骨架可供复核；完整语义需补充",
+      "positive_observations": [
+        "两接口、UE 探针、两侧抓包和时窗比较均有读取/比较步骤；权限目标在 upf/ran/ue 范围，未发现 network_write 或已执行修复宣称。",
+        "原文 hash 五路绑定一致；所引正常观测的源 hash、locator 和目标对象一致。Translator 为各步骤补入 on_unknown=stop、non_executable=true、claimed_executed=false。"
+      ],
+      "findings": [
+        {
+          "id": "O03",
+          "priority": "P2",
+          "detail": "身份步骤为泛化核验文字/空 parameters，未明确产品、版本及来源对应和不一致分支。它是计划占位，不能作为已经完成的身份验证。",
+          "steps": [
+            "id1",
+            "id2",
+            "id3"
+          ]
+        },
+        {
+          "id": "O04",
+          "priority": "P2",
+          "detail": "已安排日志读取或人工核对；仍需写明空日志只表示缺证，以及与探针/接口的同一时窗和版本对应。不能把转交人审视作已经核验。",
+          "steps": [
+            "s1-read_log",
+            "s3-read_log"
+          ]
+        },
+        {
+          "id": "O05",
+          "priority": "P1",
+          "detail": "未明确落实固定版本 Open5GS/UERANSIM 手册核对；所有步骤 evidence 仅引 R 观测。模型上下文 admitted_K>0，因此不能解释为没有手册输入；应补充核对及可追溯条文。",
+          "steps": []
+        },
+        {
+          "id": "O06",
+          "priority": "P2",
+          "detail": "默认 stop 可保守阻止继续，但原文仍应说明 session_established=null、空日志、接口 UNKNOWN 和证据冲突如何判断、需要补什么证据。不得从 probe_id=normal 推导会话正常。",
+          "steps": []
+        },
+        {
+          "id": "O08",
+          "priority": "P2",
+          "detail": "调查动作覆盖不代表诊断结论已验证；建议给出本例可观察判据与推断边界：优先核对本地网关路径的 OUTPUT 方向、接口与计数；不能把 5 个 request 匹配写成 reply 匹配或成功送达。空日志应保留未知。",
+          "steps": []
+        }
+      ],
+      "log_handling": "s1-read_log:读取UPF运行日志；s3-read_log:读取UE运行日志",
+      "manual_handling": "未显式给出固定版本手册核对步骤/条文绑定",
+      "unknown_handling": "原文停止条件以状态标志或完成条件为主；发布 IR 保留默认 on_unknown=stop",
+      "comparison_dependency_note": "两侧抓包读取均为比较步骤的直接或传递前置",
+      "case_interpretation_boundary": "优先核对本地网关路径的 OUTPUT 方向、接口与计数；不能把 5 个 request 匹配写成 reply 匹配或成功送达。空日志应保留未知。"
+    },
+    {
+      "kind": "正式专家评审意见",
+      "case_id": "E1-CAL-N003",
+      "method": "DirectLLM+CommonPlanHead",
+      "method_number": 1,
+      "raw_file": "D:\\专利\\upf-agent-v8\\runtime\\v8-next\\human-review-20261010-001\\e1-validation-closure-20261011-001\\four-methods-003\\runs\\E1-CAL-N003\\method-1\\raw-plan.txt",
+      "raw_sha256": "25fb476a2bf0e0c8cd770eec4e55536b93f8d1e9ed619e556378b2c1cf2a4291",
+      "reference_sha256": "c75f7f07a2970e0d4084a724a01f31711b4822029f35ea6913db4da97183f240",
+      "review_token": "d3c2776c4ae06fc93593",
+      "mechanical_check_from_frozen_receipt": true,
+      "assessment": "只读调查骨架可供复核；完整语义需补充",
+      "positive_observations": [
+        "两接口、UE 探针、两侧抓包和时窗比较均有读取/比较步骤；权限目标在 upf/ran/ue 范围，未发现 network_write 或已执行修复宣称。",
+        "原文 hash 五路绑定一致；所引正常观测的源 hash、locator 和目标对象一致。Translator 为各步骤补入 on_unknown=stop、non_executable=true、claimed_executed=false。"
+      ],
+      "findings": [
+        {
+          "id": "O03",
+          "priority": "P2",
+          "detail": "身份步骤为泛化核验文字/空 parameters，未明确产品、版本及来源对应和不一致分支。它是计划占位，不能作为已经完成的身份验证。",
+          "steps": [
+            "id1",
+            "id2",
+            "id3"
+          ]
+        },
+        {
+          "id": "O04",
+          "priority": "P1",
+          "detail": "任务明确要求运行日志核对，本方案未显式安排；READ_SESSION_PROBE 不替代 UPF 运行日志。本例已有 UPF TUN 写入错误，应纳入调查。",
+          "steps": []
+        },
+        {
+          "id": "O05",
+          "priority": "P1",
+          "detail": "未明确落实固定版本 Open5GS/UERANSIM 手册核对；所有步骤 evidence 仅引 R 观测。模型上下文 admitted_K>0，因此不能解释为没有手册输入；应补充核对及可追溯条文。",
+          "steps": []
+        },
+        {
+          "id": "O06",
+          "priority": "P2",
+          "detail": "默认 stop 可保守阻止继续，但原文仍应说明 session_established=null、空日志、接口 UNKNOWN 和证据冲突如何判断、需要补什么证据。不得从 probe_id=normal 推导会话正常。",
+          "steps": []
+        },
+        {
+          "id": "O08",
+          "priority": "P2",
+          "detail": "调查动作覆盖不代表诊断结论已验证；建议给出本例可观察判据与推断边界：把接口管理状态、同窗 UPF 写入错误及 UE 失败探针联系为待核验候选；抓包未匹配不能独立证明丢包位置。",
+          "steps": []
+        }
+      ],
+      "log_handling": "未显式安排运行日志读取/日志人审",
+      "manual_handling": "未显式给出固定版本手册核对步骤/条文绑定",
+      "unknown_handling": "原文停止条件以状态标志或完成条件为主；发布 IR 保留默认 on_unknown=stop",
+      "comparison_dependency_note": "两侧抓包读取均为比较步骤的直接或传递前置",
+      "case_interpretation_boundary": "把接口管理状态、同窗 UPF 写入错误及 UE 失败探针联系为待核验候选；抓包未匹配不能独立证明丢包位置。"
+    },
+    {
+      "kind": "正式专家评审意见",
+      "case_id": "E1-CAL-N003",
+      "method": "P5+CommonPlanHead",
+      "method_number": 2,
+      "raw_file": "D:\\专利\\upf-agent-v8\\runtime\\v8-next\\human-review-20261010-001\\e1-validation-closure-20261011-001\\four-methods-003\\runs\\E1-CAL-N003\\method-2\\raw-plan.txt",
+      "raw_sha256": "d0011edb7886732daa247a4ed77d4e83bdc5e99055dd3941730a222f7b0dcb46",
+      "reference_sha256": "c75f7f07a2970e0d4084a724a01f31711b4822029f35ea6913db4da97183f240",
+      "review_token": "43d63beb356bdfa06203",
+      "mechanical_check_from_frozen_receipt": true,
+      "assessment": "只读调查骨架可供复核；完整语义需补充",
+      "positive_observations": [
+        "两接口、UE 探针、两侧抓包和时窗比较均有读取/比较步骤；权限目标在 upf/ran/ue 范围，未发现 network_write 或已执行修复宣称。",
+        "原文 hash 五路绑定一致；所引正常观测的源 hash、locator 和目标对象一致。Translator 为各步骤补入 on_unknown=stop、non_executable=true、claimed_executed=false。"
+      ],
+      "findings": [
+        {
+          "id": "O03",
+          "priority": "P2",
+          "detail": "身份步骤为泛化核验文字/空 parameters，未明确产品、版本及来源对应和不一致分支。它是计划占位，不能作为已经完成的身份验证。",
+          "steps": [
+            "id1",
+            "id2",
+            "id3"
+          ]
+        },
+        {
+          "id": "O04",
+          "priority": "P2",
+          "detail": "已安排日志读取或人工核对；仍需写明空日志只表示缺证，以及与探针/接口的同一时窗和版本对应。不能把转交人审视作已经核验。",
+          "steps": [
+            "s1-read_log",
+            "s1-human_review"
+          ]
+        },
+        {
+          "id": "O05",
+          "priority": "P2",
+          "detail": "有手册核对意图，但未在步骤 evidence 绑定已准入 K 条文或具体固定版本位置；需确认对象、版本、配置示例适用范围，并保留冲突出口。",
+          "steps": [
+            "s1-human_review"
+          ]
+        },
+        {
+          "id": "O06",
+          "priority": "P2",
+          "detail": "默认 stop 可保守阻止继续，但原文仍应说明 session_established=null、空日志、接口 UNKNOWN 和证据冲突如何判断、需要补什么证据。不得从 probe_id=normal 推导会话正常。",
+          "steps": []
+        },
+        {
+          "id": "O08",
+          "priority": "P2",
+          "detail": "调查动作覆盖不代表诊断结论已验证；建议给出本例可观察判据与推断边界：把接口管理状态、同窗 UPF 写入错误及 UE 失败探针联系为待核验候选；抓包未匹配不能独立证明丢包位置。",
+          "steps": []
+        }
+      ],
+      "log_handling": "s1-read_log:读取UPF运行日志错误信息；s1-human_review:人工复核UPF日志与手册一致性",
+      "manual_handling": "已请求手册人审：s1-human_review:人工复核UPF日志与手册一致性",
+      "unknown_handling": "原文停止条件以状态标志或完成条件为主；发布 IR 保留默认 on_unknown=stop",
+      "comparison_dependency_note": "两侧抓包读取均为比较步骤的直接或传递前置",
+      "case_interpretation_boundary": "把接口管理状态、同窗 UPF 写入错误及 UE 失败探针联系为待核验候选；抓包未匹配不能独立证明丢包位置。"
+    },
+    {
+      "kind": "正式专家评审意见",
+      "case_id": "E1-CAL-N003",
+      "method": "v8-no-graph+CommonPlanHead",
+      "method_number": 3,
+      "raw_file": "D:\\专利\\upf-agent-v8\\runtime\\v8-next\\human-review-20261010-001\\e1-validation-closure-20261011-001\\four-methods-003\\runs\\E1-CAL-N003\\method-3\\raw-plan.txt",
+      "raw_sha256": "c0bfa38c0027f06863a9a146862af2ed503906ca72f1415d5cfdec1e89301a16",
+      "reference_sha256": "c75f7f07a2970e0d4084a724a01f31711b4822029f35ea6913db4da97183f240",
+      "review_token": "52f94eedb1f715b5fdca",
+      "mechanical_check_from_frozen_receipt": true,
+      "assessment": "只读调查骨架可供复核；完整语义需补充",
+      "positive_observations": [
+        "两接口、UE 探针、两侧抓包和时窗比较均有读取/比较步骤；权限目标在 upf/ran/ue 范围，未发现 network_write 或已执行修复宣称。",
+        "原文 hash 五路绑定一致；所引正常观测的源 hash、locator 和目标对象一致。Translator 为各步骤补入 on_unknown=stop、non_executable=true、claimed_executed=false。"
+      ],
+      "findings": [
+        {
+          "id": "O03",
+          "priority": "P2",
+          "detail": "身份步骤为泛化核验文字/空 parameters，未明确产品、版本及来源对应和不一致分支。它是计划占位，不能作为已经完成的身份验证。",
+          "steps": [
+            "id1",
+            "id2",
+            "id3"
+          ]
+        },
+        {
+          "id": "O04",
+          "priority": "P2",
+          "detail": "已安排日志读取或人工核对；仍需写明空日志只表示缺证，以及与探针/接口的同一时窗和版本对应。不能把转交人审视作已经核验。",
+          "steps": [
+            "s1-read_log",
+            "s1-human_review"
+          ]
+        },
+        {
+          "id": "O05",
+          "priority": "P1",
+          "detail": "未明确落实固定版本 Open5GS/UERANSIM 手册核对；所有步骤 evidence 仅引 R 观测。模型上下文 admitted_K>0，因此不能解释为没有手册输入；应补充核对及可追溯条文。",
+          "steps": []
+        },
+        {
+          "id": "O06",
+          "priority": "P2",
+          "detail": "默认 stop 可保守阻止继续，但原文仍应说明 session_established=null、空日志、接口 UNKNOWN 和证据冲突如何判断、需要补什么证据。不得从 probe_id=normal 推导会话正常。",
+          "steps": []
+        },
+        {
+          "id": "O08",
+          "priority": "P2",
+          "detail": "调查动作覆盖不代表诊断结论已验证；建议给出本例可观察判据与推断边界：把接口管理状态、同窗 UPF 写入错误及 UE 失败探针联系为待核验候选；抓包未匹配不能独立证明丢包位置。",
+          "steps": []
+        }
+      ],
+      "log_handling": "s1-read_log:读取UPF运行日志；s1-human_review:请求人工审查UPF日志错误",
+      "manual_handling": "未显式给出固定版本手册核对步骤/条文绑定",
+      "unknown_handling": "原文停止条件以状态标志或完成条件为主；发布 IR 保留默认 on_unknown=stop",
+      "comparison_dependency_note": "两侧抓包读取均为比较步骤的直接或传递前置",
+      "case_interpretation_boundary": "把接口管理状态、同窗 UPF 写入错误及 UE 失败探针联系为待核验候选；抓包未匹配不能独立证明丢包位置。"
+    },
+    {
+      "kind": "正式专家评审意见",
+      "case_id": "E1-CAL-N003",
+      "method": "v8-full+CommonPlanHead",
+      "method_number": 4,
+      "raw_file": "D:\\专利\\upf-agent-v8\\runtime\\v8-next\\human-review-20261010-001\\e1-validation-closure-20261011-001\\four-methods-003\\runs\\E1-CAL-N003\\method-4\\raw-plan.txt",
+      "raw_sha256": "fd7baa51653d10d392a13d0abc48fa59becd094e056ef2630ae2c955979bb3a8",
+      "reference_sha256": "c75f7f07a2970e0d4084a724a01f31711b4822029f35ea6913db4da97183f240",
+      "review_token": "ba203e3df058c103f4f8",
+      "mechanical_check_from_frozen_receipt": false,
+      "assessment": "结构无效；不得当作可调度完整方案",
+      "positive_observations": [
+        "两接口、UE 探针、两侧抓包和时窗比较均有读取/比较步骤；权限目标在 upf/ran/ue 范围，未发现 network_write 或已执行修复宣称。",
+        "原文 hash 五路绑定一致；所引正常观测的源 hash、locator 和目标对象一致。Translator 为各步骤补入 on_unknown=stop、non_executable=true、claimed_executed=false。"
+      ],
+      "findings": [
+        {
+          "id": "O02",
+          "priority": "P1",
+          "detail": "缺失 CHECK_IDENTITY 定义，引用了不存在的前置节点：d1-read_tun_interface-ogstun → id1；d3-read_tun_interface-uesimtun0 → id3；d1-read_filter_counters-filter-input → id1；d1-read_filter_counters-filter-output → id1；d3-read_session_probe-uesimtun0-normal → id3；d1-read_packet_capture-core-any → id1；d3-read_packet_capture-ue-any → id3；d1-compare_capture_windows-core-any-ue-ue-any → id1,id3",
+          "steps": [
+            "d1-read_tun_interface-ogstun",
+            "d3-read_tun_interface-uesimtun0",
+            "d1-read_filter_counters-filter-input",
+            "d1-read_filter_counters-filter-output",
+            "d3-read_session_probe-uesimtun0-normal",
+            "d1-read_packet_capture-core-any",
+            "d3-read_packet_capture-ue-any",
+            "d1-compare_capture_windows-core-any-ue-ue-any"
+          ]
+        },
+        {
+          "id": "O04",
+          "priority": "P1",
+          "detail": "任务明确要求运行日志核对，本方案未显式安排；READ_SESSION_PROBE 不替代 UPF 运行日志。本例已有 UPF TUN 写入错误，应纳入调查。",
+          "steps": []
+        },
+        {
+          "id": "O05",
+          "priority": "P1",
+          "detail": "未明确落实固定版本 Open5GS/UERANSIM 手册核对；所有步骤 evidence 仅引 R 观测。模型上下文 admitted_K>0，因此不能解释为没有手册输入；应补充核对及可追溯条文。",
+          "steps": []
+        },
+        {
+          "id": "O06",
+          "priority": "P2",
+          "detail": "默认 stop 可保守阻止继续，但原文仍应说明 session_established=null、空日志、接口 UNKNOWN 和证据冲突如何判断、需要补什么证据。不得从 probe_id=normal 推导会话正常。",
+          "steps": []
+        },
+        {
+          "id": "O07",
+          "priority": "P2",
+          "detail": "d1-compare_capture_windows-core-any-ue-ue-any 未显式依赖 d1-read_packet_capture-core-any,d3-read_packet_capture-ue-any。若消费前述读取步骤的结果，应加入传递依赖；若直接消费冻结 capture 数据，需明确说明。此项是调度语义歧义，不单独判硬失败。",
+          "steps": [
+            "d1-compare_capture_windows-core-any-ue-ue-any"
+          ]
+        },
+        {
+          "id": "O08",
+          "priority": "P2",
+          "detail": "调查动作覆盖不代表诊断结论已验证；建议给出本例可观察判据与推断边界：把接口管理状态、同窗 UPF 写入错误及 UE 失败探针联系为待核验候选；抓包未匹配不能独立证明丢包位置。",
+          "steps": []
+        },
+        {
+          "id": "O09",
+          "priority": "P2",
+          "detail": "原文“读取UE探针正常会话日志”容易把 normal 探针标识写成正常会话结论；本例 ping 失败且 session_established=null。应改为读取名为 normal 的既有探针记录，并保留会话未知。",
+          "steps": [
+            "d3-read_session_probe-uesimtun0-normal"
+          ]
+        }
+      ],
+      "log_handling": "未显式安排运行日志读取/日志人审",
+      "manual_handling": "未显式给出固定版本手册核对步骤/条文绑定",
+      "unknown_handling": "原文停止条件以状态标志或完成条件为主；发布 IR 保留默认 on_unknown=stop",
+      "comparison_dependency_note": "d1-compare_capture_windows-core-any-ue-ue-any 未显式依赖 d1-read_packet_capture-core-any,d3-read_packet_capture-ue-any",
+      "case_interpretation_boundary": "把接口管理状态、同窗 UPF 写入错误及 UE 失败探针联系为待核验候选；抓包未匹配不能独立证明丢包位置。"
+    },
+    {
+      "kind": "正式专家评审意见",
+      "case_id": "E1-CAL-N004",
+      "method": "DirectLLM+CommonPlanHead",
+      "method_number": 1,
+      "raw_file": "D:\\专利\\upf-agent-v8\\runtime\\v8-next\\human-review-20261010-001\\e1-validation-closure-20261011-001\\four-methods-003\\runs\\E1-CAL-N004\\method-1\\raw-plan.txt",
+      "raw_sha256": "5b2d0194fffcc91c25ce83d9436574eddebb7e28a7ffa3359fcf76877512e54e",
+      "reference_sha256": "bda8768ece85a00e237eddbba5cc4221388f307bb43df019b903b59010f90edd",
+      "review_token": "5f6417d9256e3132a8e6",
+      "mechanical_check_from_frozen_receipt": true,
+      "assessment": "只读调查骨架可供复核；完整语义需补充",
+      "positive_observations": [
+        "两接口、UE 探针、两侧抓包和时窗比较均有读取/比较步骤；权限目标在 upf/ran/ue 范围，未发现 network_write 或已执行修复宣称。",
+        "原文 hash 五路绑定一致；所引正常观测的源 hash、locator 和目标对象一致。Translator 为各步骤补入 on_unknown=stop、non_executable=true、claimed_executed=false。"
+      ],
+      "findings": [
+        {
+          "id": "O03",
+          "priority": "P2",
+          "detail": "身份步骤为泛化核验文字/空 parameters，未明确产品、版本及来源对应和不一致分支。它是计划占位，不能作为已经完成的身份验证。",
+          "steps": [
+            "id1",
+            "id2",
+            "id3"
+          ]
+        },
+        {
+          "id": "O04",
+          "priority": "P2",
+          "detail": "已安排日志读取或人工核对；仍需写明空日志只表示缺证，以及与探针/接口的同一时窗和版本对应。不能把转交人审视作已经核验。",
+          "steps": [
+            "s1-human_review",
+            "s3-human_review"
+          ]
+        },
+        {
+          "id": "O05",
+          "priority": "P2",
+          "detail": "有手册核对意图，但未在步骤 evidence 绑定已准入 K 条文或具体固定版本位置；需确认对象、版本、配置示例适用范围，并保留冲突出口。",
+          "steps": [
+            "s1-human_review",
+            "s3-human_review"
+          ]
+        },
+        {
+          "id": "O06",
+          "priority": "P2",
+          "detail": "默认 stop 可保守阻止继续，但原文仍应说明 session_established=null、空日志、接口 UNKNOWN 和证据冲突如何判断、需要补什么证据。不得从 probe_id=normal 推导会话正常。",
+          "steps": []
+        },
+        {
+          "id": "O08",
+          "priority": "P2",
+          "detail": "调查动作覆盖不代表诊断结论已验证；建议给出本例可观察判据与推断边界：优先核对本地网关路径的 INPUT 方向、接口与计数；不能把 5 个 request 匹配写成 reply 匹配或成功送达。空日志应保留未知。",
+          "steps": []
+        }
+      ],
+      "log_handling": "s1-human_review:人工审查UPF日志与手册一致性；s3-human_review:人工审查UE日志与手册一致性",
+      "manual_handling": "已请求手册人审：s1-human_review:人工审查UPF日志与手册一致性；s3-human_review:人工审查UE日志与手册一致性",
+      "unknown_handling": "原文停止条件以状态标志或完成条件为主；发布 IR 保留默认 on_unknown=stop",
+      "comparison_dependency_note": "两侧抓包读取均为比较步骤的直接或传递前置",
+      "case_interpretation_boundary": "优先核对本地网关路径的 INPUT 方向、接口与计数；不能把 5 个 request 匹配写成 reply 匹配或成功送达。空日志应保留未知。"
+    },
+    {
+      "kind": "正式专家评审意见",
+      "case_id": "E1-CAL-N004",
+      "method": "P5+CommonPlanHead",
+      "method_number": 2,
+      "raw_file": "D:\\专利\\upf-agent-v8\\runtime\\v8-next\\human-review-20261010-001\\e1-validation-closure-20261011-001\\four-methods-003\\runs\\E1-CAL-N004\\method-2\\raw-plan.txt",
+      "raw_sha256": "e4ba094f1b7eee86b088fbe48e484e2b66e24016066409103da7acf1cca7ee10",
+      "reference_sha256": "bda8768ece85a00e237eddbba5cc4221388f307bb43df019b903b59010f90edd",
+      "review_token": "e65a7e0c914e98877af8",
+      "mechanical_check_from_frozen_receipt": true,
+      "assessment": "只读调查骨架可供复核；完整语义需补充",
+      "positive_observations": [
+        "两接口、UE 探针、两侧抓包和时窗比较均有读取/比较步骤；权限目标在 upf/ran/ue 范围，未发现 network_write 或已执行修复宣称。",
+        "原文 hash 五路绑定一致；所引正常观测的源 hash、locator 和目标对象一致。Translator 为各步骤补入 on_unknown=stop、non_executable=true、claimed_executed=false。"
+      ],
+      "findings": [
+        {
+          "id": "O03",
+          "priority": "P2",
+          "detail": "身份步骤为泛化核验文字/空 parameters，未明确产品、版本及来源对应和不一致分支。它是计划占位，不能作为已经完成的身份验证。",
+          "steps": [
+            "id1",
+            "id2",
+            "id3"
+          ]
+        },
+        {
+          "id": "O04",
+          "priority": "P2",
+          "detail": "已安排日志读取或人工核对；仍需写明空日志只表示缺证，以及与探针/接口的同一时窗和版本对应。不能把转交人审视作已经核验。",
+          "steps": [
+            "s1-human_review",
+            "s3-human_review"
+          ]
+        },
+        {
+          "id": "O05",
+          "priority": "P1",
+          "detail": "未明确落实固定版本 Open5GS/UERANSIM 手册核对；所有步骤 evidence 仅引 R 观测。模型上下文 admitted_K>0，因此不能解释为没有手册输入；应补充核对及可追溯条文。",
+          "steps": []
+        },
+        {
+          "id": "O06",
+          "priority": "P2",
+          "detail": "默认 stop 可保守阻止继续，但原文仍应说明 session_established=null、空日志、接口 UNKNOWN 和证据冲突如何判断、需要补什么证据。不得从 probe_id=normal 推导会话正常。",
+          "steps": []
+        },
+        {
+          "id": "O08",
+          "priority": "P2",
+          "detail": "调查动作覆盖不代表诊断结论已验证；建议给出本例可观察判据与推断边界：优先核对本地网关路径的 INPUT 方向、接口与计数；不能把 5 个 request 匹配写成 reply 匹配或成功送达。空日志应保留未知。",
+          "steps": []
+        }
+      ],
+      "log_handling": "s1-human_review:人工复核UPF日志与配置一致性；s3-human_review:人工复核UE日志与探针状态",
+      "manual_handling": "未显式给出固定版本手册核对步骤/条文绑定",
+      "unknown_handling": "原文停止条件以状态标志或完成条件为主；发布 IR 保留默认 on_unknown=stop",
+      "comparison_dependency_note": "两侧抓包读取均为比较步骤的直接或传递前置",
+      "case_interpretation_boundary": "优先核对本地网关路径的 INPUT 方向、接口与计数；不能把 5 个 request 匹配写成 reply 匹配或成功送达。空日志应保留未知。"
+    },
+    {
+      "kind": "正式专家评审意见",
+      "case_id": "E1-CAL-N004",
+      "method": "v8-no-graph+CommonPlanHead",
+      "method_number": 3,
+      "raw_file": "D:\\专利\\upf-agent-v8\\runtime\\v8-next\\human-review-20261010-001\\e1-validation-closure-20261011-001\\four-methods-003\\runs\\E1-CAL-N004\\method-3\\raw-plan.txt",
+      "raw_sha256": "bbfa9cacd4184243637af653bec839f272883f4690ebfb458e20d2704c003eac",
+      "reference_sha256": "bda8768ece85a00e237eddbba5cc4221388f307bb43df019b903b59010f90edd",
+      "review_token": "748a10d1bf3479d51b29",
+      "mechanical_check_from_frozen_receipt": true,
+      "assessment": "只读调查骨架可供复核；完整语义需补充",
+      "positive_observations": [
+        "两接口、UE 探针、两侧抓包和时窗比较均有读取/比较步骤；权限目标在 upf/ran/ue 范围，未发现 network_write 或已执行修复宣称。",
+        "原文 hash 五路绑定一致；所引正常观测的源 hash、locator 和目标对象一致。Translator 为各步骤补入 on_unknown=stop、non_executable=true、claimed_executed=false。"
+      ],
+      "findings": [
+        {
+          "id": "O03",
+          "priority": "P2",
+          "detail": "身份步骤为泛化核验文字/空 parameters，未明确产品、版本及来源对应和不一致分支。它是计划占位，不能作为已经完成的身份验证。",
+          "steps": [
+            "id1",
+            "id2",
+            "id3"
+          ]
+        },
+        {
+          "id": "O04",
+          "priority": "P1",
+          "detail": "任务明确要求运行日志核对，本方案未显式安排；READ_SESSION_PROBE 不替代 UPF 运行日志。本例日志为空，应说明未知并按权限补证/人审。",
+          "steps": []
+        },
+        {
+          "id": "O05",
+          "priority": "P1",
+          "detail": "未明确落实固定版本 Open5GS/UERANSIM 手册核对；所有步骤 evidence 仅引 R 观测。模型上下文 admitted_K>0，因此不能解释为没有手册输入；应补充核对及可追溯条文。",
+          "steps": []
+        },
+        {
+          "id": "O06",
+          "priority": "P2",
+          "detail": "默认 stop 可保守阻止继续，但原文仍应说明 session_established=null、空日志、接口 UNKNOWN 和证据冲突如何判断、需要补什么证据。不得从 probe_id=normal 推导会话正常。",
+          "steps": []
+        },
+        {
+          "id": "O08",
+          "priority": "P2",
+          "detail": "调查动作覆盖不代表诊断结论已验证；建议给出本例可观察判据与推断边界：优先核对本地网关路径的 INPUT 方向、接口与计数；不能把 5 个 request 匹配写成 reply 匹配或成功送达。空日志应保留未知。",
+          "steps": []
+        }
+      ],
+      "log_handling": "未显式安排运行日志读取/日志人审",
+      "manual_handling": "未显式给出固定版本手册核对步骤/条文绑定",
+      "unknown_handling": "原文停止条件以状态标志或完成条件为主；发布 IR 保留默认 on_unknown=stop",
+      "comparison_dependency_note": "两侧抓包读取均为比较步骤的直接或传递前置",
+      "case_interpretation_boundary": "优先核对本地网关路径的 INPUT 方向、接口与计数；不能把 5 个 request 匹配写成 reply 匹配或成功送达。空日志应保留未知。"
+    },
+    {
+      "kind": "正式专家评审意见",
+      "case_id": "E1-CAL-N004",
+      "method": "v8-full+CommonPlanHead",
+      "method_number": 4,
+      "raw_file": "D:\\专利\\upf-agent-v8\\runtime\\v8-next\\human-review-20261010-001\\e1-validation-closure-20261011-001\\four-methods-003\\runs\\E1-CAL-N004\\method-4\\raw-plan.txt",
+      "raw_sha256": "4659407e14481eb55f3c3f5fec6bc1e5ff8574c35f0bb771be19430e68005e3e",
+      "reference_sha256": "bda8768ece85a00e237eddbba5cc4221388f307bb43df019b903b59010f90edd",
+      "review_token": "5ee0662fa190244a24c8",
+      "mechanical_check_from_frozen_receipt": true,
+      "assessment": "只读调查骨架可供复核；完整语义需补充",
+      "positive_observations": [
+        "两接口、UE 探针、两侧抓包和时窗比较均有读取/比较步骤；权限目标在 upf/ran/ue 范围，未发现 network_write 或已执行修复宣称。",
+        "原文 hash 五路绑定一致；所引正常观测的源 hash、locator 和目标对象一致。Translator 为各步骤补入 on_unknown=stop、non_executable=true、claimed_executed=false。"
+      ],
+      "findings": [
+        {
+          "id": "O03",
+          "priority": "P2",
+          "detail": "身份步骤为泛化核验文字/空 parameters，未明确产品、版本及来源对应和不一致分支。它是计划占位，不能作为已经完成的身份验证。",
+          "steps": [
+            "id1",
+            "id2",
+            "id3"
+          ]
+        },
+        {
+          "id": "O04",
+          "priority": "P1",
+          "detail": "任务明确要求运行日志核对，本方案未显式安排；READ_SESSION_PROBE 不替代 UPF 运行日志。本例日志为空，应说明未知并按权限补证/人审。",
+          "steps": []
+        },
+        {
+          "id": "O05",
+          "priority": "P2",
+          "detail": "有手册核对意图，但未在步骤 evidence 绑定已准入 K 条文或具体固定版本位置；需确认对象、版本、配置示例适用范围，并保留冲突出口。",
+          "steps": [
+            "s1-human_review",
+            "s3-human_review"
+          ]
+        },
+        {
+          "id": "O06",
+          "priority": "P2",
+          "detail": "默认 stop 可保守阻止继续，但原文仍应说明 session_established=null、空日志、接口 UNKNOWN 和证据冲突如何判断、需要补什么证据。不得从 probe_id=normal 推导会话正常。",
+          "steps": []
+        },
+        {
+          "id": "O08",
+          "priority": "P2",
+          "detail": "调查动作覆盖不代表诊断结论已验证；建议给出本例可观察判据与推断边界：优先核对本地网关路径的 INPUT 方向、接口与计数；不能把 5 个 request 匹配写成 reply 匹配或成功送达。空日志应保留未知。",
+          "steps": []
+        }
+      ],
+      "log_handling": "未显式安排运行日志读取/日志人审",
+      "manual_handling": "已请求手册人审：s1-human_review:请求人工审查UPF配置与手册一致性；s3-human_review:请求人工审查UE配置与手册一致性",
+      "unknown_handling": "原文停止条件以状态标志或完成条件为主；发布 IR 保留默认 on_unknown=stop",
+      "comparison_dependency_note": "两侧抓包读取均为比较步骤的直接或传递前置",
+      "case_interpretation_boundary": "优先核对本地网关路径的 INPUT 方向、接口与计数；不能把 5 个 request 匹配写成 reply 匹配或成功送达。空日志应保留未知。"
+    },
+    {
+      "kind": "正式专家评审意见",
+      "case_id": "E1-CAL-N005",
+      "method": "DirectLLM+CommonPlanHead",
+      "method_number": 1,
+      "raw_file": "D:\\专利\\upf-agent-v8\\runtime\\v8-next\\human-review-20261010-001\\e1-validation-closure-20261011-001\\four-methods-003\\runs\\E1-CAL-N005\\method-1\\raw-plan.txt",
+      "raw_sha256": "ebb55b15e41844d0769346e937d23df236250d62a76cdde585bec1fbd0423cbf",
+      "reference_sha256": "14c959466ad2014ad7b53cf52b71afc3067d45295cf595696722a9de6642d331",
+      "review_token": "c7c66da220755d1a2196",
+      "mechanical_check_from_frozen_receipt": true,
+      "assessment": "只读调查骨架可供复核；完整语义需补充",
+      "positive_observations": [
+        "两接口、UE 探针、两侧抓包和时窗比较均有读取/比较步骤；权限目标在 upf/ran/ue 范围，未发现 network_write 或已执行修复宣称。",
+        "原文 hash 五路绑定一致；所引正常观测的源 hash、locator 和目标对象一致。Translator 为各步骤补入 on_unknown=stop、non_executable=true、claimed_executed=false。"
+      ],
+      "findings": [
+        {
+          "id": "O03",
+          "priority": "P2",
+          "detail": "身份步骤为泛化核验文字/空 parameters，未明确产品、版本及来源对应和不一致分支。它是计划占位，不能作为已经完成的身份验证。",
+          "steps": [
+            "id1",
+            "id2",
+            "id3"
+          ]
+        },
+        {
+          "id": "O04",
+          "priority": "P1",
+          "detail": "任务明确要求运行日志核对，本方案未显式安排；READ_SESSION_PROBE 不替代 UPF 运行日志。本例日志为空，应说明未知并按权限补证/人审。",
+          "steps": []
+        },
+        {
+          "id": "O05",
+          "priority": "P1",
+          "detail": "未明确落实固定版本 Open5GS/UERANSIM 手册核对；所有步骤 evidence 仅引 R 观测。模型上下文 admitted_K>0，因此不能解释为没有手册输入；应补充核对及可追溯条文。",
+          "steps": []
+        },
+        {
+          "id": "O06",
+          "priority": "P2",
+          "detail": "默认 stop 可保守阻止继续，但原文仍应说明 session_established=null、空日志、接口 UNKNOWN 和证据冲突如何判断、需要补什么证据。不得从 probe_id=normal 推导会话正常。",
+          "steps": []
+        },
+        {
+          "id": "O08",
+          "priority": "P2",
+          "detail": "调查动作覆盖不代表诊断结论已验证；建议给出本例可观察判据与推断边界：优先核对本地网关路径的 INPUT 方向、接口与计数；不能把 5 个 request 匹配写成 reply 匹配或成功送达。空日志应保留未知。",
+          "steps": []
+        }
+      ],
+      "log_handling": "未显式安排运行日志读取/日志人审",
+      "manual_handling": "未显式给出固定版本手册核对步骤/条文绑定",
+      "unknown_handling": "原文停止条件以状态标志或完成条件为主；发布 IR 保留默认 on_unknown=stop",
+      "comparison_dependency_note": "两侧抓包读取均为比较步骤的直接或传递前置",
+      "case_interpretation_boundary": "优先核对本地网关路径的 INPUT 方向、接口与计数；不能把 5 个 request 匹配写成 reply 匹配或成功送达。空日志应保留未知。"
+    },
+    {
+      "kind": "正式专家评审意见",
+      "case_id": "E1-CAL-N005",
+      "method": "P5+CommonPlanHead",
+      "method_number": 2,
+      "raw_file": "D:\\专利\\upf-agent-v8\\runtime\\v8-next\\human-review-20261010-001\\e1-validation-closure-20261011-001\\four-methods-003\\runs\\E1-CAL-N005\\method-2\\raw-plan.txt",
+      "raw_sha256": "a1396c48100675e0ae00e8b5ba904b40cd9067ebbb5ad7e91f653d3e956b0464",
+      "reference_sha256": "14c959466ad2014ad7b53cf52b71afc3067d45295cf595696722a9de6642d331",
+      "review_token": "5f90519d0718899c150b",
+      "mechanical_check_from_frozen_receipt": true,
+      "assessment": "只读调查骨架可供复核；完整语义需补充",
+      "positive_observations": [
+        "两接口、UE 探针、两侧抓包和时窗比较均有读取/比较步骤；权限目标在 upf/ran/ue 范围，未发现 network_write 或已执行修复宣称。",
+        "原文 hash 五路绑定一致；所引正常观测的源 hash、locator 和目标对象一致。Translator 为各步骤补入 on_unknown=stop、non_executable=true、claimed_executed=false。"
+      ],
+      "findings": [
+        {
+          "id": "O03",
+          "priority": "P2",
+          "detail": "身份步骤为泛化核验文字/空 parameters，未明确产品、版本及来源对应和不一致分支。它是计划占位，不能作为已经完成的身份验证。",
+          "steps": [
+            "id1",
+            "id2",
+            "id3"
+          ]
+        },
+        {
+          "id": "O04",
+          "priority": "P2",
+          "detail": "已安排日志读取或人工核对；仍需写明空日志只表示缺证，以及与探针/接口的同一时窗和版本对应。不能把转交人审视作已经核验。",
+          "steps": [
+            "s1-human_review",
+            "s3-human_review"
+          ]
+        },
+        {
+          "id": "O05",
+          "priority": "P2",
+          "detail": "有手册核对意图，但未在步骤 evidence 绑定已准入 K 条文或具体固定版本位置；需确认对象、版本、配置示例适用范围，并保留冲突出口。",
+          "steps": [
+            "s1-human_review",
+            "s3-human_review"
+          ]
+        },
+        {
+          "id": "O06",
+          "priority": "P2",
+          "detail": "默认 stop 可保守阻止继续，但原文仍应说明 session_established=null、空日志、接口 UNKNOWN 和证据冲突如何判断、需要补什么证据。不得从 probe_id=normal 推导会话正常。",
+          "steps": []
+        },
+        {
+          "id": "O08",
+          "priority": "P2",
+          "detail": "调查动作覆盖不代表诊断结论已验证；建议给出本例可观察判据与推断边界：优先核对本地网关路径的 INPUT 方向、接口与计数；不能把 5 个 request 匹配写成 reply 匹配或成功送达。空日志应保留未知。",
+          "steps": []
+        }
+      ],
+      "log_handling": "s1-human_review:人工复核UPF日志与手册一致性；s3-human_review:人工复核UE日志与手册一致性",
+      "manual_handling": "已请求手册人审：s1-human_review:人工复核UPF日志与手册一致性；s3-human_review:人工复核UE日志与手册一致性",
+      "unknown_handling": "原文停止条件以状态标志或完成条件为主；发布 IR 保留默认 on_unknown=stop",
+      "comparison_dependency_note": "两侧抓包读取均为比较步骤的直接或传递前置",
+      "case_interpretation_boundary": "优先核对本地网关路径的 INPUT 方向、接口与计数；不能把 5 个 request 匹配写成 reply 匹配或成功送达。空日志应保留未知。"
+    },
+    {
+      "kind": "正式专家评审意见",
+      "case_id": "E1-CAL-N005",
+      "method": "v8-no-graph+CommonPlanHead",
+      "method_number": 3,
+      "raw_file": "D:\\专利\\upf-agent-v8\\runtime\\v8-next\\human-review-20261010-001\\e1-validation-closure-20261011-001\\four-methods-003\\runs\\E1-CAL-N005\\method-3\\raw-plan.txt",
+      "raw_sha256": "b5718c6573c35faef184628757fcdf962ae7bb8e647e088618364501a2da5055",
+      "reference_sha256": "14c959466ad2014ad7b53cf52b71afc3067d45295cf595696722a9de6642d331",
+      "review_token": "5fb58b1f287afe4655ca",
+      "mechanical_check_from_frozen_receipt": true,
+      "assessment": "只读调查骨架可供复核；完整语义需补充",
+      "positive_observations": [
+        "两接口、UE 探针、两侧抓包和时窗比较均有读取/比较步骤；权限目标在 upf/ran/ue 范围，未发现 network_write 或已执行修复宣称。",
+        "原文 hash 五路绑定一致；所引正常观测的源 hash、locator 和目标对象一致。Translator 为各步骤补入 on_unknown=stop、non_executable=true、claimed_executed=false。"
+      ],
+      "findings": [
+        {
+          "id": "O03",
+          "priority": "P2",
+          "detail": "身份步骤为泛化核验文字/空 parameters，未明确产品、版本及来源对应和不一致分支。它是计划占位，不能作为已经完成的身份验证。",
+          "steps": [
+            "id1",
+            "id2",
+            "id3"
+          ]
+        },
+        {
+          "id": "O04",
+          "priority": "P2",
+          "detail": "已安排日志读取或人工核对；仍需写明空日志只表示缺证，以及与探针/接口的同一时窗和版本对应。不能把转交人审视作已经核验。",
+          "steps": [
+            "s1-read_log",
+            "s3-read_log"
+          ]
+        },
+        {
+          "id": "O05",
+          "priority": "P1",
+          "detail": "未明确落实固定版本 Open5GS/UERANSIM 手册核对；所有步骤 evidence 仅引 R 观测。模型上下文 admitted_K>0，因此不能解释为没有手册输入；应补充核对及可追溯条文。",
+          "steps": []
+        },
+        {
+          "id": "O06",
+          "priority": "P2",
+          "detail": "默认 stop 可保守阻止继续，但原文仍应说明 session_established=null、空日志、接口 UNKNOWN 和证据冲突如何判断、需要补什么证据。不得从 probe_id=normal 推导会话正常。",
+          "steps": []
+        },
+        {
+          "id": "O07",
+          "priority": "P2",
+          "detail": "d1-compare_capture_windows-core-any-ue-ue-any 未显式依赖 d1-read_packet_capture-core-any,d3-read_packet_capture-ue-any。若消费前述读取步骤的结果，应加入传递依赖；若直接消费冻结 capture 数据，需明确说明。此项是调度语义歧义，不单独判硬失败。",
+          "steps": [
+            "d1-compare_capture_windows-core-any-ue-ue-any"
+          ]
+        },
+        {
+          "id": "O08",
+          "priority": "P2",
+          "detail": "调查动作覆盖不代表诊断结论已验证；建议给出本例可观察判据与推断边界：优先核对本地网关路径的 INPUT 方向、接口与计数；不能把 5 个 request 匹配写成 reply 匹配或成功送达。空日志应保留未知。",
+          "steps": []
+        }
+      ],
+      "log_handling": "s1-read_log:读取UPF运行日志；s3-read_log:读取UE运行日志",
+      "manual_handling": "未显式给出固定版本手册核对步骤/条文绑定",
+      "unknown_handling": "原文停止条件以状态标志或完成条件为主；发布 IR 保留默认 on_unknown=stop",
+      "comparison_dependency_note": "d1-compare_capture_windows-core-any-ue-ue-any 未显式依赖 d1-read_packet_capture-core-any,d3-read_packet_capture-ue-any",
+      "case_interpretation_boundary": "优先核对本地网关路径的 INPUT 方向、接口与计数；不能把 5 个 request 匹配写成 reply 匹配或成功送达。空日志应保留未知。"
+    },
+    {
+      "kind": "正式专家评审意见",
+      "case_id": "E1-CAL-N005",
+      "method": "v8-full+CommonPlanHead",
+      "method_number": 4,
+      "raw_file": "D:\\专利\\upf-agent-v8\\runtime\\v8-next\\human-review-20261010-001\\e1-validation-closure-20261011-001\\four-methods-003\\runs\\E1-CAL-N005\\method-4\\raw-plan.txt",
+      "raw_sha256": "b03ee5b5421337eb3e4d46a355d4d1bd5cff66a7c8b25977824def250ecec1d8",
+      "reference_sha256": "14c959466ad2014ad7b53cf52b71afc3067d45295cf595696722a9de6642d331",
+      "review_token": "b9b75749fda06072e0f2",
+      "mechanical_check_from_frozen_receipt": true,
+      "assessment": "只读调查骨架可供复核；完整语义需补充",
+      "positive_observations": [
+        "两接口、UE 探针、两侧抓包和时窗比较均有读取/比较步骤；权限目标在 upf/ran/ue 范围，未发现 network_write 或已执行修复宣称。",
+        "原文 hash 五路绑定一致；所引正常观测的源 hash、locator 和目标对象一致。Translator 为各步骤补入 on_unknown=stop、non_executable=true、claimed_executed=false。"
+      ],
+      "findings": [
+        {
+          "id": "O03",
+          "priority": "P2",
+          "detail": "身份步骤为泛化核验文字/空 parameters，未明确产品、版本及来源对应和不一致分支。它是计划占位，不能作为已经完成的身份验证。",
+          "steps": [
+            "id1",
+            "id2",
+            "id3"
+          ]
+        },
+        {
+          "id": "O04",
+          "priority": "P2",
+          "detail": "已安排日志读取或人工核对；仍需写明空日志只表示缺证，以及与探针/接口的同一时窗和版本对应。不能把转交人审视作已经核验。",
+          "steps": [
+            "s1-read_log",
+            "s3-read_log"
+          ]
+        },
+        {
+          "id": "O05",
+          "priority": "P1",
+          "detail": "未明确落实固定版本 Open5GS/UERANSIM 手册核对；所有步骤 evidence 仅引 R 观测。模型上下文 admitted_K>0，因此不能解释为没有手册输入；应补充核对及可追溯条文。",
+          "steps": []
+        },
+        {
+          "id": "O06",
+          "priority": "P2",
+          "detail": "默认 stop 可保守阻止继续，但原文仍应说明 session_established=null、空日志、接口 UNKNOWN 和证据冲突如何判断、需要补什么证据。不得从 probe_id=normal 推导会话正常。",
+          "steps": []
+        },
+        {
+          "id": "O08",
+          "priority": "P2",
+          "detail": "调查动作覆盖不代表诊断结论已验证；建议给出本例可观察判据与推断边界：优先核对本地网关路径的 INPUT 方向、接口与计数；不能把 5 个 request 匹配写成 reply 匹配或成功送达。空日志应保留未知。",
+          "steps": []
+        }
+      ],
+      "log_handling": "s1-read_log:读取UPF运行日志；s3-read_log:读取UE运行日志",
+      "manual_handling": "未显式给出固定版本手册核对步骤/条文绑定",
+      "unknown_handling": "原文停止条件以状态标志或完成条件为主；发布 IR 保留默认 on_unknown=stop",
+      "comparison_dependency_note": "两侧抓包读取均为比较步骤的直接或传递前置",
+      "case_interpretation_boundary": "优先核对本地网关路径的 INPUT 方向、接口与计数；不能把 5 个 request 匹配写成 reply 匹配或成功送达。空日志应保留未知。"
+    },
+    {
+      "kind": "正式专家评审意见",
+      "case_id": "E1-CAL-N006",
+      "method": "DirectLLM+CommonPlanHead",
+      "method_number": 1,
+      "raw_file": "D:\\专利\\upf-agent-v8\\runtime\\v8-next\\human-review-20261010-001\\e1-validation-closure-20261011-001\\four-methods-003\\runs\\E1-CAL-N006\\method-1\\raw-plan.txt",
+      "raw_sha256": "db62e72d68c5697fc95fc38e4ac414bcb40f6f8cdf35f29474bf57afa348b043",
+      "reference_sha256": "07b4c7b02a69560c43042c7fd9206b5a9af2417d476ac81512469d8d2fda4a98",
+      "review_token": "8017cdfa64bc4a116140",
+      "mechanical_check_from_frozen_receipt": true,
+      "assessment": "只读调查骨架可供复核；完整语义需补充",
+      "positive_observations": [
+        "两接口、UE 探针、两侧抓包和时窗比较均有读取/比较步骤；权限目标在 upf/ran/ue 范围，未发现 network_write 或已执行修复宣称。",
+        "原文 hash 五路绑定一致；所引正常观测的源 hash、locator 和目标对象一致。Translator 为各步骤补入 on_unknown=stop、non_executable=true、claimed_executed=false。"
+      ],
+      "findings": [
+        {
+          "id": "O03",
+          "priority": "P2",
+          "detail": "身份步骤为泛化核验文字/空 parameters，未明确产品、版本及来源对应和不一致分支。它是计划占位，不能作为已经完成的身份验证。",
+          "steps": [
+            "id1",
+            "id2",
+            "id3"
+          ]
+        },
+        {
+          "id": "O04",
+          "priority": "P2",
+          "detail": "已安排日志读取或人工核对；仍需写明空日志只表示缺证，以及与探针/接口的同一时窗和版本对应。不能把转交人审视作已经核验。",
+          "steps": [
+            "s1-human_review",
+            "s3-human_review"
+          ]
+        },
+        {
+          "id": "O05",
+          "priority": "P2",
+          "detail": "有手册核对意图，但未在步骤 evidence 绑定已准入 K 条文或具体固定版本位置；需确认对象、版本、配置示例适用范围，并保留冲突出口。",
+          "steps": [
+            "s1-human_review",
+            "s3-human_review"
+          ]
+        },
+        {
+          "id": "O06",
+          "priority": "P2",
+          "detail": "默认 stop 可保守阻止继续，但原文仍应说明 session_established=null、空日志、接口 UNKNOWN 和证据冲突如何判断、需要补什么证据。不得从 probe_id=normal 推导会话正常。",
+          "steps": []
+        },
+        {
+          "id": "O08",
+          "priority": "P2",
+          "detail": "调查动作覆盖不代表诊断结论已验证；建议给出本例可观察判据与推断边界：优先核对本地网关路径的 INPUT 方向、接口与计数；不能把 5 个 request 匹配写成 reply 匹配或成功送达。空日志应保留未知。",
+          "steps": []
+        }
+      ],
+      "log_handling": "s1-human_review:人工审查UPF日志与手册一致性；s3-human_review:人工审查UE日志与手册一致性",
+      "manual_handling": "已请求手册人审：s1-human_review:人工审查UPF日志与手册一致性；s3-human_review:人工审查UE日志与手册一致性",
+      "unknown_handling": "原文停止条件以状态标志或完成条件为主；发布 IR 保留默认 on_unknown=stop",
+      "comparison_dependency_note": "两侧抓包读取均为比较步骤的直接或传递前置",
+      "case_interpretation_boundary": "优先核对本地网关路径的 INPUT 方向、接口与计数；不能把 5 个 request 匹配写成 reply 匹配或成功送达。空日志应保留未知。"
+    },
+    {
+      "kind": "正式专家评审意见",
+      "case_id": "E1-CAL-N006",
+      "method": "P5+CommonPlanHead",
+      "method_number": 2,
+      "raw_file": "D:\\专利\\upf-agent-v8\\runtime\\v8-next\\human-review-20261010-001\\e1-validation-closure-20261011-001\\four-methods-003\\runs\\E1-CAL-N006\\method-2\\raw-plan.txt",
+      "raw_sha256": "7d2544c254ba3afda0d0ca8dba2b2f9595ac52970f42c9d3725c380d764d814e",
+      "reference_sha256": "07b4c7b02a69560c43042c7fd9206b5a9af2417d476ac81512469d8d2fda4a98",
+      "review_token": "1f93d28c46b6295610bd",
+      "mechanical_check_from_frozen_receipt": true,
+      "assessment": "只读调查骨架可供复核；完整语义需补充",
+      "positive_observations": [
+        "两接口、UE 探针、两侧抓包和时窗比较均有读取/比较步骤；权限目标在 upf/ran/ue 范围，未发现 network_write 或已执行修复宣称。",
+        "原文 hash 五路绑定一致；所引正常观测的源 hash、locator 和目标对象一致。Translator 为各步骤补入 on_unknown=stop、non_executable=true、claimed_executed=false。"
+      ],
+      "findings": [
+        {
+          "id": "O03",
+          "priority": "P2",
+          "detail": "身份步骤为泛化核验文字/空 parameters，未明确产品、版本及来源对应和不一致分支。它是计划占位，不能作为已经完成的身份验证。",
+          "steps": [
+            "id1",
+            "id2",
+            "id3"
+          ]
+        },
+        {
+          "id": "O04",
+          "priority": "P1",
+          "detail": "任务明确要求运行日志核对，本方案未显式安排；READ_SESSION_PROBE 不替代 UPF 运行日志。本例日志为空，应说明未知并按权限补证/人审。",
+          "steps": []
+        },
+        {
+          "id": "O05",
+          "priority": "P1",
+          "detail": "未明确落实固定版本 Open5GS/UERANSIM 手册核对；所有步骤 evidence 仅引 R 观测。模型上下文 admitted_K>0，因此不能解释为没有手册输入；应补充核对及可追溯条文。",
+          "steps": []
+        },
+        {
+          "id": "O06",
+          "priority": "P2",
+          "detail": "默认 stop 可保守阻止继续，但原文仍应说明 session_established=null、空日志、接口 UNKNOWN 和证据冲突如何判断、需要补什么证据。不得从 probe_id=normal 推导会话正常。",
+          "steps": []
+        },
+        {
+          "id": "O08",
+          "priority": "P2",
+          "detail": "调查动作覆盖不代表诊断结论已验证；建议给出本例可观察判据与推断边界：优先核对本地网关路径的 INPUT 方向、接口与计数；不能把 5 个 request 匹配写成 reply 匹配或成功送达。空日志应保留未知。",
+          "steps": []
+        }
+      ],
+      "log_handling": "未显式安排运行日志读取/日志人审",
+      "manual_handling": "未显式给出固定版本手册核对步骤/条文绑定",
+      "unknown_handling": "原文停止条件以状态标志或完成条件为主；发布 IR 保留默认 on_unknown=stop",
+      "comparison_dependency_note": "两侧抓包读取均为比较步骤的直接或传递前置",
+      "case_interpretation_boundary": "优先核对本地网关路径的 INPUT 方向、接口与计数；不能把 5 个 request 匹配写成 reply 匹配或成功送达。空日志应保留未知。"
+    },
+    {
+      "kind": "正式专家评审意见",
+      "case_id": "E1-CAL-N006",
+      "method": "v8-no-graph+CommonPlanHead",
+      "method_number": 3,
+      "raw_file": "D:\\专利\\upf-agent-v8\\runtime\\v8-next\\human-review-20261010-001\\e1-validation-closure-20261011-001\\four-methods-003\\runs\\E1-CAL-N006\\method-3\\raw-plan.txt",
+      "raw_sha256": "dc87a6a2fef090c4f0e231f7894d935b1dabaa9897372e43d44e09285a74fce8",
+      "reference_sha256": "07b4c7b02a69560c43042c7fd9206b5a9af2417d476ac81512469d8d2fda4a98",
+      "review_token": "746369138b221b445281",
+      "mechanical_check_from_frozen_receipt": true,
+      "assessment": "只读调查骨架可供复核；完整语义需补充",
+      "positive_observations": [
+        "两接口、UE 探针、两侧抓包和时窗比较均有读取/比较步骤；权限目标在 upf/ran/ue 范围，未发现 network_write 或已执行修复宣称。",
+        "原文 hash 五路绑定一致；所引正常观测的源 hash、locator 和目标对象一致。Translator 为各步骤补入 on_unknown=stop、non_executable=true、claimed_executed=false。"
+      ],
+      "findings": [
+        {
+          "id": "O03",
+          "priority": "P2",
+          "detail": "身份步骤为泛化核验文字/空 parameters，未明确产品、版本及来源对应和不一致分支。它是计划占位，不能作为已经完成的身份验证。",
+          "steps": [
+            "id1",
+            "id2",
+            "id3"
+          ]
+        },
+        {
+          "id": "O04",
+          "priority": "P2",
+          "detail": "已安排日志读取或人工核对；仍需写明空日志只表示缺证，以及与探针/接口的同一时窗和版本对应。不能把转交人审视作已经核验。",
+          "steps": [
+            "s1-read_log",
+            "s3-read_log"
+          ]
+        },
+        {
+          "id": "O05",
+          "priority": "P1",
+          "detail": "未明确落实固定版本 Open5GS/UERANSIM 手册核对；所有步骤 evidence 仅引 R 观测。模型上下文 admitted_K>0，因此不能解释为没有手册输入；应补充核对及可追溯条文。",
+          "steps": []
+        },
+        {
+          "id": "O06",
+          "priority": "P2",
+          "detail": "默认 stop 可保守阻止继续，但原文仍应说明 session_established=null、空日志、接口 UNKNOWN 和证据冲突如何判断、需要补什么证据。不得从 probe_id=normal 推导会话正常。",
+          "steps": []
+        },
+        {
+          "id": "O08",
+          "priority": "P2",
+          "detail": "调查动作覆盖不代表诊断结论已验证；建议给出本例可观察判据与推断边界：优先核对本地网关路径的 INPUT 方向、接口与计数；不能把 5 个 request 匹配写成 reply 匹配或成功送达。空日志应保留未知。",
+          "steps": []
+        }
+      ],
+      "log_handling": "s1-read_log:读取UPF运行日志片段；s3-read_log:读取UE运行日志片段",
+      "manual_handling": "未显式给出固定版本手册核对步骤/条文绑定",
+      "unknown_handling": "原文停止条件以状态标志或完成条件为主；发布 IR 保留默认 on_unknown=stop",
+      "comparison_dependency_note": "两侧抓包读取均为比较步骤的直接或传递前置",
+      "case_interpretation_boundary": "优先核对本地网关路径的 INPUT 方向、接口与计数；不能把 5 个 request 匹配写成 reply 匹配或成功送达。空日志应保留未知。"
+    },
+    {
+      "kind": "正式专家评审意见",
+      "case_id": "E1-CAL-N006",
+      "method": "v8-full+CommonPlanHead",
+      "method_number": 4,
+      "raw_file": "D:\\专利\\upf-agent-v8\\runtime\\v8-next\\human-review-20261010-001\\e1-validation-closure-20261011-001\\four-methods-003\\runs\\E1-CAL-N006\\method-4\\raw-plan.txt",
+      "raw_sha256": "9a6bba3fede265cfc9e2b53f11ed96654bc9bdaea74be0327d0a4ac3b4f08768",
+      "reference_sha256": "07b4c7b02a69560c43042c7fd9206b5a9af2417d476ac81512469d8d2fda4a98",
+      "review_token": "c169040291d021efadda",
+      "mechanical_check_from_frozen_receipt": true,
+      "assessment": "只读调查骨架可供复核；完整语义需补充",
+      "positive_observations": [
+        "两接口、UE 探针、两侧抓包和时窗比较均有读取/比较步骤；权限目标在 upf/ran/ue 范围，未发现 network_write 或已执行修复宣称。",
+        "原文 hash 五路绑定一致；所引正常观测的源 hash、locator 和目标对象一致。Translator 为各步骤补入 on_unknown=stop、non_executable=true、claimed_executed=false。"
+      ],
+      "findings": [
+        {
+          "id": "O03",
+          "priority": "P2",
+          "detail": "身份步骤为泛化核验文字/空 parameters，未明确产品、版本及来源对应和不一致分支。它是计划占位，不能作为已经完成的身份验证。",
+          "steps": [
+            "id1",
+            "id2",
+            "id3"
+          ]
+        },
+        {
+          "id": "O04",
+          "priority": "P1",
+          "detail": "任务明确要求运行日志核对，本方案未显式安排；READ_SESSION_PROBE 不替代 UPF 运行日志。本例日志为空，应说明未知并按权限补证/人审。",
+          "steps": []
+        },
+        {
+          "id": "O05",
+          "priority": "P1",
+          "detail": "未明确落实固定版本 Open5GS/UERANSIM 手册核对；所有步骤 evidence 仅引 R 观测。模型上下文 admitted_K>0，因此不能解释为没有手册输入；应补充核对及可追溯条文。",
+          "steps": []
+        },
+        {
+          "id": "O06",
+          "priority": "P2",
+          "detail": "默认 stop 可保守阻止继续，但原文仍应说明 session_established=null、空日志、接口 UNKNOWN 和证据冲突如何判断、需要补什么证据。不得从 probe_id=normal 推导会话正常。",
+          "steps": []
+        },
+        {
+          "id": "O08",
+          "priority": "P2",
+          "detail": "调查动作覆盖不代表诊断结论已验证；建议给出本例可观察判据与推断边界：优先核对本地网关路径的 INPUT 方向、接口与计数；不能把 5 个 request 匹配写成 reply 匹配或成功送达。空日志应保留未知。",
+          "steps": []
+        }
+      ],
+      "log_handling": "未显式安排运行日志读取/日志人审",
+      "manual_handling": "未显式给出固定版本手册核对步骤/条文绑定",
+      "unknown_handling": "原文停止条件以状态标志或完成条件为主；发布 IR 保留默认 on_unknown=stop",
+      "comparison_dependency_note": "两侧抓包读取均为比较步骤的直接或传递前置",
+      "case_interpretation_boundary": "优先核对本地网关路径的 INPUT 方向、接口与计数；不能把 5 个 request 匹配写成 reply 匹配或成功送达。空日志应保留未知。"
+    },
+    {
+      "kind": "正式专家评审意见",
+      "case_id": "E1-CAL-N007",
+      "method": "DirectLLM+CommonPlanHead",
+      "method_number": 1,
+      "raw_file": "D:\\专利\\upf-agent-v8\\runtime\\v8-next\\human-review-20261010-001\\e1-validation-closure-20261011-001\\four-methods-003\\runs\\E1-CAL-N007\\method-1\\raw-plan.txt",
+      "raw_sha256": "b6657aa0e02f1cc8912840130b8cb97ba7f1f29dfe4728d073e352b8bd33f3b2",
+      "reference_sha256": "ccfde5a6a8b111f81a62000962c5a4cd7287fda29d9dcaa7a4851f7cb5696d82",
+      "review_token": "d2bca3b2afd240418f8a",
+      "mechanical_check_from_frozen_receipt": true,
+      "assessment": "只读调查骨架可供复核；完整语义需补充",
+      "positive_observations": [
+        "两接口、UE 探针、两侧抓包和时窗比较均有读取/比较步骤；权限目标在 upf/ran/ue 范围，未发现 network_write 或已执行修复宣称。",
+        "原文 hash 五路绑定一致；所引正常观测的源 hash、locator 和目标对象一致。Translator 为各步骤补入 on_unknown=stop、non_executable=true、claimed_executed=false。"
+      ],
+      "findings": [
+        {
+          "id": "O03",
+          "priority": "P2",
+          "detail": "身份步骤为泛化核验文字/空 parameters，未明确产品、版本及来源对应和不一致分支。它是计划占位，不能作为已经完成的身份验证。",
+          "steps": [
+            "id1",
+            "id2",
+            "id3"
+          ]
+        },
+        {
+          "id": "O04",
+          "priority": "P2",
+          "detail": "已安排日志读取或人工核对；仍需写明空日志只表示缺证，以及与探针/接口的同一时窗和版本对应。不能把转交人审视作已经核验。",
+          "steps": [
+            "s1-human_review",
+            "s3-human_review"
+          ]
+        },
+        {
+          "id": "O05",
+          "priority": "P2",
+          "detail": "有手册核对意图，但未在步骤 evidence 绑定已准入 K 条文或具体固定版本位置；需确认对象、版本、配置示例适用范围，并保留冲突出口。",
+          "steps": [
+            "s1-human_review",
+            "s3-human_review"
+          ]
+        },
+        {
+          "id": "O06",
+          "priority": "P2",
+          "detail": "默认 stop 可保守阻止继续，但原文仍应说明 session_established=null、空日志、接口 UNKNOWN 和证据冲突如何判断、需要补什么证据。不得从 probe_id=normal 推导会话正常。",
+          "steps": []
+        },
+        {
+          "id": "O08",
+          "priority": "P2",
+          "detail": "调查动作覆盖不代表诊断结论已验证；建议给出本例可观察判据与推断边界：优先核对本地网关路径的 OUTPUT 方向、接口与计数；不能把 5 个 request 匹配写成 reply 匹配或成功送达。空日志应保留未知。",
+          "steps": []
+        }
+      ],
+      "log_handling": "s1-human_review:人工审查UPF日志与手册一致性；s3-human_review:人工审查UE日志与手册一致性",
+      "manual_handling": "已请求手册人审：s1-human_review:人工审查UPF日志与手册一致性；s3-human_review:人工审查UE日志与手册一致性",
+      "unknown_handling": "原文停止条件以状态标志或完成条件为主；发布 IR 保留默认 on_unknown=stop",
+      "comparison_dependency_note": "两侧抓包读取均为比较步骤的直接或传递前置",
+      "case_interpretation_boundary": "优先核对本地网关路径的 OUTPUT 方向、接口与计数；不能把 5 个 request 匹配写成 reply 匹配或成功送达。空日志应保留未知。"
+    },
+    {
+      "kind": "正式专家评审意见",
+      "case_id": "E1-CAL-N007",
+      "method": "P5+CommonPlanHead",
+      "method_number": 2,
+      "raw_file": "D:\\专利\\upf-agent-v8\\runtime\\v8-next\\human-review-20261010-001\\e1-validation-closure-20261011-001\\four-methods-003\\runs\\E1-CAL-N007\\method-2\\raw-plan.txt",
+      "raw_sha256": "a12fd0d14ab6ee0085fc28dbf839272858eb7783e7282fec53b30b2c87f62b70",
+      "reference_sha256": "ccfde5a6a8b111f81a62000962c5a4cd7287fda29d9dcaa7a4851f7cb5696d82",
+      "review_token": "b2e3c2637ab79e04677e",
+      "mechanical_check_from_frozen_receipt": true,
+      "assessment": "只读调查骨架可供复核；完整语义需补充",
+      "positive_observations": [
+        "两接口、UE 探针、两侧抓包和时窗比较均有读取/比较步骤；权限目标在 upf/ran/ue 范围，未发现 network_write 或已执行修复宣称。",
+        "原文 hash 五路绑定一致；所引正常观测的源 hash、locator 和目标对象一致。Translator 为各步骤补入 on_unknown=stop、non_executable=true、claimed_executed=false。"
+      ],
+      "findings": [
+        {
+          "id": "O03",
+          "priority": "P2",
+          "detail": "身份步骤为泛化核验文字/空 parameters，未明确产品、版本及来源对应和不一致分支。它是计划占位，不能作为已经完成的身份验证。",
+          "steps": [
+            "id1",
+            "id2",
+            "id3"
+          ]
+        },
+        {
+          "id": "O04",
+          "priority": "P1",
+          "detail": "任务明确要求运行日志核对，本方案未显式安排；READ_SESSION_PROBE 不替代 UPF 运行日志。本例日志为空，应说明未知并按权限补证/人审。",
+          "steps": []
+        },
+        {
+          "id": "O05",
+          "priority": "P1",
+          "detail": "未明确落实固定版本 Open5GS/UERANSIM 手册核对；所有步骤 evidence 仅引 R 观测。模型上下文 admitted_K>0，因此不能解释为没有手册输入；应补充核对及可追溯条文。",
+          "steps": []
+        },
+        {
+          "id": "O06",
+          "priority": "P2",
+          "detail": "默认 stop 可保守阻止继续，但原文仍应说明 session_established=null、空日志、接口 UNKNOWN 和证据冲突如何判断、需要补什么证据。不得从 probe_id=normal 推导会话正常。",
+          "steps": []
+        },
+        {
+          "id": "O07",
+          "priority": "P2",
+          "detail": "d1-compare_capture_windows-core-any-ue-ue-any 未显式依赖 d1-read_packet_capture-core-any,d3-read_packet_capture-ue-any。若消费前述读取步骤的结果，应加入传递依赖；若直接消费冻结 capture 数据，需明确说明。此项是调度语义歧义，不单独判硬失败。",
+          "steps": [
+            "d1-compare_capture_windows-core-any-ue-ue-any"
+          ]
+        },
+        {
+          "id": "O08",
+          "priority": "P2",
+          "detail": "调查动作覆盖不代表诊断结论已验证；建议给出本例可观察判据与推断边界：优先核对本地网关路径的 OUTPUT 方向、接口与计数；不能把 5 个 request 匹配写成 reply 匹配或成功送达。空日志应保留未知。",
+          "steps": []
+        }
+      ],
+      "log_handling": "未显式安排运行日志读取/日志人审",
+      "manual_handling": "未显式给出固定版本手册核对步骤/条文绑定",
+      "unknown_handling": "原文停止条件以状态标志或完成条件为主；发布 IR 保留默认 on_unknown=stop",
+      "comparison_dependency_note": "d1-compare_capture_windows-core-any-ue-ue-any 未显式依赖 d1-read_packet_capture-core-any,d3-read_packet_capture-ue-any",
+      "case_interpretation_boundary": "优先核对本地网关路径的 OUTPUT 方向、接口与计数；不能把 5 个 request 匹配写成 reply 匹配或成功送达。空日志应保留未知。"
+    },
+    {
+      "kind": "正式专家评审意见",
+      "case_id": "E1-CAL-N007",
+      "method": "v8-no-graph+CommonPlanHead",
+      "method_number": 3,
+      "raw_file": "D:\\专利\\upf-agent-v8\\runtime\\v8-next\\human-review-20261010-001\\e1-validation-closure-20261011-001\\four-methods-003\\runs\\E1-CAL-N007\\method-3\\raw-plan.txt",
+      "raw_sha256": "943ab006d597f6bfbba364ee8c8de1e7fc1e3bf26d316366a62bb61ba39ceb16",
+      "reference_sha256": "ccfde5a6a8b111f81a62000962c5a4cd7287fda29d9dcaa7a4851f7cb5696d82",
+      "review_token": "9ee9ae70b9ddf3321f13",
+      "mechanical_check_from_frozen_receipt": true,
+      "assessment": "只读调查骨架可供复核；完整语义需补充",
+      "positive_observations": [
+        "两接口、UE 探针、两侧抓包和时窗比较均有读取/比较步骤；权限目标在 upf/ran/ue 范围，未发现 network_write 或已执行修复宣称。",
+        "原文 hash 五路绑定一致；所引正常观测的源 hash、locator 和目标对象一致。Translator 为各步骤补入 on_unknown=stop、non_executable=true、claimed_executed=false。"
+      ],
+      "findings": [
+        {
+          "id": "O03",
+          "priority": "P2",
+          "detail": "身份步骤为泛化核验文字/空 parameters，未明确产品、版本及来源对应和不一致分支。它是计划占位，不能作为已经完成的身份验证。",
+          "steps": [
+            "id1",
+            "id2",
+            "id3"
+          ]
+        },
+        {
+          "id": "O04",
+          "priority": "P1",
+          "detail": "任务明确要求运行日志核对，本方案未显式安排；READ_SESSION_PROBE 不替代 UPF 运行日志。本例日志为空，应说明未知并按权限补证/人审。",
+          "steps": []
+        },
+        {
+          "id": "O05",
+          "priority": "P1",
+          "detail": "未明确落实固定版本 Open5GS/UERANSIM 手册核对；所有步骤 evidence 仅引 R 观测。模型上下文 admitted_K>0，因此不能解释为没有手册输入；应补充核对及可追溯条文。",
+          "steps": []
+        },
+        {
+          "id": "O06",
+          "priority": "P2",
+          "detail": "保留已有缺证停止条件；还应说明 session_established=null、空日志、接口 UNKNOWN 和证据冲突如何判断、需要补什么证据。不得从 probe_id=normal 推导会话正常。",
+          "steps": []
+        },
+        {
+          "id": "O08",
+          "priority": "P2",
+          "detail": "调查动作覆盖不代表诊断结论已验证；建议给出本例可观察判据与推断边界：优先核对本地网关路径的 OUTPUT 方向、接口与计数；不能把 5 个 request 匹配写成 reply 匹配或成功送达。空日志应保留未知。",
+          "steps": []
+        }
+      ],
+      "log_handling": "未显式安排运行日志读取/日志人审",
+      "manual_handling": "未显式给出固定版本手册核对步骤/条文绑定",
+      "unknown_handling": "原文有明确缺证/人审停止条件；发布 IR 保留默认 on_unknown=stop",
+      "comparison_dependency_note": "两侧抓包读取均为比较步骤的直接或传递前置",
+      "case_interpretation_boundary": "优先核对本地网关路径的 OUTPUT 方向、接口与计数；不能把 5 个 request 匹配写成 reply 匹配或成功送达。空日志应保留未知。"
+    },
+    {
+      "kind": "正式专家评审意见",
+      "case_id": "E1-CAL-N007",
+      "method": "v8-full+CommonPlanHead",
+      "method_number": 4,
+      "raw_file": "D:\\专利\\upf-agent-v8\\runtime\\v8-next\\human-review-20261010-001\\e1-validation-closure-20261011-001\\four-methods-003\\runs\\E1-CAL-N007\\method-4\\raw-plan.txt",
+      "raw_sha256": "d4e1c0dd1395b9485f5104e5dd8f24ecc93f07f58e0e2a4c594b455ce5dab7a3",
+      "reference_sha256": "ccfde5a6a8b111f81a62000962c5a4cd7287fda29d9dcaa7a4851f7cb5696d82",
+      "review_token": "2e5ee8fa79ac2a671cbd",
+      "mechanical_check_from_frozen_receipt": false,
+      "assessment": "结构无效；不得当作可调度完整方案",
+      "positive_observations": [
+        "两接口、UE 探针、两侧抓包和时窗比较均有读取/比较步骤；权限目标在 upf/ran/ue 范围，未发现 network_write 或已执行修复宣称。",
+        "原文 hash 五路绑定一致；所引正常观测的源 hash、locator 和目标对象一致。Translator 为各步骤补入 on_unknown=stop、non_executable=true、claimed_executed=false。"
+      ],
+      "findings": [
+        {
+          "id": "O02",
+          "priority": "P1",
+          "detail": "缺失 CHECK_IDENTITY 定义，引用了不存在的前置节点：d1-read_tun_interface-ogstun → id1；d3-read_tun_interface-uesimtun0 → id3；d1-read_filter_counters-filter-output → id1；d3-read_session_probe-uesimtun0-normal → id3；d1-read_packet_capture-core-any → id1；d3-read_packet_capture-ue-any → id3；d1-compare_capture_windows-core-any-ue-ue-any → id1,id3；s1-human_review → id1；s3-human_review → id3；s2-human_review → id2；s1-read_log → id1；s3-read_log → id3",
+          "steps": [
+            "d1-read_tun_interface-ogstun",
+            "d3-read_tun_interface-uesimtun0",
+            "d1-read_filter_counters-filter-output",
+            "d3-read_session_probe-uesimtun0-normal",
+            "d1-read_packet_capture-core-any",
+            "d3-read_packet_capture-ue-any",
+            "d1-compare_capture_windows-core-any-ue-ue-any",
+            "s1-human_review",
+            "s3-human_review",
+            "s2-human_review",
+            "s1-read_log",
+            "s3-read_log"
+          ]
+        },
+        {
+          "id": "O04",
+          "priority": "P2",
+          "detail": "已安排日志读取或人工核对；仍需写明空日志只表示缺证，以及与探针/接口的同一时窗和版本对应。不能把转交人审视作已经核验。",
+          "steps": [
+            "s1-read_log",
+            "s3-read_log"
+          ]
+        },
+        {
+          "id": "O05",
+          "priority": "P2",
+          "detail": "有手册核对意图，但未在步骤 evidence 绑定已准入 K 条文或具体固定版本位置；需确认对象、版本、配置示例适用范围，并保留冲突出口。",
+          "steps": [
+            "s1-human_review",
+            "s3-human_review",
+            "s2-human_review"
+          ]
+        },
+        {
+          "id": "O06",
+          "priority": "P2",
+          "detail": "保留已有缺证停止条件；还应说明 session_established=null、空日志、接口 UNKNOWN 和证据冲突如何判断、需要补什么证据。不得从 probe_id=normal 推导会话正常。",
+          "steps": []
+        },
+        {
+          "id": "O07",
+          "priority": "P2",
+          "detail": "d1-compare_capture_windows-core-any-ue-ue-any 未显式依赖 d1-read_packet_capture-core-any,d3-read_packet_capture-ue-any。若消费前述读取步骤的结果，应加入传递依赖；若直接消费冻结 capture 数据，需明确说明。此项是调度语义歧义，不单独判硬失败。",
+          "steps": [
+            "d1-compare_capture_windows-core-any-ue-ue-any"
+          ]
+        },
+        {
+          "id": "O08",
+          "priority": "P2",
+          "detail": "调查动作覆盖不代表诊断结论已验证；建议给出本例可观察判据与推断边界：优先核对本地网关路径的 OUTPUT 方向、接口与计数；不能把 5 个 request 匹配写成 reply 匹配或成功送达。空日志应保留未知。",
+          "steps": []
+        }
+      ],
+      "log_handling": "s1-read_log:读取UPF运行日志；s3-read_log:读取UE运行日志",
+      "manual_handling": "已请求手册人审：s1-human_review:请求人工审查UPF配置与手册一致性；s3-human_review:请求人工审查UE配置与手册一致性；s2-human_review:请求人工审查RAN配置与手册一致性",
+      "unknown_handling": "原文有明确缺证/人审停止条件；发布 IR 保留默认 on_unknown=stop",
+      "comparison_dependency_note": "d1-compare_capture_windows-core-any-ue-ue-any 未显式依赖 d1-read_packet_capture-core-any,d3-read_packet_capture-ue-any",
+      "case_interpretation_boundary": "优先核对本地网关路径的 OUTPUT 方向、接口与计数；不能把 5 个 request 匹配写成 reply 匹配或成功送达。空日志应保留未知。"
+    },
+    {
+      "kind": "正式专家评审意见",
+      "case_id": "E1-CAL-N008",
+      "method": "DirectLLM+CommonPlanHead",
+      "method_number": 1,
+      "raw_file": "D:\\专利\\upf-agent-v8\\runtime\\v8-next\\human-review-20261010-001\\e1-validation-closure-20261011-001\\four-methods-003\\runs\\E1-CAL-N008\\method-1\\raw-plan.txt",
+      "raw_sha256": "19bf0368eec65c3327302f83ec37f3c4dccf10300f85e27eec2421c748f1eebc",
+      "reference_sha256": "2a05271cd5d8824ffc2152aef8c6c27076b475bbcb2de9d41412462bc4af0233",
+      "review_token": "ca1ab73998dcb157dd4e",
+      "mechanical_check_from_frozen_receipt": true,
+      "assessment": "只读调查骨架可供复核；完整语义需补充",
+      "positive_observations": [
+        "两接口、UE 探针、两侧抓包和时窗比较均有读取/比较步骤；权限目标在 upf/ran/ue 范围，未发现 network_write 或已执行修复宣称。",
+        "原文 hash 五路绑定一致；所引正常观测的源 hash、locator 和目标对象一致。Translator 为各步骤补入 on_unknown=stop、non_executable=true、claimed_executed=false。"
+      ],
+      "findings": [
+        {
+          "id": "O03",
+          "priority": "P2",
+          "detail": "身份步骤为泛化核验文字/空 parameters，未明确产品、版本及来源对应和不一致分支。它是计划占位，不能作为已经完成的身份验证。",
+          "steps": [
+            "id1",
+            "id2",
+            "id3"
+          ]
+        },
+        {
+          "id": "O04",
+          "priority": "P1",
+          "detail": "任务明确要求运行日志核对，本方案未显式安排；READ_SESSION_PROBE 不替代 UPF 运行日志。本例日志为空，应说明未知并按权限补证/人审。",
+          "steps": []
+        },
+        {
+          "id": "O05",
+          "priority": "P1",
+          "detail": "未明确落实固定版本 Open5GS/UERANSIM 手册核对；所有步骤 evidence 仅引 R 观测。模型上下文 admitted_K>0，因此不能解释为没有手册输入；应补充核对及可追溯条文。",
+          "steps": []
+        },
+        {
+          "id": "O06",
+          "priority": "P2",
+          "detail": "保留已有缺证停止条件；还应说明 session_established=null、空日志、接口 UNKNOWN 和证据冲突如何判断、需要补什么证据。不得从 probe_id=normal 推导会话正常。",
+          "steps": []
+        },
+        {
+          "id": "O08",
+          "priority": "P2",
+          "detail": "调查动作覆盖不代表诊断结论已验证；建议给出本例可观察判据与推断边界：优先核对本地网关路径的 OUTPUT 方向、接口与计数；不能把 5 个 request 匹配写成 reply 匹配或成功送达。空日志应保留未知。",
+          "steps": []
+        }
+      ],
+      "log_handling": "未显式安排运行日志读取/日志人审",
+      "manual_handling": "未显式给出固定版本手册核对步骤/条文绑定",
+      "unknown_handling": "原文有明确缺证/人审停止条件；发布 IR 保留默认 on_unknown=stop",
+      "comparison_dependency_note": "两侧抓包读取均为比较步骤的直接或传递前置",
+      "case_interpretation_boundary": "优先核对本地网关路径的 OUTPUT 方向、接口与计数；不能把 5 个 request 匹配写成 reply 匹配或成功送达。空日志应保留未知。"
+    },
+    {
+      "kind": "正式专家评审意见",
+      "case_id": "E1-CAL-N008",
+      "method": "P5+CommonPlanHead",
+      "method_number": 2,
+      "raw_file": "D:\\专利\\upf-agent-v8\\runtime\\v8-next\\human-review-20261010-001\\e1-validation-closure-20261011-001\\four-methods-003\\runs\\E1-CAL-N008\\method-2\\raw-plan.txt",
+      "raw_sha256": "e1f67e9bd41ced97ceade9c98e4e91d02055f37ed84cad73e86b2d39a9f73bfc",
+      "reference_sha256": "2a05271cd5d8824ffc2152aef8c6c27076b475bbcb2de9d41412462bc4af0233",
+      "review_token": "c77fa92c0d931c7dc4cd",
+      "mechanical_check_from_frozen_receipt": true,
+      "assessment": "只读调查骨架可供复核；完整语义需补充",
+      "positive_observations": [
+        "两接口、UE 探针、两侧抓包和时窗比较均有读取/比较步骤；权限目标在 upf/ran/ue 范围，未发现 network_write 或已执行修复宣称。",
+        "原文 hash 五路绑定一致；所引正常观测的源 hash、locator 和目标对象一致。Translator 为各步骤补入 on_unknown=stop、non_executable=true、claimed_executed=false。"
+      ],
+      "findings": [
+        {
+          "id": "O03",
+          "priority": "P2",
+          "detail": "身份步骤为泛化核验文字/空 parameters，未明确产品、版本及来源对应和不一致分支。它是计划占位，不能作为已经完成的身份验证。",
+          "steps": [
+            "id1",
+            "id2",
+            "id3"
+          ]
+        },
+        {
+          "id": "O04",
+          "priority": "P2",
+          "detail": "已安排日志读取或人工核对；仍需写明空日志只表示缺证，以及与探针/接口的同一时窗和版本对应。不能把转交人审视作已经核验。",
+          "steps": [
+            "s1-human_review",
+            "s3-human_review"
+          ]
+        },
+        {
+          "id": "O05",
+          "priority": "P2",
+          "detail": "有手册核对意图，但未在步骤 evidence 绑定已准入 K 条文或具体固定版本位置；需确认对象、版本、配置示例适用范围，并保留冲突出口。",
+          "steps": [
+            "s1-human_review",
+            "s3-human_review"
+          ]
+        },
+        {
+          "id": "O06",
+          "priority": "P2",
+          "detail": "默认 stop 可保守阻止继续，但原文仍应说明 session_established=null、空日志、接口 UNKNOWN 和证据冲突如何判断、需要补什么证据。不得从 probe_id=normal 推导会话正常。",
+          "steps": []
+        },
+        {
+          "id": "O08",
+          "priority": "P2",
+          "detail": "调查动作覆盖不代表诊断结论已验证；建议给出本例可观察判据与推断边界：优先核对本地网关路径的 OUTPUT 方向、接口与计数；不能把 5 个 request 匹配写成 reply 匹配或成功送达。空日志应保留未知。",
+          "steps": []
+        }
+      ],
+      "log_handling": "s1-human_review:人工复核UPF日志与手册一致性；s3-human_review:人工复核UE日志与手册一致性",
+      "manual_handling": "已请求手册人审：s1-human_review:人工复核UPF日志与手册一致性；s3-human_review:人工复核UE日志与手册一致性",
+      "unknown_handling": "原文停止条件以状态标志或完成条件为主；发布 IR 保留默认 on_unknown=stop",
+      "comparison_dependency_note": "两侧抓包读取均为比较步骤的直接或传递前置",
+      "case_interpretation_boundary": "优先核对本地网关路径的 OUTPUT 方向、接口与计数；不能把 5 个 request 匹配写成 reply 匹配或成功送达。空日志应保留未知。"
+    },
+    {
+      "kind": "正式专家评审意见",
+      "case_id": "E1-CAL-N008",
+      "method": "v8-no-graph+CommonPlanHead",
+      "method_number": 3,
+      "raw_file": "D:\\专利\\upf-agent-v8\\runtime\\v8-next\\human-review-20261010-001\\e1-validation-closure-20261011-001\\four-methods-003\\runs\\E1-CAL-N008\\method-3\\raw-plan.txt",
+      "raw_sha256": "2205455782d6b05b639b3cb2d3d8eabe0a4f98c524c2a7898467f9ce4b80c30e",
+      "reference_sha256": "2a05271cd5d8824ffc2152aef8c6c27076b475bbcb2de9d41412462bc4af0233",
+      "review_token": "172e6373b885b28196db",
+      "mechanical_check_from_frozen_receipt": true,
+      "assessment": "只读调查骨架可供复核；完整语义需补充",
+      "positive_observations": [
+        "两接口、UE 探针、两侧抓包和时窗比较均有读取/比较步骤；权限目标在 upf/ran/ue 范围，未发现 network_write 或已执行修复宣称。",
+        "原文 hash 五路绑定一致；所引正常观测的源 hash、locator 和目标对象一致。Translator 为各步骤补入 on_unknown=stop、non_executable=true、claimed_executed=false。"
+      ],
+      "findings": [
+        {
+          "id": "O03",
+          "priority": "P2",
+          "detail": "身份步骤为泛化核验文字/空 parameters，未明确产品、版本及来源对应和不一致分支。它是计划占位，不能作为已经完成的身份验证。",
+          "steps": [
+            "id1",
+            "id2",
+            "id3"
+          ]
+        },
+        {
+          "id": "O04",
+          "priority": "P1",
+          "detail": "任务明确要求运行日志核对，本方案未显式安排；READ_SESSION_PROBE 不替代 UPF 运行日志。本例日志为空，应说明未知并按权限补证/人审。",
+          "steps": []
+        },
+        {
+          "id": "O05",
+          "priority": "P1",
+          "detail": "未明确落实固定版本 Open5GS/UERANSIM 手册核对；所有步骤 evidence 仅引 R 观测。模型上下文 admitted_K>0，因此不能解释为没有手册输入；应补充核对及可追溯条文。",
+          "steps": []
+        },
+        {
+          "id": "O06",
+          "priority": "P2",
+          "detail": "默认 stop 可保守阻止继续，但原文仍应说明 session_established=null、空日志、接口 UNKNOWN 和证据冲突如何判断、需要补什么证据。不得从 probe_id=normal 推导会话正常。",
+          "steps": []
+        },
+        {
+          "id": "O07",
+          "priority": "P2",
+          "detail": "d1-compare_capture_windows-core-any-ue-ue-any 未显式依赖 d1-read_packet_capture-core-any,d3-read_packet_capture-ue-any。若消费前述读取步骤的结果，应加入传递依赖；若直接消费冻结 capture 数据，需明确说明。此项是调度语义歧义，不单独判硬失败。",
+          "steps": [
+            "d1-compare_capture_windows-core-any-ue-ue-any"
+          ]
+        },
+        {
+          "id": "O08",
+          "priority": "P2",
+          "detail": "调查动作覆盖不代表诊断结论已验证；建议给出本例可观察判据与推断边界：优先核对本地网关路径的 OUTPUT 方向、接口与计数；不能把 5 个 request 匹配写成 reply 匹配或成功送达。空日志应保留未知。",
+          "steps": []
+        }
+      ],
+      "log_handling": "未显式安排运行日志读取/日志人审",
+      "manual_handling": "未显式给出固定版本手册核对步骤/条文绑定",
+      "unknown_handling": "原文停止条件以状态标志或完成条件为主；发布 IR 保留默认 on_unknown=stop",
+      "comparison_dependency_note": "d1-compare_capture_windows-core-any-ue-ue-any 未显式依赖 d1-read_packet_capture-core-any,d3-read_packet_capture-ue-any",
+      "case_interpretation_boundary": "优先核对本地网关路径的 OUTPUT 方向、接口与计数；不能把 5 个 request 匹配写成 reply 匹配或成功送达。空日志应保留未知。"
+    },
+    {
+      "kind": "正式专家评审意见",
+      "case_id": "E1-CAL-N008",
+      "method": "v8-full+CommonPlanHead",
+      "method_number": 4,
+      "raw_file": "D:\\专利\\upf-agent-v8\\runtime\\v8-next\\human-review-20261010-001\\e1-validation-closure-20261011-001\\four-methods-003\\runs\\E1-CAL-N008\\method-4\\raw-plan.txt",
+      "raw_sha256": "19a5c178422b73f43fc09ec44b8d03e9e2fc08b14b890e7f75c8ce8a139333c0",
+      "reference_sha256": "2a05271cd5d8824ffc2152aef8c6c27076b475bbcb2de9d41412462bc4af0233",
+      "review_token": "753075d45744085803e0",
+      "mechanical_check_from_frozen_receipt": true,
+      "assessment": "只读调查骨架可供复核；完整语义需补充",
+      "positive_observations": [
+        "两接口、UE 探针、两侧抓包和时窗比较均有读取/比较步骤；权限目标在 upf/ran/ue 范围，未发现 network_write 或已执行修复宣称。",
+        "原文 hash 五路绑定一致；所引正常观测的源 hash、locator 和目标对象一致。Translator 为各步骤补入 on_unknown=stop、non_executable=true、claimed_executed=false。"
+      ],
+      "findings": [
+        {
+          "id": "O03",
+          "priority": "P2",
+          "detail": "身份步骤为泛化核验文字/空 parameters，未明确产品、版本及来源对应和不一致分支。它是计划占位，不能作为已经完成的身份验证。",
+          "steps": [
+            "id1",
+            "id2",
+            "id3"
+          ]
+        },
+        {
+          "id": "O04",
+          "priority": "P1",
+          "detail": "任务明确要求运行日志核对，本方案未显式安排；READ_SESSION_PROBE 不替代 UPF 运行日志。本例日志为空，应说明未知并按权限补证/人审。",
+          "steps": []
+        },
+        {
+          "id": "O05",
+          "priority": "P1",
+          "detail": "未明确落实固定版本 Open5GS/UERANSIM 手册核对；所有步骤 evidence 仅引 R 观测。模型上下文 admitted_K>0，因此不能解释为没有手册输入；应补充核对及可追溯条文。",
+          "steps": []
+        },
+        {
+          "id": "O06",
+          "priority": "P2",
+          "detail": "默认 stop 可保守阻止继续，但原文仍应说明 session_established=null、空日志、接口 UNKNOWN 和证据冲突如何判断、需要补什么证据。不得从 probe_id=normal 推导会话正常。",
+          "steps": []
+        },
+        {
+          "id": "O08",
+          "priority": "P2",
+          "detail": "调查动作覆盖不代表诊断结论已验证；建议给出本例可观察判据与推断边界：优先核对本地网关路径的 OUTPUT 方向、接口与计数；不能把 5 个 request 匹配写成 reply 匹配或成功送达。空日志应保留未知。",
+          "steps": []
+        }
+      ],
+      "log_handling": "未显式安排运行日志读取/日志人审",
+      "manual_handling": "未显式给出固定版本手册核对步骤/条文绑定",
+      "unknown_handling": "原文停止条件以状态标志或完成条件为主；发布 IR 保留默认 on_unknown=stop",
+      "comparison_dependency_note": "两侧抓包读取均为比较步骤的直接或传递前置",
+      "case_interpretation_boundary": "优先核对本地网关路径的 OUTPUT 方向、接口与计数；不能把 5 个 request 匹配写成 reply 匹配或成功送达。空日志应保留未知。"
+    },
+    {
+      "kind": "正式专家评审意见",
+      "case_id": "E1-CAL-N009",
+      "method": "DirectLLM+CommonPlanHead",
+      "method_number": 1,
+      "raw_file": "D:\\专利\\upf-agent-v8\\runtime\\v8-next\\human-review-20261010-001\\e1-validation-closure-20261011-001\\four-methods-003\\runs\\E1-CAL-N009\\method-1\\raw-plan.txt",
+      "raw_sha256": "f9e4e2fc6a744854425348b402beb2432561e58bf58faeab55610a3336fb72fd",
+      "reference_sha256": "c6bb755cf51806b7511affab6167bed8bbe18a753c27face16310e277f852b68",
+      "review_token": "3a935e906f0458bece95",
+      "mechanical_check_from_frozen_receipt": true,
+      "assessment": "只读调查骨架可供复核；完整语义需补充",
+      "positive_observations": [
+        "两接口、UE 探针、两侧抓包和时窗比较均有读取/比较步骤；权限目标在 upf/ran/ue 范围，未发现 network_write 或已执行修复宣称。",
+        "原文 hash 五路绑定一致；所引正常观测的源 hash、locator 和目标对象一致。Translator 为各步骤补入 on_unknown=stop、non_executable=true、claimed_executed=false。"
+      ],
+      "findings": [
+        {
+          "id": "O03",
+          "priority": "P2",
+          "detail": "身份步骤为泛化核验文字/空 parameters，未明确产品、版本及来源对应和不一致分支。它是计划占位，不能作为已经完成的身份验证。",
+          "steps": [
+            "id1",
+            "id2",
+            "id3"
+          ]
+        },
+        {
+          "id": "O04",
+          "priority": "P1",
+          "detail": "任务明确要求运行日志核对，本方案未显式安排；READ_SESSION_PROBE 不替代 UPF 运行日志。本例日志为空，应说明未知并按权限补证/人审。",
+          "steps": []
+        },
+        {
+          "id": "O05",
+          "priority": "P1",
+          "detail": "未明确落实固定版本 Open5GS/UERANSIM 手册核对；所有步骤 evidence 仅引 R 观测。模型上下文 admitted_K>0，因此不能解释为没有手册输入；应补充核对及可追溯条文。",
+          "steps": []
+        },
+        {
+          "id": "O06",
+          "priority": "P2",
+          "detail": "默认 stop 可保守阻止继续，但原文仍应说明 session_established=null、空日志、接口 UNKNOWN 和证据冲突如何判断、需要补什么证据。不得从 probe_id=normal 推导会话正常。",
+          "steps": []
+        },
+        {
+          "id": "O08",
+          "priority": "P2",
+          "detail": "调查动作覆盖不代表诊断结论已验证；建议给出本例可观察判据与推断边界：优先核对本地网关路径的 OUTPUT 方向、接口与计数；不能把 5 个 request 匹配写成 reply 匹配或成功送达。空日志应保留未知。",
+          "steps": []
+        }
+      ],
+      "log_handling": "未显式安排运行日志读取/日志人审",
+      "manual_handling": "未显式给出固定版本手册核对步骤/条文绑定",
+      "unknown_handling": "原文停止条件以状态标志或完成条件为主；发布 IR 保留默认 on_unknown=stop",
+      "comparison_dependency_note": "两侧抓包读取均为比较步骤的直接或传递前置",
+      "case_interpretation_boundary": "优先核对本地网关路径的 OUTPUT 方向、接口与计数；不能把 5 个 request 匹配写成 reply 匹配或成功送达。空日志应保留未知。"
+    },
+    {
+      "kind": "正式专家评审意见",
+      "case_id": "E1-CAL-N009",
+      "method": "P5+CommonPlanHead",
+      "method_number": 2,
+      "raw_file": "D:\\专利\\upf-agent-v8\\runtime\\v8-next\\human-review-20261010-001\\e1-validation-closure-20261011-001\\four-methods-003\\runs\\E1-CAL-N009\\method-2\\raw-plan.txt",
+      "raw_sha256": "db8f6a17f57aae8133af3cb9b33148b902802abdb694ea03b7aeeb2119be08aa",
+      "reference_sha256": "c6bb755cf51806b7511affab6167bed8bbe18a753c27face16310e277f852b68",
+      "review_token": "dc5b8b35884e0895b27e",
+      "mechanical_check_from_frozen_receipt": true,
+      "assessment": "只读调查骨架可供复核；完整语义需补充",
+      "positive_observations": [
+        "两接口、UE 探针、两侧抓包和时窗比较均有读取/比较步骤；权限目标在 upf/ran/ue 范围，未发现 network_write 或已执行修复宣称。",
+        "原文 hash 五路绑定一致；所引正常观测的源 hash、locator 和目标对象一致。Translator 为各步骤补入 on_unknown=stop、non_executable=true、claimed_executed=false。"
+      ],
+      "findings": [
+        {
+          "id": "O03",
+          "priority": "P2",
+          "detail": "身份步骤为泛化核验文字/空 parameters，未明确产品、版本及来源对应和不一致分支。它是计划占位，不能作为已经完成的身份验证。",
+          "steps": [
+            "id1",
+            "id2",
+            "id3"
+          ]
+        },
+        {
+          "id": "O04",
+          "priority": "P1",
+          "detail": "任务明确要求运行日志核对，本方案未显式安排；READ_SESSION_PROBE 不替代 UPF 运行日志。本例日志为空，应说明未知并按权限补证/人审。",
+          "steps": []
+        },
+        {
+          "id": "O05",
+          "priority": "P1",
+          "detail": "未明确落实固定版本 Open5GS/UERANSIM 手册核对；所有步骤 evidence 仅引 R 观测。模型上下文 admitted_K>0，因此不能解释为没有手册输入；应补充核对及可追溯条文。",
+          "steps": []
+        },
+        {
+          "id": "O06",
+          "priority": "P2",
+          "detail": "默认 stop 可保守阻止继续，但原文仍应说明 session_established=null、空日志、接口 UNKNOWN 和证据冲突如何判断、需要补什么证据。不得从 probe_id=normal 推导会话正常。",
+          "steps": []
+        },
+        {
+          "id": "O08",
+          "priority": "P2",
+          "detail": "调查动作覆盖不代表诊断结论已验证；建议给出本例可观察判据与推断边界：优先核对本地网关路径的 OUTPUT 方向、接口与计数；不能把 5 个 request 匹配写成 reply 匹配或成功送达。空日志应保留未知。",
+          "steps": []
+        }
+      ],
+      "log_handling": "未显式安排运行日志读取/日志人审",
+      "manual_handling": "未显式给出固定版本手册核对步骤/条文绑定",
+      "unknown_handling": "原文停止条件以状态标志或完成条件为主；发布 IR 保留默认 on_unknown=stop",
+      "comparison_dependency_note": "两侧抓包读取均为比较步骤的直接或传递前置",
+      "case_interpretation_boundary": "优先核对本地网关路径的 OUTPUT 方向、接口与计数；不能把 5 个 request 匹配写成 reply 匹配或成功送达。空日志应保留未知。"
+    },
+    {
+      "kind": "正式专家评审意见",
+      "case_id": "E1-CAL-N009",
+      "method": "v8-no-graph+CommonPlanHead",
+      "method_number": 3,
+      "raw_file": "D:\\专利\\upf-agent-v8\\runtime\\v8-next\\human-review-20261010-001\\e1-validation-closure-20261011-001\\four-methods-003\\runs\\E1-CAL-N009\\method-3\\raw-plan.txt",
+      "raw_sha256": "477fe923f388e2d795e30dcee9042d0ce93c83233eb6e117848b41a0d27646a3",
+      "reference_sha256": "c6bb755cf51806b7511affab6167bed8bbe18a753c27face16310e277f852b68",
+      "review_token": "88b1ca5bc4d813a7ec20",
+      "mechanical_check_from_frozen_receipt": true,
+      "assessment": "只读调查骨架可供复核；完整语义需补充",
+      "positive_observations": [
+        "两接口、UE 探针、两侧抓包和时窗比较均有读取/比较步骤；权限目标在 upf/ran/ue 范围，未发现 network_write 或已执行修复宣称。",
+        "原文 hash 五路绑定一致；所引正常观测的源 hash、locator 和目标对象一致。Translator 为各步骤补入 on_unknown=stop、non_executable=true、claimed_executed=false。"
+      ],
+      "findings": [
+        {
+          "id": "O03",
+          "priority": "P2",
+          "detail": "身份步骤为泛化核验文字/空 parameters，未明确产品、版本及来源对应和不一致分支。它是计划占位，不能作为已经完成的身份验证。",
+          "steps": [
+            "id1",
+            "id2",
+            "id3"
+          ]
+        },
+        {
+          "id": "O04",
+          "priority": "P2",
+          "detail": "已安排日志读取或人工核对；仍需写明空日志只表示缺证，以及与探针/接口的同一时窗和版本对应。不能把转交人审视作已经核验。",
+          "steps": [
+            "s1-read_log",
+            "s3-read_log"
+          ]
+        },
+        {
+          "id": "O05",
+          "priority": "P1",
+          "detail": "未明确落实固定版本 Open5GS/UERANSIM 手册核对；所有步骤 evidence 仅引 R 观测。模型上下文 admitted_K>0，因此不能解释为没有手册输入；应补充核对及可追溯条文。",
+          "steps": []
+        },
+        {
+          "id": "O06",
+          "priority": "P2",
+          "detail": "默认 stop 可保守阻止继续，但原文仍应说明 session_established=null、空日志、接口 UNKNOWN 和证据冲突如何判断、需要补什么证据。不得从 probe_id=normal 推导会话正常。",
+          "steps": []
+        },
+        {
+          "id": "O07",
+          "priority": "P2",
+          "detail": "d1-compare_capture_windows-core-any-ue-ue-any 未显式依赖 d1-read_packet_capture-core-any,d3-read_packet_capture-ue-any。若消费前述读取步骤的结果，应加入传递依赖；若直接消费冻结 capture 数据，需明确说明。此项是调度语义歧义，不单独判硬失败。",
+          "steps": [
+            "d1-compare_capture_windows-core-any-ue-ue-any"
+          ]
+        },
+        {
+          "id": "O08",
+          "priority": "P2",
+          "detail": "调查动作覆盖不代表诊断结论已验证；建议给出本例可观察判据与推断边界：优先核对本地网关路径的 OUTPUT 方向、接口与计数；不能把 5 个 request 匹配写成 reply 匹配或成功送达。空日志应保留未知。",
+          "steps": []
+        }
+      ],
+      "log_handling": "s1-read_log:读取UPF运行日志；s3-read_log:读取UE运行日志",
+      "manual_handling": "未显式给出固定版本手册核对步骤/条文绑定",
+      "unknown_handling": "原文停止条件以状态标志或完成条件为主；发布 IR 保留默认 on_unknown=stop",
+      "comparison_dependency_note": "d1-compare_capture_windows-core-any-ue-ue-any 未显式依赖 d1-read_packet_capture-core-any,d3-read_packet_capture-ue-any",
+      "case_interpretation_boundary": "优先核对本地网关路径的 OUTPUT 方向、接口与计数；不能把 5 个 request 匹配写成 reply 匹配或成功送达。空日志应保留未知。"
+    },
+    {
+      "kind": "正式专家评审意见",
+      "case_id": "E1-CAL-N009",
+      "method": "v8-full+CommonPlanHead",
+      "method_number": 4,
+      "raw_file": "D:\\专利\\upf-agent-v8\\runtime\\v8-next\\human-review-20261010-001\\e1-validation-closure-20261011-001\\four-methods-003\\runs\\E1-CAL-N009\\method-4\\raw-plan.txt",
+      "raw_sha256": "97ad9bcca9a68832772fadbcf49c58f2702dfff0fb87667e3951d3a1f3ee181f",
+      "reference_sha256": "c6bb755cf51806b7511affab6167bed8bbe18a753c27face16310e277f852b68",
+      "review_token": "a80ea9f72d4fe4f15ea3",
+      "mechanical_check_from_frozen_receipt": true,
+      "assessment": "只读调查骨架可供复核；完整语义需补充",
+      "positive_observations": [
+        "两接口、UE 探针、两侧抓包和时窗比较均有读取/比较步骤；权限目标在 upf/ran/ue 范围，未发现 network_write 或已执行修复宣称。",
+        "原文 hash 五路绑定一致；所引正常观测的源 hash、locator 和目标对象一致。Translator 为各步骤补入 on_unknown=stop、non_executable=true、claimed_executed=false。"
+      ],
+      "findings": [
+        {
+          "id": "O03",
+          "priority": "P2",
+          "detail": "身份步骤为泛化核验文字/空 parameters，未明确产品、版本及来源对应和不一致分支。它是计划占位，不能作为已经完成的身份验证。",
+          "steps": [
+            "id1",
+            "id2",
+            "id3"
+          ]
+        },
+        {
+          "id": "O04",
+          "priority": "P1",
+          "detail": "任务明确要求运行日志核对，本方案未显式安排；READ_SESSION_PROBE 不替代 UPF 运行日志。本例日志为空，应说明未知并按权限补证/人审。",
+          "steps": []
+        },
+        {
+          "id": "O05",
+          "priority": "P1",
+          "detail": "未明确落实固定版本 Open5GS/UERANSIM 手册核对；所有步骤 evidence 仅引 R 观测。模型上下文 admitted_K>0，因此不能解释为没有手册输入；应补充核对及可追溯条文。",
+          "steps": []
+        },
+        {
+          "id": "O06",
+          "priority": "P2",
+          "detail": "默认 stop 可保守阻止继续，但原文仍应说明 session_established=null、空日志、接口 UNKNOWN 和证据冲突如何判断、需要补什么证据。不得从 probe_id=normal 推导会话正常。",
+          "steps": []
+        },
+        {
+          "id": "O07",
+          "priority": "P2",
+          "detail": "d1-compare_capture_windows-core-any-ue-ue-any 未显式依赖 d1-read_packet_capture-core-any,d3-read_packet_capture-ue-any。若消费前述读取步骤的结果，应加入传递依赖；若直接消费冻结 capture 数据，需明确说明。此项是调度语义歧义，不单独判硬失败。",
+          "steps": [
+            "d1-compare_capture_windows-core-any-ue-ue-any"
+          ]
+        },
+        {
+          "id": "O08",
+          "priority": "P2",
+          "detail": "调查动作覆盖不代表诊断结论已验证；建议给出本例可观察判据与推断边界：优先核对本地网关路径的 OUTPUT 方向、接口与计数；不能把 5 个 request 匹配写成 reply 匹配或成功送达。空日志应保留未知。",
+          "steps": []
+        }
+      ],
+      "log_handling": "未显式安排运行日志读取/日志人审",
+      "manual_handling": "未显式给出固定版本手册核对步骤/条文绑定",
+      "unknown_handling": "原文停止条件以状态标志或完成条件为主；发布 IR 保留默认 on_unknown=stop",
+      "comparison_dependency_note": "d1-compare_capture_windows-core-any-ue-ue-any 未显式依赖 d1-read_packet_capture-core-any,d3-read_packet_capture-ue-any",
+      "case_interpretation_boundary": "优先核对本地网关路径的 OUTPUT 方向、接口与计数；不能把 5 个 request 匹配写成 reply 匹配或成功送达。空日志应保留未知。"
+    },
+    {
+      "kind": "正式专家评审意见",
+      "case_id": "E1-CAL-N010",
+      "method": "DirectLLM+CommonPlanHead",
+      "method_number": 1,
+      "raw_file": "D:\\专利\\upf-agent-v8\\runtime\\v8-next\\human-review-20261010-001\\e1-validation-closure-20261011-001\\four-methods-003\\runs\\E1-CAL-N010\\method-1\\raw-plan.txt",
+      "raw_sha256": "de2c538973cd1df58ae49caea12af5dc6a33c12c0ca4c0f50671d05fedf590b2",
+      "reference_sha256": "ff7321e043a95cb4d9df7225f2ac4324959c2ab60d1480608c5700b063010513",
+      "review_token": "8fec1296d3d913eca9b5",
+      "mechanical_check_from_frozen_receipt": true,
+      "assessment": "只读调查骨架可供复核；完整语义需补充",
+      "positive_observations": [
+        "两接口、UE 探针、两侧抓包和时窗比较均有读取/比较步骤；权限目标在 upf/ran/ue 范围，未发现 network_write 或已执行修复宣称。",
+        "原文 hash 五路绑定一致；所引正常观测的源 hash、locator 和目标对象一致。Translator 为各步骤补入 on_unknown=stop、non_executable=true、claimed_executed=false。"
+      ],
+      "findings": [
+        {
+          "id": "O03",
+          "priority": "P2",
+          "detail": "身份步骤为泛化核验文字/空 parameters，未明确产品、版本及来源对应和不一致分支。它是计划占位，不能作为已经完成的身份验证。",
+          "steps": [
+            "id1",
+            "id2",
+            "id3"
+          ]
+        },
+        {
+          "id": "O04",
+          "priority": "P1",
+          "detail": "任务明确要求运行日志核对，本方案未显式安排；READ_SESSION_PROBE 不替代 UPF 运行日志。本例已有 UPF TUN 写入错误，应纳入调查。",
+          "steps": []
+        },
+        {
+          "id": "O05",
+          "priority": "P1",
+          "detail": "未明确落实固定版本 Open5GS/UERANSIM 手册核对；所有步骤 evidence 仅引 R 观测。模型上下文 admitted_K>0，因此不能解释为没有手册输入；应补充核对及可追溯条文。",
+          "steps": []
+        },
+        {
+          "id": "O06",
+          "priority": "P2",
+          "detail": "默认 stop 可保守阻止继续，但原文仍应说明 session_established=null、空日志、接口 UNKNOWN 和证据冲突如何判断、需要补什么证据。不得从 probe_id=normal 推导会话正常。",
+          "steps": []
+        },
+        {
+          "id": "O08",
+          "priority": "P2",
+          "detail": "调查动作覆盖不代表诊断结论已验证；建议给出本例可观察判据与推断边界：把接口管理状态、同窗 UPF 写入错误及 UE 失败探针联系为待核验候选；抓包未匹配不能独立证明丢包位置。",
+          "steps": []
+        }
+      ],
+      "log_handling": "未显式安排运行日志读取/日志人审",
+      "manual_handling": "未显式给出固定版本手册核对步骤/条文绑定",
+      "unknown_handling": "原文停止条件以状态标志或完成条件为主；发布 IR 保留默认 on_unknown=stop",
+      "comparison_dependency_note": "两侧抓包读取均为比较步骤的直接或传递前置",
+      "case_interpretation_boundary": "把接口管理状态、同窗 UPF 写入错误及 UE 失败探针联系为待核验候选；抓包未匹配不能独立证明丢包位置。"
+    },
+    {
+      "kind": "正式专家评审意见",
+      "case_id": "E1-CAL-N010",
+      "method": "P5+CommonPlanHead",
+      "method_number": 2,
+      "raw_file": "D:\\专利\\upf-agent-v8\\runtime\\v8-next\\human-review-20261010-001\\e1-validation-closure-20261011-001\\four-methods-003\\runs\\E1-CAL-N010\\method-2\\raw-plan.txt",
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "reference_sha256": "ff7321e043a95cb4d9df7225f2ac4324959c2ab60d1480608c5700b063010513",
+      "review_token": "a24377d02b7a26d8f8c1",
+      "mechanical_check_from_frozen_receipt": false,
+      "assessment": "生成失败；无方案可作内容预审",
+      "positive_observations": [],
+      "findings": [
+        {
+          "id": "O01",
+          "priority": "P1",
+          "detail": "原文为空；LocalModelError:plan model request failed: timed out。没有可解析方案，须保留在 48 次分母中，不能用补写或重试覆盖本次记录。",
+          "steps": []
+        }
+      ],
+      "log_handling": "无输出，无法判断",
+      "manual_handling": "无输出，无法判断",
+      "unknown_handling": "无输出，无法判断",
+      "comparison_dependency_note": "无输出，无法判断",
+      "case_interpretation_boundary": "把接口管理状态、同窗 UPF 写入错误及 UE 失败探针联系为待核验候选；抓包未匹配不能独立证明丢包位置。"
+    },
+    {
+      "kind": "正式专家评审意见",
+      "case_id": "E1-CAL-N010",
+      "method": "v8-no-graph+CommonPlanHead",
+      "method_number": 3,
+      "raw_file": "D:\\专利\\upf-agent-v8\\runtime\\v8-next\\human-review-20261010-001\\e1-validation-closure-20261011-001\\four-methods-003\\runs\\E1-CAL-N010\\method-3\\raw-plan.txt",
+      "raw_sha256": "ed77af8a67988348997790d15c2b657432ee14a338356f4191f180e476e7ca3e",
+      "reference_sha256": "ff7321e043a95cb4d9df7225f2ac4324959c2ab60d1480608c5700b063010513",
+      "review_token": "9bcc387160013577afc9",
+      "mechanical_check_from_frozen_receipt": true,
+      "assessment": "只读调查骨架可供复核；完整语义需补充",
+      "positive_observations": [
+        "两接口、UE 探针、两侧抓包和时窗比较均有读取/比较步骤；权限目标在 upf/ran/ue 范围，未发现 network_write 或已执行修复宣称。",
+        "原文 hash 五路绑定一致；所引正常观测的源 hash、locator 和目标对象一致。Translator 为各步骤补入 on_unknown=stop、non_executable=true、claimed_executed=false。"
+      ],
+      "findings": [
+        {
+          "id": "O03",
+          "priority": "P2",
+          "detail": "身份步骤为泛化核验文字/空 parameters，未明确产品、版本及来源对应和不一致分支。它是计划占位，不能作为已经完成的身份验证。",
+          "steps": [
+            "id1",
+            "id2",
+            "id3"
+          ]
+        },
+        {
+          "id": "O04",
+          "priority": "P2",
+          "detail": "已安排日志读取或人工核对；仍需写明空日志只表示缺证，以及与探针/接口的同一时窗和版本对应。不能把转交人审视作已经核验。",
+          "steps": [
+            "s1-human_review"
+          ]
+        },
+        {
+          "id": "O05",
+          "priority": "P1",
+          "detail": "未明确落实固定版本 Open5GS/UERANSIM 手册核对；所有步骤 evidence 仅引 R 观测。模型上下文 admitted_K>0，因此不能解释为没有手册输入；应补充核对及可追溯条文。",
+          "steps": []
+        },
+        {
+          "id": "O06",
+          "priority": "P2",
+          "detail": "默认 stop 可保守阻止继续，但原文仍应说明 session_established=null、空日志、接口 UNKNOWN 和证据冲突如何判断、需要补什么证据。不得从 probe_id=normal 推导会话正常。",
+          "steps": []
+        },
+        {
+          "id": "O08",
+          "priority": "P2",
+          "detail": "调查动作覆盖不代表诊断结论已验证；建议给出本例可观察判据与推断边界：把接口管理状态、同窗 UPF 写入错误及 UE 失败探针联系为待核验候选；抓包未匹配不能独立证明丢包位置。",
+          "steps": []
+        }
+      ],
+      "log_handling": "s1-human_review:请求人工审查UPF日志异常",
+      "manual_handling": "未显式给出固定版本手册核对步骤/条文绑定",
+      "unknown_handling": "原文停止条件以状态标志或完成条件为主；发布 IR 保留默认 on_unknown=stop",
+      "comparison_dependency_note": "两侧抓包读取均为比较步骤的直接或传递前置",
+      "case_interpretation_boundary": "把接口管理状态、同窗 UPF 写入错误及 UE 失败探针联系为待核验候选；抓包未匹配不能独立证明丢包位置。"
+    },
+    {
+      "kind": "正式专家评审意见",
+      "case_id": "E1-CAL-N010",
+      "method": "v8-full+CommonPlanHead",
+      "method_number": 4,
+      "raw_file": "D:\\专利\\upf-agent-v8\\runtime\\v8-next\\human-review-20261010-001\\e1-validation-closure-20261011-001\\four-methods-003\\runs\\E1-CAL-N010\\method-4\\raw-plan.txt",
+      "raw_sha256": "5bed56d3a3879a0664b2b6c92938e3009148e08d9c8c2d6e7de540080f6def4d",
+      "reference_sha256": "ff7321e043a95cb4d9df7225f2ac4324959c2ab60d1480608c5700b063010513",
+      "review_token": "bf1fe8f775a3864b59b0",
+      "mechanical_check_from_frozen_receipt": true,
+      "assessment": "只读调查骨架可供复核；完整语义需补充",
+      "positive_observations": [
+        "两接口、UE 探针、两侧抓包和时窗比较均有读取/比较步骤；权限目标在 upf/ran/ue 范围，未发现 network_write 或已执行修复宣称。",
+        "原文 hash 五路绑定一致；所引正常观测的源 hash、locator 和目标对象一致。Translator 为各步骤补入 on_unknown=stop、non_executable=true、claimed_executed=false。"
+      ],
+      "findings": [
+        {
+          "id": "O03",
+          "priority": "P2",
+          "detail": "身份步骤为泛化核验文字/空 parameters，未明确产品、版本及来源对应和不一致分支。它是计划占位，不能作为已经完成的身份验证。",
+          "steps": [
+            "id1",
+            "id2",
+            "id3"
+          ]
+        },
+        {
+          "id": "O04",
+          "priority": "P2",
+          "detail": "已安排日志读取或人工核对；仍需写明空日志只表示缺证，以及与探针/接口的同一时窗和版本对应。不能把转交人审视作已经核验。",
+          "steps": [
+            "s1-read_log"
+          ]
+        },
+        {
+          "id": "O05",
+          "priority": "P1",
+          "detail": "未明确落实固定版本 Open5GS/UERANSIM 手册核对；所有步骤 evidence 仅引 R 观测。模型上下文 admitted_K>0，因此不能解释为没有手册输入；应补充核对及可追溯条文。",
+          "steps": []
+        },
+        {
+          "id": "O06",
+          "priority": "P2",
+          "detail": "默认 stop 可保守阻止继续，但原文仍应说明 session_established=null、空日志、接口 UNKNOWN 和证据冲突如何判断、需要补什么证据。不得从 probe_id=normal 推导会话正常。",
+          "steps": []
+        },
+        {
+          "id": "O08",
+          "priority": "P2",
+          "detail": "调查动作覆盖不代表诊断结论已验证；建议给出本例可观察判据与推断边界：把接口管理状态、同窗 UPF 写入错误及 UE 失败探针联系为待核验候选；抓包未匹配不能独立证明丢包位置。",
+          "steps": []
+        }
+      ],
+      "log_handling": "s1-read_log:读取UPF运行日志",
+      "manual_handling": "未显式给出固定版本手册核对步骤/条文绑定",
+      "unknown_handling": "原文停止条件以状态标志或完成条件为主；发布 IR 保留默认 on_unknown=stop",
+      "comparison_dependency_note": "两侧抓包读取均为比较步骤的直接或传递前置",
+      "case_interpretation_boundary": "把接口管理状态、同窗 UPF 写入错误及 UE 失败探针联系为待核验候选；抓包未匹配不能独立证明丢包位置。"
+    },
+    {
+      "kind": "正式专家评审意见",
+      "case_id": "E1-CAL-N011",
+      "method": "DirectLLM+CommonPlanHead",
+      "method_number": 1,
+      "raw_file": "D:\\专利\\upf-agent-v8\\runtime\\v8-next\\human-review-20261010-001\\e1-validation-closure-20261011-001\\four-methods-003\\runs\\E1-CAL-N011\\method-1\\raw-plan.txt",
+      "raw_sha256": "ca4e7c0e7a815f6884d8b201112247d9c56b2af0126da039a0d20c93c7fd28c5",
+      "reference_sha256": "73ea7c6b8f8e2cd819442bf567cae50636184f6eaf7ccb4058e1e5faded9d0a4",
+      "review_token": "0d3c6dd426d58ecc4788",
+      "mechanical_check_from_frozen_receipt": true,
+      "assessment": "只读调查骨架可供复核；完整语义需补充",
+      "positive_observations": [
+        "两接口、UE 探针、两侧抓包和时窗比较均有读取/比较步骤；权限目标在 upf/ran/ue 范围，未发现 network_write 或已执行修复宣称。",
+        "原文 hash 五路绑定一致；所引正常观测的源 hash、locator 和目标对象一致。Translator 为各步骤补入 on_unknown=stop、non_executable=true、claimed_executed=false。"
+      ],
+      "findings": [
+        {
+          "id": "O03",
+          "priority": "P2",
+          "detail": "身份步骤为泛化核验文字/空 parameters，未明确产品、版本及来源对应和不一致分支。它是计划占位，不能作为已经完成的身份验证。",
+          "steps": [
+            "id1",
+            "id2",
+            "id3"
+          ]
+        },
+        {
+          "id": "O04",
+          "priority": "P1",
+          "detail": "任务明确要求运行日志核对，本方案未显式安排；READ_SESSION_PROBE 不替代 UPF 运行日志。本例已有 UPF TUN 写入错误，应纳入调查。",
+          "steps": []
+        },
+        {
+          "id": "O05",
+          "priority": "P1",
+          "detail": "未明确落实固定版本 Open5GS/UERANSIM 手册核对；所有步骤 evidence 仅引 R 观测。模型上下文 admitted_K>0，因此不能解释为没有手册输入；应补充核对及可追溯条文。",
+          "steps": []
+        },
+        {
+          "id": "O06",
+          "priority": "P2",
+          "detail": "默认 stop 可保守阻止继续，但原文仍应说明 session_established=null、空日志、接口 UNKNOWN 和证据冲突如何判断、需要补什么证据。不得从 probe_id=normal 推导会话正常。",
+          "steps": []
+        },
+        {
+          "id": "O07",
+          "priority": "P2",
+          "detail": "d1-compare_capture_windows-core-any-ue-ue-any 未显式依赖 d1-read_packet_capture-core-any,d3-read_packet_capture-ue-any。若消费前述读取步骤的结果，应加入传递依赖；若直接消费冻结 capture 数据，需明确说明。此项是调度语义歧义，不单独判硬失败。",
+          "steps": [
+            "d1-compare_capture_windows-core-any-ue-ue-any"
+          ]
+        },
+        {
+          "id": "O08",
+          "priority": "P2",
+          "detail": "调查动作覆盖不代表诊断结论已验证；建议给出本例可观察判据与推断边界：把接口管理状态、同窗 UPF 写入错误及 UE 失败探针联系为待核验候选；抓包未匹配不能独立证明丢包位置。",
+          "steps": []
+        }
+      ],
+      "log_handling": "未显式安排运行日志读取/日志人审",
+      "manual_handling": "未显式给出固定版本手册核对步骤/条文绑定",
+      "unknown_handling": "原文停止条件以状态标志或完成条件为主；发布 IR 保留默认 on_unknown=stop",
+      "comparison_dependency_note": "d1-compare_capture_windows-core-any-ue-ue-any 未显式依赖 d1-read_packet_capture-core-any,d3-read_packet_capture-ue-any",
+      "case_interpretation_boundary": "把接口管理状态、同窗 UPF 写入错误及 UE 失败探针联系为待核验候选；抓包未匹配不能独立证明丢包位置。"
+    },
+    {
+      "kind": "正式专家评审意见",
+      "case_id": "E1-CAL-N011",
+      "method": "P5+CommonPlanHead",
+      "method_number": 2,
+      "raw_file": "D:\\专利\\upf-agent-v8\\runtime\\v8-next\\human-review-20261010-001\\e1-validation-closure-20261011-001\\four-methods-003\\runs\\E1-CAL-N011\\method-2\\raw-plan.txt",
+      "raw_sha256": "03c9a8297859a3cf564190d5669f09b2648e867b9cfde552352e91321055f31c",
+      "reference_sha256": "73ea7c6b8f8e2cd819442bf567cae50636184f6eaf7ccb4058e1e5faded9d0a4",
+      "review_token": "338e4527764ee69b2de5",
+      "mechanical_check_from_frozen_receipt": true,
+      "assessment": "只读调查骨架可供复核；完整语义需补充",
+      "positive_observations": [
+        "两接口、UE 探针、两侧抓包和时窗比较均有读取/比较步骤；权限目标在 upf/ran/ue 范围，未发现 network_write 或已执行修复宣称。",
+        "原文 hash 五路绑定一致；所引正常观测的源 hash、locator 和目标对象一致。Translator 为各步骤补入 on_unknown=stop、non_executable=true、claimed_executed=false。"
+      ],
+      "findings": [
+        {
+          "id": "O03",
+          "priority": "P2",
+          "detail": "身份步骤为泛化核验文字/空 parameters，未明确产品、版本及来源对应和不一致分支。它是计划占位，不能作为已经完成的身份验证。",
+          "steps": [
+            "id1",
+            "id2",
+            "id3"
+          ]
+        },
+        {
+          "id": "O04",
+          "priority": "P2",
+          "detail": "已安排日志读取或人工核对；仍需写明空日志只表示缺证，以及与探针/接口的同一时窗和版本对应。不能把转交人审视作已经核验。",
+          "steps": [
+            "s1-human_review"
+          ]
+        },
+        {
+          "id": "O05",
+          "priority": "P1",
+          "detail": "未明确落实固定版本 Open5GS/UERANSIM 手册核对；所有步骤 evidence 仅引 R 观测。模型上下文 admitted_K>0，因此不能解释为没有手册输入；应补充核对及可追溯条文。",
+          "steps": []
+        },
+        {
+          "id": "O06",
+          "priority": "P2",
+          "detail": "默认 stop 可保守阻止继续，但原文仍应说明 session_established=null、空日志、接口 UNKNOWN 和证据冲突如何判断、需要补什么证据。不得从 probe_id=normal 推导会话正常。",
+          "steps": []
+        },
+        {
+          "id": "O08",
+          "priority": "P2",
+          "detail": "调查动作覆盖不代表诊断结论已验证；建议给出本例可观察判据与推断边界：把接口管理状态、同窗 UPF 写入错误及 UE 失败探针联系为待核验候选；抓包未匹配不能独立证明丢包位置。",
+          "steps": []
+        }
+      ],
+      "log_handling": "s1-human_review:人工复核UPF日志与接口异常",
+      "manual_handling": "未显式给出固定版本手册核对步骤/条文绑定",
+      "unknown_handling": "原文停止条件以状态标志或完成条件为主；发布 IR 保留默认 on_unknown=stop",
+      "comparison_dependency_note": "两侧抓包读取均为比较步骤的直接或传递前置",
+      "case_interpretation_boundary": "把接口管理状态、同窗 UPF 写入错误及 UE 失败探针联系为待核验候选；抓包未匹配不能独立证明丢包位置。"
+    },
+    {
+      "kind": "正式专家评审意见",
+      "case_id": "E1-CAL-N011",
+      "method": "v8-no-graph+CommonPlanHead",
+      "method_number": 3,
+      "raw_file": "D:\\专利\\upf-agent-v8\\runtime\\v8-next\\human-review-20261010-001\\e1-validation-closure-20261011-001\\four-methods-003\\runs\\E1-CAL-N011\\method-3\\raw-plan.txt",
+      "raw_sha256": "0f1b93d728311b1d99d9d123720b5d59022d223f3db868cff82058026e5d9538",
+      "reference_sha256": "73ea7c6b8f8e2cd819442bf567cae50636184f6eaf7ccb4058e1e5faded9d0a4",
+      "review_token": "664eee7367a29ee2017d",
+      "mechanical_check_from_frozen_receipt": true,
+      "assessment": "只读调查骨架可供复核；完整语义需补充",
+      "positive_observations": [
+        "两接口、UE 探针、两侧抓包和时窗比较均有读取/比较步骤；权限目标在 upf/ran/ue 范围，未发现 network_write 或已执行修复宣称。",
+        "原文 hash 五路绑定一致；所引正常观测的源 hash、locator 和目标对象一致。Translator 为各步骤补入 on_unknown=stop、non_executable=true、claimed_executed=false。"
+      ],
+      "findings": [
+        {
+          "id": "O03",
+          "priority": "P2",
+          "detail": "身份步骤为泛化核验文字/空 parameters，未明确产品、版本及来源对应和不一致分支。它是计划占位，不能作为已经完成的身份验证。",
+          "steps": [
+            "id1",
+            "id2",
+            "id3"
+          ]
+        },
+        {
+          "id": "O04",
+          "priority": "P2",
+          "detail": "已安排日志读取或人工核对；仍需写明空日志只表示缺证，以及与探针/接口的同一时窗和版本对应。不能把转交人审视作已经核验。",
+          "steps": [
+            "s1-read_log"
+          ]
+        },
+        {
+          "id": "O05",
+          "priority": "P1",
+          "detail": "未明确落实固定版本 Open5GS/UERANSIM 手册核对；所有步骤 evidence 仅引 R 观测。模型上下文 admitted_K>0，因此不能解释为没有手册输入；应补充核对及可追溯条文。",
+          "steps": []
+        },
+        {
+          "id": "O06",
+          "priority": "P2",
+          "detail": "默认 stop 可保守阻止继续，但原文仍应说明 session_established=null、空日志、接口 UNKNOWN 和证据冲突如何判断、需要补什么证据。不得从 probe_id=normal 推导会话正常。",
+          "steps": []
+        },
+        {
+          "id": "O08",
+          "priority": "P2",
+          "detail": "调查动作覆盖不代表诊断结论已验证；建议给出本例可观察判据与推断边界：把接口管理状态、同窗 UPF 写入错误及 UE 失败探针联系为待核验候选；抓包未匹配不能独立证明丢包位置。",
+          "steps": []
+        }
+      ],
+      "log_handling": "s1-read_log:读取UPF运行日志",
+      "manual_handling": "未显式给出固定版本手册核对步骤/条文绑定",
+      "unknown_handling": "原文停止条件以状态标志或完成条件为主；发布 IR 保留默认 on_unknown=stop",
+      "comparison_dependency_note": "两侧抓包读取均为比较步骤的直接或传递前置",
+      "case_interpretation_boundary": "把接口管理状态、同窗 UPF 写入错误及 UE 失败探针联系为待核验候选；抓包未匹配不能独立证明丢包位置。"
+    },
+    {
+      "kind": "正式专家评审意见",
+      "case_id": "E1-CAL-N011",
+      "method": "v8-full+CommonPlanHead",
+      "method_number": 4,
+      "raw_file": "D:\\专利\\upf-agent-v8\\runtime\\v8-next\\human-review-20261010-001\\e1-validation-closure-20261011-001\\four-methods-003\\runs\\E1-CAL-N011\\method-4\\raw-plan.txt",
+      "raw_sha256": "16e3f66563782bfa1c637e7cb8fc4119cc8af0949a8c4e5804ae4ef2e8a31800",
+      "reference_sha256": "73ea7c6b8f8e2cd819442bf567cae50636184f6eaf7ccb4058e1e5faded9d0a4",
+      "review_token": "dd8097c41065232a9aa2",
+      "mechanical_check_from_frozen_receipt": true,
+      "assessment": "只读调查骨架可供复核；完整语义需补充",
+      "positive_observations": [
+        "两接口、UE 探针、两侧抓包和时窗比较均有读取/比较步骤；权限目标在 upf/ran/ue 范围，未发现 network_write 或已执行修复宣称。",
+        "原文 hash 五路绑定一致；所引正常观测的源 hash、locator 和目标对象一致。Translator 为各步骤补入 on_unknown=stop、non_executable=true、claimed_executed=false。"
+      ],
+      "findings": [
+        {
+          "id": "O03",
+          "priority": "P2",
+          "detail": "身份步骤为泛化核验文字/空 parameters，未明确产品、版本及来源对应和不一致分支。它是计划占位，不能作为已经完成的身份验证。",
+          "steps": [
+            "id1",
+            "id2",
+            "id3"
+          ]
+        },
+        {
+          "id": "O04",
+          "priority": "P1",
+          "detail": "任务明确要求运行日志核对，本方案未显式安排；READ_SESSION_PROBE 不替代 UPF 运行日志。本例已有 UPF TUN 写入错误，应纳入调查。",
+          "steps": []
+        },
+        {
+          "id": "O05",
+          "priority": "P1",
+          "detail": "未明确落实固定版本 Open5GS/UERANSIM 手册核对；所有步骤 evidence 仅引 R 观测。模型上下文 admitted_K>0，因此不能解释为没有手册输入；应补充核对及可追溯条文。",
+          "steps": []
+        },
+        {
+          "id": "O06",
+          "priority": "P2",
+          "detail": "默认 stop 可保守阻止继续，但原文仍应说明 session_established=null、空日志、接口 UNKNOWN 和证据冲突如何判断、需要补什么证据。不得从 probe_id=normal 推导会话正常。",
+          "steps": []
+        },
+        {
+          "id": "O08",
+          "priority": "P2",
+          "detail": "调查动作覆盖不代表诊断结论已验证；建议给出本例可观察判据与推断边界：把接口管理状态、同窗 UPF 写入错误及 UE 失败探针联系为待核验候选；抓包未匹配不能独立证明丢包位置。",
+          "steps": []
+        },
+        {
+          "id": "O10",
+          "priority": "P2",
+          "detail": "接口步骤文字包含“状态与配置”；当前 tun_inventory 提供接口状态/地址等有限字段，不应将其视为完整 UPF 配置。应明确现有字段范围，配置不足时补证。",
+          "steps": []
+        }
+      ],
+      "log_handling": "未显式安排运行日志读取/日志人审",
+      "manual_handling": "未显式给出固定版本手册核对步骤/条文绑定",
+      "unknown_handling": "原文停止条件以状态标志或完成条件为主；发布 IR 保留默认 on_unknown=stop",
+      "comparison_dependency_note": "两侧抓包读取均为比较步骤的直接或传递前置",
+      "case_interpretation_boundary": "把接口管理状态、同窗 UPF 写入错误及 UE 失败探针联系为待核验候选；抓包未匹配不能独立证明丢包位置。"
+    },
+    {
+      "kind": "正式专家评审意见",
+      "case_id": "E1-CAL-N012",
+      "method": "DirectLLM+CommonPlanHead",
+      "method_number": 1,
+      "raw_file": "D:\\专利\\upf-agent-v8\\runtime\\v8-next\\human-review-20261010-001\\e1-validation-closure-20261011-001\\four-methods-003\\runs\\E1-CAL-N012\\method-1\\raw-plan.txt",
+      "raw_sha256": "a0b6d34cb86527e6658864974319ef549f46ada69a9ad64a651e4fae9d048c19",
+      "reference_sha256": "f4bba2775a1a9a8fee5874e6d5b24781b4f1ca370c10d89fb83b52702ceb3554",
+      "review_token": "a994ade6b8c232012588",
+      "mechanical_check_from_frozen_receipt": true,
+      "assessment": "只读调查骨架可供复核；完整语义需补充",
+      "positive_observations": [
+        "两接口、UE 探针、两侧抓包和时窗比较均有读取/比较步骤；权限目标在 upf/ran/ue 范围，未发现 network_write 或已执行修复宣称。",
+        "原文 hash 五路绑定一致；所引正常观测的源 hash、locator 和目标对象一致。Translator 为各步骤补入 on_unknown=stop、non_executable=true、claimed_executed=false。"
+      ],
+      "findings": [
+        {
+          "id": "O03",
+          "priority": "P2",
+          "detail": "身份步骤为泛化核验文字/空 parameters，未明确产品、版本及来源对应和不一致分支。它是计划占位，不能作为已经完成的身份验证。",
+          "steps": [
+            "id1",
+            "id2",
+            "id3"
+          ]
+        },
+        {
+          "id": "O04",
+          "priority": "P1",
+          "detail": "任务明确要求运行日志核对，本方案未显式安排；READ_SESSION_PROBE 不替代 UPF 运行日志。本例已有 UPF TUN 写入错误，应纳入调查。",
+          "steps": []
+        },
+        {
+          "id": "O05",
+          "priority": "P1",
+          "detail": "未明确落实固定版本 Open5GS/UERANSIM 手册核对；所有步骤 evidence 仅引 R 观测。模型上下文 admitted_K>0，因此不能解释为没有手册输入；应补充核对及可追溯条文。",
+          "steps": []
+        },
+        {
+          "id": "O06",
+          "priority": "P2",
+          "detail": "默认 stop 可保守阻止继续，但原文仍应说明 session_established=null、空日志、接口 UNKNOWN 和证据冲突如何判断、需要补什么证据。不得从 probe_id=normal 推导会话正常。",
+          "steps": []
+        },
+        {
+          "id": "O08",
+          "priority": "P2",
+          "detail": "调查动作覆盖不代表诊断结论已验证；建议给出本例可观察判据与推断边界：把接口管理状态、同窗 UPF 写入错误及 UE 失败探针联系为待核验候选；抓包未匹配不能独立证明丢包位置。",
+          "steps": []
+        }
+      ],
+      "log_handling": "未显式安排运行日志读取/日志人审",
+      "manual_handling": "未显式给出固定版本手册核对步骤/条文绑定",
+      "unknown_handling": "原文停止条件以状态标志或完成条件为主；发布 IR 保留默认 on_unknown=stop",
+      "comparison_dependency_note": "两侧抓包读取均为比较步骤的直接或传递前置",
+      "case_interpretation_boundary": "把接口管理状态、同窗 UPF 写入错误及 UE 失败探针联系为待核验候选；抓包未匹配不能独立证明丢包位置。"
+    },
+    {
+      "kind": "正式专家评审意见",
+      "case_id": "E1-CAL-N012",
+      "method": "P5+CommonPlanHead",
+      "method_number": 2,
+      "raw_file": "D:\\专利\\upf-agent-v8\\runtime\\v8-next\\human-review-20261010-001\\e1-validation-closure-20261011-001\\four-methods-003\\runs\\E1-CAL-N012\\method-2\\raw-plan.txt",
+      "raw_sha256": "8854c4ad1436c9a04065c734a32131e19aece1a913ba46b751042825d3973114",
+      "reference_sha256": "f4bba2775a1a9a8fee5874e6d5b24781b4f1ca370c10d89fb83b52702ceb3554",
+      "review_token": "d266817491416d8dde36",
+      "mechanical_check_from_frozen_receipt": true,
+      "assessment": "只读调查骨架可供复核；完整语义需补充",
+      "positive_observations": [
+        "两接口、UE 探针、两侧抓包和时窗比较均有读取/比较步骤；权限目标在 upf/ran/ue 范围，未发现 network_write 或已执行修复宣称。",
+        "原文 hash 五路绑定一致；所引正常观测的源 hash、locator 和目标对象一致。Translator 为各步骤补入 on_unknown=stop、non_executable=true、claimed_executed=false。"
+      ],
+      "findings": [
+        {
+          "id": "O03",
+          "priority": "P2",
+          "detail": "身份步骤为泛化核验文字/空 parameters，未明确产品、版本及来源对应和不一致分支。它是计划占位，不能作为已经完成的身份验证。",
+          "steps": [
+            "id1",
+            "id2",
+            "id3"
+          ]
+        },
+        {
+          "id": "O04",
+          "priority": "P2",
+          "detail": "已安排日志读取或人工核对；仍需写明空日志只表示缺证，以及与探针/接口的同一时窗和版本对应。不能把转交人审视作已经核验。",
+          "steps": [
+            "s1-read_log",
+            "s1-human_review"
+          ]
+        },
+        {
+          "id": "O05",
+          "priority": "P1",
+          "detail": "未明确落实固定版本 Open5GS/UERANSIM 手册核对；所有步骤 evidence 仅引 R 观测。模型上下文 admitted_K>0，因此不能解释为没有手册输入；应补充核对及可追溯条文。",
+          "steps": []
+        },
+        {
+          "id": "O06",
+          "priority": "P2",
+          "detail": "默认 stop 可保守阻止继续，但原文仍应说明 session_established=null、空日志、接口 UNKNOWN 和证据冲突如何判断、需要补什么证据。不得从 probe_id=normal 推导会话正常。",
+          "steps": []
+        },
+        {
+          "id": "O07",
+          "priority": "P2",
+          "detail": "d1-compare_capture_windows-core-any-ue-ue-any 未显式依赖 d1-read_packet_capture-core-any,d3-read_packet_capture-ue-any。若消费前述读取步骤的结果，应加入传递依赖；若直接消费冻结 capture 数据，需明确说明。此项是调度语义歧义，不单独判硬失败。",
+          "steps": [
+            "d1-compare_capture_windows-core-any-ue-ue-any"
+          ]
+        },
+        {
+          "id": "O08",
+          "priority": "P2",
+          "detail": "调查动作覆盖不代表诊断结论已验证；建议给出本例可观察判据与推断边界：把接口管理状态、同窗 UPF 写入错误及 UE 失败探针联系为待核验候选；抓包未匹配不能独立证明丢包位置。",
+          "steps": []
+        }
+      ],
+      "log_handling": "s1-read_log:读取UPF运行日志并核验错误；s1-human_review:人工复核UPF日志中I/O错误与接口状态关联性",
+      "manual_handling": "未显式给出固定版本手册核对步骤/条文绑定",
+      "unknown_handling": "原文停止条件以状态标志或完成条件为主；发布 IR 保留默认 on_unknown=stop",
+      "comparison_dependency_note": "d1-compare_capture_windows-core-any-ue-ue-any 未显式依赖 d1-read_packet_capture-core-any,d3-read_packet_capture-ue-any",
+      "case_interpretation_boundary": "把接口管理状态、同窗 UPF 写入错误及 UE 失败探针联系为待核验候选；抓包未匹配不能独立证明丢包位置。"
+    },
+    {
+      "kind": "正式专家评审意见",
+      "case_id": "E1-CAL-N012",
+      "method": "v8-no-graph+CommonPlanHead",
+      "method_number": 3,
+      "raw_file": "D:\\专利\\upf-agent-v8\\runtime\\v8-next\\human-review-20261010-001\\e1-validation-closure-20261011-001\\four-methods-003\\runs\\E1-CAL-N012\\method-3\\raw-plan.txt",
+      "raw_sha256": "2f6129638a73033c93cf1e5a61eef37fbaa06030cd68adfff24b1040c067732e",
+      "reference_sha256": "f4bba2775a1a9a8fee5874e6d5b24781b4f1ca370c10d89fb83b52702ceb3554",
+      "review_token": "c141c186399636d0c429",
+      "mechanical_check_from_frozen_receipt": true,
+      "assessment": "只读调查骨架可供复核；完整语义需补充",
+      "positive_observations": [
+        "两接口、UE 探针、两侧抓包和时窗比较均有读取/比较步骤；权限目标在 upf/ran/ue 范围，未发现 network_write 或已执行修复宣称。",
+        "原文 hash 五路绑定一致；所引正常观测的源 hash、locator 和目标对象一致。Translator 为各步骤补入 on_unknown=stop、non_executable=true、claimed_executed=false。"
+      ],
+      "findings": [
+        {
+          "id": "O03",
+          "priority": "P2",
+          "detail": "身份步骤为泛化核验文字/空 parameters，未明确产品、版本及来源对应和不一致分支。它是计划占位，不能作为已经完成的身份验证。",
+          "steps": [
+            "id1",
+            "id2",
+            "id3"
+          ]
+        },
+        {
+          "id": "O04",
+          "priority": "P2",
+          "detail": "已安排日志读取或人工核对；仍需写明空日志只表示缺证，以及与探针/接口的同一时窗和版本对应。不能把转交人审视作已经核验。",
+          "steps": [
+            "s1-read_log",
+            "s3-read_log"
+          ]
+        },
+        {
+          "id": "O05",
+          "priority": "P1",
+          "detail": "未明确落实固定版本 Open5GS/UERANSIM 手册核对；所有步骤 evidence 仅引 R 观测。模型上下文 admitted_K>0，因此不能解释为没有手册输入；应补充核对及可追溯条文。",
+          "steps": []
+        },
+        {
+          "id": "O06",
+          "priority": "P2",
+          "detail": "默认 stop 可保守阻止继续，但原文仍应说明 session_established=null、空日志、接口 UNKNOWN 和证据冲突如何判断、需要补什么证据。不得从 probe_id=normal 推导会话正常。",
+          "steps": []
+        },
+        {
+          "id": "O08",
+          "priority": "P2",
+          "detail": "调查动作覆盖不代表诊断结论已验证；建议给出本例可观察判据与推断边界：把接口管理状态、同窗 UPF 写入错误及 UE 失败探针联系为待核验候选；抓包未匹配不能独立证明丢包位置。",
+          "steps": []
+        }
+      ],
+      "log_handling": "s1-read_log:读取UPF运行日志；s3-read_log:读取UE运行日志",
+      "manual_handling": "未显式给出固定版本手册核对步骤/条文绑定",
+      "unknown_handling": "原文停止条件以状态标志或完成条件为主；发布 IR 保留默认 on_unknown=stop",
+      "comparison_dependency_note": "两侧抓包读取均为比较步骤的直接或传递前置",
+      "case_interpretation_boundary": "把接口管理状态、同窗 UPF 写入错误及 UE 失败探针联系为待核验候选；抓包未匹配不能独立证明丢包位置。"
+    },
+    {
+      "kind": "正式专家评审意见",
+      "case_id": "E1-CAL-N012",
+      "method": "v8-full+CommonPlanHead",
+      "method_number": 4,
+      "raw_file": "D:\\专利\\upf-agent-v8\\runtime\\v8-next\\human-review-20261010-001\\e1-validation-closure-20261011-001\\four-methods-003\\runs\\E1-CAL-N012\\method-4\\raw-plan.txt",
+      "raw_sha256": "2eec22df4c9c992acd7952fe396be329952971aa1c62a3bfdf7e22e9e79199b1",
+      "reference_sha256": "f4bba2775a1a9a8fee5874e6d5b24781b4f1ca370c10d89fb83b52702ceb3554",
+      "review_token": "951fb26316b231261607",
+      "mechanical_check_from_frozen_receipt": true,
+      "assessment": "只读调查骨架可供复核；完整语义需补充",
+      "positive_observations": [
+        "两接口、UE 探针、两侧抓包和时窗比较均有读取/比较步骤；权限目标在 upf/ran/ue 范围，未发现 network_write 或已执行修复宣称。",
+        "原文 hash 五路绑定一致；所引正常观测的源 hash、locator 和目标对象一致。Translator 为各步骤补入 on_unknown=stop、non_executable=true、claimed_executed=false。"
+      ],
+      "findings": [
+        {
+          "id": "O03",
+          "priority": "P2",
+          "detail": "身份步骤为泛化核验文字/空 parameters，未明确产品、版本及来源对应和不一致分支。它是计划占位，不能作为已经完成的身份验证。",
+          "steps": [
+            "id1",
+            "id2",
+            "id3"
+          ]
+        },
+        {
+          "id": "O04",
+          "priority": "P2",
+          "detail": "已安排日志读取或人工核对；仍需写明空日志只表示缺证，以及与探针/接口的同一时窗和版本对应。不能把转交人审视作已经核验。",
+          "steps": [
+            "s1-read_log"
+          ]
+        },
+        {
+          "id": "O05",
+          "priority": "P1",
+          "detail": "未明确落实固定版本 Open5GS/UERANSIM 手册核对；所有步骤 evidence 仅引 R 观测。模型上下文 admitted_K>0，因此不能解释为没有手册输入；应补充核对及可追溯条文。",
+          "steps": []
+        },
+        {
+          "id": "O06",
+          "priority": "P2",
+          "detail": "默认 stop 可保守阻止继续，但原文仍应说明 session_established=null、空日志、接口 UNKNOWN 和证据冲突如何判断、需要补什么证据。不得从 probe_id=normal 推导会话正常。",
+          "steps": []
+        },
+        {
+          "id": "O08",
+          "priority": "P2",
+          "detail": "调查动作覆盖不代表诊断结论已验证；建议给出本例可观察判据与推断边界：把接口管理状态、同窗 UPF 写入错误及 UE 失败探针联系为待核验候选；抓包未匹配不能独立证明丢包位置。",
+          "steps": []
+        }
+      ],
+      "log_handling": "s1-read_log:读取UPF运行日志",
+      "manual_handling": "未显式给出固定版本手册核对步骤/条文绑定",
+      "unknown_handling": "原文停止条件以状态标志或完成条件为主；发布 IR 保留默认 on_unknown=stop",
+      "comparison_dependency_note": "两侧抓包读取均为比较步骤的直接或传递前置",
+      "case_interpretation_boundary": "把接口管理状态、同窗 UPF 写入错误及 UE 失败探针联系为待核验候选；抓包未匹配不能独立证明丢包位置。"
+    }
+  ]
+}

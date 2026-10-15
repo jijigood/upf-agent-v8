@@ -1,0 +1,253 @@
+{
+  "schema_version": "v8-phase2-acceptance-1",
+  "created_at_utc": "2026-10-08T06:54:07.578525+00:00",
+  "stage": "phase2",
+  "scope": "engineering implementation and synthetic dev pilot; independent expert acceptance pending",
+  "engineering_pass": true,
+  "phase_complete": false,
+  "quality_pass": false,
+  "synthetic": true,
+  "reviewed": false,
+  "new_heldout_consumed": false,
+  "test_result": {
+    "passed": 459,
+    "elapsed_seconds": 28.0,
+    "new_phase2_tests": 66,
+    "ruff_pass": true
+  },
+  "pilot": {
+    "schema_version": "v8-phase2-pilot-1",
+    "cases": 24,
+    "method_runs": 96,
+    "synthetic": true,
+    "reviewed": false,
+    "new_heldout_consumed": false,
+    "real_network_writes": 0,
+    "source_unchanged": true,
+    "summaries": {
+      "DirectLLM+CommonPlanHead": {
+        "runs": 24,
+        "parsed": 24,
+        "validator_pass_count": 6,
+        "validator_pass_rate": 0.25,
+        "reference_pass_count": 1,
+        "vpr_denominator": 0,
+        "vpr": null,
+        "vpr_wilson95": null,
+        "hard_violation_count": 18,
+        "parse_failure_count": 0,
+        "unscorable_count": 0
+      },
+      "P5+CommonPlanHead": {
+        "runs": 24,
+        "parsed": 22,
+        "validator_pass_count": 1,
+        "validator_pass_rate": 0.041666666666666664,
+        "reference_pass_count": 0,
+        "vpr_denominator": 0,
+        "vpr": null,
+        "vpr_wilson95": null,
+        "hard_violation_count": 21,
+        "parse_failure_count": 2,
+        "unscorable_count": 2
+      },
+      "v8-no-graph+CommonPlanHead": {
+        "runs": 24,
+        "parsed": 23,
+        "validator_pass_count": 13,
+        "validator_pass_rate": 0.5416666666666666,
+        "reference_pass_count": 7,
+        "vpr_denominator": 0,
+        "vpr": null,
+        "vpr_wilson95": null,
+        "hard_violation_count": 10,
+        "parse_failure_count": 1,
+        "unscorable_count": 1
+      },
+      "v8-full+CommonPlanHead": {
+        "runs": 24,
+        "parsed": 24,
+        "validator_pass_count": 13,
+        "validator_pass_rate": 0.5416666666666666,
+        "reference_pass_count": 0,
+        "vpr_denominator": 0,
+        "vpr": null,
+        "vpr_wilson95": null,
+        "hard_violation_count": 11,
+        "parse_failure_count": 0,
+        "unscorable_count": 0
+      }
+    },
+    "method_failures": 0,
+    "generation_errors": 0,
+    "truncated_outputs": 1,
+    "expert_review_pending": true,
+    "scale_decision": "defer 60/150 until protocol failures repaired and independent review calibrated",
+    "execution_pass": true,
+    "quality_pass": false,
+    "limitations": [
+      "synthetic development fixture families, not independent real faults",
+      "no expert Gold, no VPR superiority claim",
+      "pilot JSON translation only; ordinary text preserved as parse failure",
+      "fixed method order; no performance superiority claim"
+    ]
+  },
+  "audit": {
+    "pilot_hashes_verified": 2793,
+    "runs_recomputed": 96,
+    "cost_records_recomputed": 96,
+    "model_calls_during_audit": 0,
+    "vpr_all_null": true,
+    "pilot_source_sha256": "b6c69d702176701628a8ca1aa868c21949813488f394b124100e6028b21c4073",
+    "delivery_source_sha256": "3a0c0ed9357172b077fd72d34b051d2767ddff95ebf197830aa970c63c29ec2a",
+    "per_method": {
+      "DirectLLM+CommonPlanHead": {
+        "runs": 24,
+        "parsed": 24,
+        "validator_pass": 6,
+        "reference_pass": 1,
+        "hard_constraint_violation": 18,
+        "truncated": 0,
+        "tool_attempts": 96,
+        "model_attempts": 24,
+        "input_tokens": 105842,
+        "output_tokens": 29303,
+        "token_complete_runs": 24,
+        "elapsed_seconds": 1430.7286236677319,
+        "issues": {
+          "required_knowledge_missing": 28,
+          "unknown_knowledge_applicability": 6,
+          "evidence_version_mismatch": 12,
+          "evidence_target_mismatch": 2,
+          "unknown_or_future_observation": 2,
+          "stale_observation": 2,
+          "field_permission_denied": 2,
+          "unknown_evidence": 1
+        }
+      },
+      "P5+CommonPlanHead": {
+        "runs": 24,
+        "parsed": 22,
+        "validator_pass": 1,
+        "reference_pass": 0,
+        "hard_constraint_violation": 21,
+        "truncated": 0,
+        "tool_attempts": 48,
+        "model_attempts": 73,
+        "input_tokens": 284494,
+        "output_tokens": 39070,
+        "token_complete_runs": 24,
+        "elapsed_seconds": 1925.3836823785678,
+        "issues": {
+          "required_knowledge_missing": 41,
+          "evidence_version_mismatch": 6,
+          "evidence_target_mismatch": 2,
+          "precondition_without_reference": 2,
+          "parse_failure": 2,
+          "unknown_or_future_observation": 4,
+          "stale_observation": 2,
+          "field_permission_denied": 2
+        }
+      },
+      "v8-no-graph+CommonPlanHead": {
+        "runs": 24,
+        "parsed": 23,
+        "validator_pass": 13,
+        "reference_pass": 7,
+        "hard_constraint_violation": 10,
+        "truncated": 1,
+        "tool_attempts": 48,
+        "model_attempts": 24,
+        "input_tokens": 97098,
+        "output_tokens": 23422,
+        "token_complete_runs": 24,
+        "elapsed_seconds": 1149.5709473537281,
+        "issues": {
+          "precondition_without_reference": 2,
+          "parse_failure": 1,
+          "evidence_version_mismatch": 6,
+          "required_knowledge_missing": 12,
+          "unknown_knowledge_applicability": 6,
+          "evidence_target_mismatch": 1,
+          "field_permission_denied": 2
+        }
+      },
+      "v8-full+CommonPlanHead": {
+        "runs": 24,
+        "parsed": 24,
+        "validator_pass": 13,
+        "reference_pass": 0,
+        "hard_constraint_violation": 11,
+        "truncated": 0,
+        "tool_attempts": 72,
+        "model_attempts": 24,
+        "input_tokens": 111475,
+        "output_tokens": 22621,
+        "token_complete_runs": 24,
+        "elapsed_seconds": 1107.5578717123717,
+        "issues": {
+          "unknown_knowledge_applicability": 7,
+          "required_knowledge_missing": 14,
+          "unknown_evidence": 1,
+          "evidence_version_mismatch": 6,
+          "precondition_without_reference": 5,
+          "evidence_target_mismatch": 1,
+          "field_permission_denied": 2
+        }
+      }
+    }
+  },
+  "source_versions": {
+    "pilot_code_sha256": "b6c69d702176701628a8ca1aa868c21949813488f394b124100e6028b21c4073",
+    "delivery_code_sha256": "3a0c0ed9357172b077fd72d34b051d2767ddff95ebf197830aa970c63c29ec2a",
+    "changes": [
+      "src/upf_agent/v8/adapters.py",
+      "src/upf_agent/v8/knowledge_applicability.py",
+      "src/upf_agent/v8/plan_source_verifier.py",
+      "src/upf_agent/v8/cli.py"
+    ],
+    "applied_after_pilot_hash_bundle": true
+  },
+  "phase1_compatibility": {
+    "pass": true,
+    "batches": 180,
+    "boundary_cases": 30,
+    "equal_batches": 180,
+    "equal_boundaries": 30
+  },
+  "preservation": {
+    "checked_non_v8_and_raw_files": 55,
+    "changed_files": [],
+    "staged_patch_unchanged": true,
+    "git_head_unchanged": true,
+    "git_head": "e234bf774c5714748ab739af43cffeca87a36565"
+  },
+  "expert_review": {
+    "candidate_cases": 10,
+    "paired_cases": 0,
+    "agreement_rate": null,
+    "vpr": null,
+    "remaining": [
+      "independent double review",
+      "reference adjudication",
+      "quality protocol revision under a new experiment ID",
+      "60/150 scale decision"
+    ]
+  },
+  "delivery_freeze": "runtime/v8-next/phase2/delivery-freeze-001",
+  "evidence_sha256": {
+    "runtime/v8-next/phase2/pilot-final-001/summary.json": "7ce11d1c6221fd8eaf2af122f5dc5f670e29edbc4c93bbb20926be7e411f1a50",
+    "runtime/v8-next/phase2/pilot-final-001/source_manifest.json": "059aafde946469736ad75831dfbe6452f4e159563018d1ba0f93f657484ef7ba",
+    "runtime/v8-next/phase2/pilot-final-001/sha256_manifest.json": "508111f00fb7684f13eb7936de4788ff0c225a0ce46223805eacb78faecc6423",
+    "runtime/v8-next/phase2/pilot-final-001/protocol.json": "55e5d66c7f271a2a5d84e50d10ae7e0c652994a337c1b0969208e4c45c98d486",
+    "runtime/v8-next/phase2/pilot-final-001/calibration-status.json": "3f62fc6382fdff7c85c4aa17c7085f049334314a7dbfb301c490752c42b119e6",
+    "runtime/v8-next/phase2/delivery-audit.json": "9e0aaeab1af650f1ac674afac0c6aa92e984563e6f1ffbb6c37a9590642512f2",
+    "runtime/v8-next/phase2/post-pilot-fix-receipt.json": "cbe025834291fad2b0b7d12cbc471b7a770200db0db9bb5a449966236f23eb9a",
+    "runtime/v8-next/phase2/full-regression-delivery.log": "f294ee03a7488555a167fb91ae1ec12625fa5f4471987bfbde8b3ea12c101c39",
+    "runtime/v8-next/phase2/lint-delivery.log": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+    "runtime/v8-next/phase2/phase1-compatibility-delivery-001/summary.json": "edaa959dc49de3a1dbf0d4745f55425861eff1278680243bcc91163e46686e47",
+    "runtime/v8-next/phase2/model-environment.json": "8aa3ebff9891c667fb5daaa24ffdd9376d2babb315aa5c6f87a9a30b8589c30f",
+    "runtime/v8-next/phase2/post-audit-before-fix.log": "e4b5a5e4b5e4494dcf5ace68cafcafa1de94da2e30022408649e8eb079bbbf2f",
+    "runtime/v8-next/phase2/archive-before-fix.log": "ef477d0efaf1edc8e45c5403a2d032c30bf0818592bc331971f61eeab901c502"
+  }
+}

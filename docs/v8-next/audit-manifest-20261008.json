@@ -1,0 +1,13 @@
+{
+  "files": {
+    "docs/v8-next/baseline-tests-20261008.json": "aa6f8e55efc08d287632c9d707c7eb4ca24c1a2f43fb1ad40457debfc11bb35d",
+    "docs/v8-next/resource-check-20261008.json": "d68a095fd65477ccfe56378e9d7a19e91b501cf744d111d29ce2c9f9224ef1ac",
+    "docs/v8-next/historical-artifact-check-20261008.json": "ad82040e9bd6611a16e5a0889cf47aad4504508eacbafb3303c0b0ac7e7faad4",
+    "docs/v8-next/feasibility_probes.py": "dbeb9b1e29b8d44706a5ebba873b924f5888884ee6a2261c19f014b05f4789ec",
+    "docs/v8-next/feasibility-probes-20261008.json": "3fc308f3abdbbb20d69f0f5cef7e68ee74f19243722e176f5ceea740f5ca0308",
+    "docs/v8-next/升级方案V2可行性评估与实验推进计划_20261008.md": "a61aaa114815027889db1579b26fe25211e6e7cbd810dc9c6603b9b468374831"
+  },
+  "product_source_unchanged_since_probe": true,
+  "local_links_valid": true,
+  "script_syntax_valid": true
+}

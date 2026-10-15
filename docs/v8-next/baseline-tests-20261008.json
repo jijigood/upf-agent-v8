@@ -1,0 +1,16 @@
+{
+  "audit_date_client_timezone": "2026-10-08 Asia/Shanghai",
+  "command": ".venv-v8/bin/python -m pytest -q",
+  "cwd": "/home/huangxiaolin/upf-agent-v8",
+  "python_executable": "/home/huangxiaolin/upf-agent-v8/.venv-v8/bin/python",
+  "import_path": "/home/huangxiaolin/upf-agent-v8/src/upf_agent/__init__.py",
+  "exit_code": 0,
+  "passed": 371,
+  "failed": 0,
+  "skipped": 0,
+  "duration_seconds": 24.71,
+  "capture": "Captured from the exec/write_stdin tool output in this audit; tests were not rerun to generate this record.",
+  "source_manifest_sha256": "8db8e324b324cf7bc8a49679c50c335e66ad428d69ac79eff601f1329e1cdb8a",
+  "historical_16000_batches_rerun": false,
+  "new_heldout_consumed": false
+}

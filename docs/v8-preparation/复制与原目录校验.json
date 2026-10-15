@@ -1,0 +1,76 @@
+{
+  "checked_at": "2026-10-07T14:16:58.000782+08:00",
+  "source": "/home/huangxiaolin/upf-agent",
+  "copy": "/home/huangxiaolin/upf-agent-v8",
+  "source_head": "e234bf774c5714748ab739af43cffeca87a36565",
+  "copy_head": "e234bf774c5714748ab739af43cffeca87a36565",
+  "sha256_checked_baseline_files": 173,
+  "source_changed_baseline_files": [],
+  "copy_mismatched_baseline_files": [],
+  "source_copy_shared_regular_file_inodes_in_baseline": [],
+  "original_raw_file_comparisons": [
+    {
+      "path": "data/raw/5GC网管使用手册_V1.3_20220916(1).docx",
+      "sha256": "98aa0505da555a15a2c78a64aab0cbf7dfcaf5dc3029d54e96e16d513981f5fe",
+      "copy_matches": true
+    },
+    {
+      "path": "data/raw/UPF 5.0安装部署指导书(新网管版)(1).docx",
+      "sha256": "1edf23113651430f97a7110afd82fd5251551169e9185cbc1c136baf85b6bc6e",
+      "copy_matches": true
+    },
+    {
+      "path": "data/raw/upfd_masked.log",
+      "sha256": "a698d029342259b717db6f0520f4e9b006e59ae6e8ae743d0cc482199b242fcc",
+      "copy_matches": true
+    },
+    {
+      "path": "data/raw/upftest.yml",
+      "sha256": "bd4d045782c4b250d1b0694a669d6e5d09891de1a1f676c13160770bfb444c3c",
+      "copy_matches": true
+    },
+    {
+      "path": "data/raw/中国联通5G专网UPF产品使用手册(1).docx",
+      "sha256": "341440f7dd103f513959376cdcc9875aa1aae0d80bf8eb7c737e2fc7ced1ca48",
+      "copy_matches": true
+    },
+    {
+      "path": "data/raw/中国联通5G专网UPF紧急故障指引0429(1).docx",
+      "sha256": "9f16bf8ca11723a22663914bed8ffb2b907c0908ba1c64566fc2a1a9fb49ff85",
+      "copy_matches": true
+    },
+    {
+      "path": "data/raw/提取自main.pdf",
+      "sha256": "d23b138f9a73d510e2aa3d5d015d30ff8ecc0fbe55915a6fff1d5bcf0604b68b",
+      "copy_matches": true
+    }
+  ],
+  "original_git_status_unchanged": false,
+  "copy_git_status_matches_source_before_new_docs": true,
+  "original_git_status": "A  evidence/p6/independent_source_audit_20261007.json\nA  evidence/p7/code_validation.json\nA  evidence/p7/isolated_runtime.json\nA  evidence/p7/model-service-launch.json\nA  evidence/p7/model-service.log\nA  evidence/p7/offline_environment_check.json\nA  evidence/p7/offline_rebuild.json\nA  evidence/p7/pilot_fixes.json\nA  evidence/p7/recovery_consistency.json\nA  evidence/p7/recovery_runtime.json\nA  evidence/p7/summary.json\nA  scripts/p7_isolation.py\nA  scripts/p7_snapshot.py\nA  tests/test_p7_snapshot.py\n",
+  "inventory_before_new_docs": {
+    "source": {
+      "directories": 15433,
+      "regular_files": 139984,
+      "symlinks": 81,
+      "other": 0,
+      "regular_file_bytes": 23213828186
+    },
+    "copy": {
+      "directories": 15433,
+      "regular_files": 139984,
+      "symlinks": 81,
+      "other": 0,
+      "regular_file_bytes": 23213828186
+    }
+  },
+  "inventory_matches": true,
+  "verification_scope": "full tree inventory and rsync size/mtime/type/link/permission dry-run; SHA-256 for selected 173 baseline code/config/test/docs/eval files and original raw files; virtual environment binaries are not all SHA-256 compared",
+  "new_files_scope": "docs/v8-preparation/ only; copy verification performed before adding these review artifacts",
+  "copy_refresh_reason": "Source Git staging metadata changed during the full copy; initial rsync differences were confined to .git. No changes in the 173 selected baseline source/config/test/doc/eval files. Refreshed the copy Git metadata from source before final verification.",
+  "initial_git_status": "?? evidence/p6/independent_source_audit_20261007.json\n?? evidence/p7/\n?? scripts/p7_isolation.py\n?? scripts/p7_snapshot.py\n?? tests/test_p7_snapshot.py\n",
+  "rsync_final_differences": "",
+  "rsync_size_mtime_type_link_permission_matches": true,
+  "source_selected_file_contents_unchanged": true,
+  "copy_verified": true
+}
