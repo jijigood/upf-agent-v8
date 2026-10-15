@@ -338,7 +338,34 @@ def _evaluate_requirement(
                 opposing,
             )
         values = {canonical({f: b.fields[f] for f in req.fields}) for b in records}
-        if len(values) != 1:
+        document_collection = (
+            req.kind == "K"
+            and req.purpose == "runtime_investigation"
+            and req.fields == ["instruction"]
+        )
+        if document_collection:
+            projections = {}
+            for binding in records:
+                key = (binding.source.sha256, binding.source.locator)
+                projections.setdefault(key, set()).add(canonical(binding.fields["instruction"]))
+            if any(len(v) != 1 for v in projections.values()):
+                return _state(
+                    req,
+                    Code.CONFLICT,
+                    [f"document_projection_conflict:{obj}"],
+                    basis,
+                    batch,
+                    supporting,
+                    supporting + opposing,
+                )
+            basis.setdefault("document_collections", {})[obj] = {
+                "distinct_original_locations": len(projections),
+                "meaning": (
+                    "applicable original excerpts available; technical agreement not evaluated"
+                ),
+                "semantic_approval": False,
+            }
+        if len(values) != 1 and not document_collection:
             return _state(
                 req,
                 Code.CONFLICT,

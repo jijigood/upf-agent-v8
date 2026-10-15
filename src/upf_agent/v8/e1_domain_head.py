@@ -233,12 +233,17 @@ def generate_domain_plan(
     source_root,
     instructions=None,
     body_transform=None,
+    schema_factory=domain_schema,
+    registry_version=REGISTRY_VERSION,
+    action_registry=None,
+    max_tokens=HEAD_MAX_TOKENS,
+    schema_catalog_factory=None,
 ):
-    schema, caps, scope, header = domain_schema(task, context, bindings, source_root)
+    schema, caps, scope, header = schema_factory(task, context, bindings, source_root)
     body = {
         "question": task.question,
         "trusted_header": header,
-        "registry_version": REGISTRY_VERSION,
+        "registry_version": registry_version,
         "permission": task.permission.model_dump(mode="json"),
         "namespace_scope": scope.model_dump(mode="json"),
         "object_profiles": {k: v.model_dump(mode="json") for k, v in task.object_profiles.items()},
@@ -265,7 +270,9 @@ def generate_domain_plan(
                 "permission_kind": spec[1],
                 "effect_kind": spec[2],
             }
-            for name, spec in CANDIDATE_ACTIONS.items()
+            for name, spec in (
+                CANDIDATE_ACTIONS if action_registry is None else action_registry
+            ).items()
         },
         "shared_domain_preparation": (
             "two frozen source reads before native method, counted for every method"
@@ -274,6 +281,8 @@ def generate_domain_plan(
             "core-only capture is not independent bilateral evidence; session success unknown"
         ),
     }
+    if schema_catalog_factory is not None:
+        body["step_options"] = schema_catalog_factory(schema)
     if body_transform is not None:
         body = body_transform(body)
     messages = [
@@ -286,7 +295,7 @@ def generate_domain_plan(
         reply = client.complete(
             messages,
             operation="e1_domain_plan_head_candidate",
-            max_tokens=HEAD_MAX_TOKENS,
+            max_tokens=max_tokens,
             response_grammar=grammar,
         )
     except (LocalModelError, TimeoutError) as exc:

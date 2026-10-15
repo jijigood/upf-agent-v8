@@ -23,7 +23,14 @@ def main():
     parser.add_argument("--scale", type=int, choices=[60, 150], default=60)
     parser.add_argument("--stage", choices=["validation", "heldout"], default="validation")
     parser.add_argument(
-        "--runner-profile", choices=["legacy", "verified-runtime-candidate-1"], default="legacy"
+        "--runner-profile",
+        choices=[
+            "legacy",
+            "verified-runtime-candidate-1",
+            "expert-readonly-revision-1",
+            "task-covered-readonly-1",
+        ],
+        default="legacy",
     )
     parser.add_argument("--validation-result", type=Path)
     parser.add_argument("--deployment", type=Path)

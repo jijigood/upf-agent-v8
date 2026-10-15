@@ -103,6 +103,42 @@ def heldout_keys(dataset, case_ids):
 def runner_options(profile):
     if profile == "legacy":
         return {"tools_factory": NormalizedEvidenceTools}, generation_manifest()
+    if profile == "task-covered-readonly-1":
+        from upf_agent.v8.e1_covered_head import (
+            ReservedHeadBudget,
+            covered_manifest,
+            generate_covered,
+            translate_covered,
+            validate_covered,
+        )
+        from upf_agent.v8.e1_source_closure import VerifiedDomainTools
+        from upf_agent.v8.e1_verified_head import run_verified_p5
+
+        return {
+            "tools_factory": VerifiedDomainTools,
+            "p5_runner": run_verified_p5,
+            "plan_generator": generate_covered,
+            "plan_translator": translate_covered,
+            "plan_validator": validate_covered,
+            "budget_factory": ReservedHeadBudget,
+        }, covered_manifest()
+    if profile == "expert-readonly-revision-1":
+        from upf_agent.v8.e1_expert_revision import (
+            generate_revision,
+            revision_manifest,
+            translate_revision,
+            validate_revision,
+        )
+        from upf_agent.v8.e1_source_closure import VerifiedDomainTools
+        from upf_agent.v8.e1_verified_head import run_verified_p5
+
+        return {
+            "tools_factory": VerifiedDomainTools,
+            "p5_runner": run_verified_p5,
+            "plan_generator": generate_revision,
+            "plan_translator": translate_revision,
+            "plan_validator": validate_revision,
+        }, revision_manifest()
     if profile != "verified-runtime-candidate-1":
         raise ValueError("unknown formal runner profile")
     from upf_agent.v8.e1_domain_readonly import translate_domain_plan, validate_domain_plan

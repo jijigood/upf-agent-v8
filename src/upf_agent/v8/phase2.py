@@ -100,6 +100,7 @@ def run_method(
     plan_validator=None,
     plan_scorer=None,
     p5_runner=None,
+    budget_factory=PlanBudget,
 ):
     run_root = output / "runtime"
     run_root.mkdir(parents=True)
@@ -114,7 +115,7 @@ def run_method(
     collector = MetricCollector(
         task.run_id, sink=lambda event: append_jsonl(output / "traces.jsonl", event)
     )
-    budget = PlanBudget(task, collector)
+    budget = budget_factory(task, collector)
     tools = tools_factory(run_root, task, contract, budget)
     config = load_model_config(project / "config/models.yaml")
     failure = None
@@ -218,6 +219,11 @@ def run_method(
         if calibration_candidate is None
         else calibration_candidate,
     )
+    if hasattr(budget, "stage_summary"):
+        metrics["stage_budget"] = budget.stage_summary()
+    if hasattr(validation, "task_coverage_complete"):
+        metrics["structural_validity"] = validation.structural_validity
+        metrics["task_coverage_complete"] = validation.task_coverage_complete
     for name, value in [
         ("task", task),
         ("context", context),

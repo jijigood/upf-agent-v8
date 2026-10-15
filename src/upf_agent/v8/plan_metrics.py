@@ -37,6 +37,13 @@ def score_case(plan, validation, gold):
 
             def search(index, assignment, branch=branch, options=options):
                 nonlocal visited, best
+                if best["complete"]:
+                    return
+                possible = len(assignment) + sum(
+                    bool(options[p.pattern_id]) for p in branch.required[index:]
+                )
+                if possible < best["matched"]:
+                    return
                 visited += 1
                 if visited > 10000:
                     return

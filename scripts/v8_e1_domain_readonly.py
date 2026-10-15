@@ -236,6 +236,9 @@ def run(
     head_manifest=None,
     extra_code_files=(),
     p5_runner=None,
+    plan_translator=translate_domain_plan,
+    plan_validator=validate_domain_plan,
+    budget_factory=None,
 ):
     if output.exists():
         raise ValueError("fresh candidate run required")
@@ -281,6 +284,9 @@ def run(
         for p in (output / "frozen-inputs").rglob("*")
         if p.is_file()
     }
+    budget = cases[0]["task"]["budget"]
+    if any(meta["task"]["budget"] != budget for meta in cases):
+        raise ValueError("all four methods/cases require one common budget")
     write(
         output / "protocol.json",
         {
@@ -294,7 +300,7 @@ def run(
             "method_order": "preregistered four-method Latin rotation by case index",
             "shared_domain_reads_per_run": 2 if tools_factory is DomainEvidenceTools else 0,
             "shared_reads_charged_before_native_method": True,
-            "budget": {"models": 8, "tools": 8, "rounds": 3, "seconds": 180},
+            "budget": budget,
             "formal_vpr_enabled": False,
             "Gold_used_for_generation": False,
             "source_admission_flags_changed": False,
@@ -323,19 +329,20 @@ def run(
                     tools_factory=tools_factory,
                     calibration_candidate=True,
                     plan_generator=plan_generator,
-                    plan_translator=translate_domain_plan,
-                    plan_validator=validate_domain_plan,
+                    plan_translator=plan_translator,
+                    plan_validator=plan_validator,
                     plan_scorer=plan_scorer,
                     p5_runner=p5_runner,
+                    **({"budget_factory": budget_factory} if budget_factory is not None else {}),
                 )
                 cost = read(folder / "metrics.json")
-                parsed = translate_domain_plan((folder / "raw-plan.txt").read_text()).plan
+                parsed = plan_translator((folder / "raw-plan.txt").read_text()).plan
                 context = EvaluationContext.model_validate(read(folder / "context.json"))
                 frozen_task = OrchestrationTask.model_validate(read(folder / "task.json"))
                 bindings = [
                     EvidenceBinding.model_validate(b) for b in read(folder / "bindings.json")
                 ]
-                checked = validate_domain_plan(
+                checked = plan_validator(
                     parsed,
                     bindings,
                     frozen_task,
@@ -400,7 +407,10 @@ def run(
         "validator_passes": sum(r["validator_pass"] for r in rows),
         "runner_errors": sum(r["runner_error"] is not None for r in rows),
         "actual_model_attempts_known": sum(r["model_attempts"] or 0 for r in rows),
-        "unknown_cost_runs": sum(r["model_attempts"] is None for r in rows),
+        "unknown_cost_runs": sum(
+            r["model_attempts"] is None or r["input_tokens"] is None or r["output_tokens"] is None
+            for r in rows
+        ),
         "issues": dict(Counter(issue for r in rows for issue in r.get("issues", []))),
         "source_unchanged": all(sha(project / n) == v for n, v in code["files"].items())
         and all(sha(output / "frozen-inputs" / n) == v for n, v in inputs.items()),

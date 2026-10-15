@@ -459,7 +459,20 @@ def domain_eligible(root, b, task, contract, context, scope):
     return verify_domain_binding(root, b, task, scope)
 
 
-def validate_domain_plan(plan, bindings, task, contract, context, root):
+def validate_domain_plan(
+    plan,
+    bindings,
+    task,
+    contract,
+    context,
+    root,
+    *,
+    action_registry=None,
+    report_type=DomainValidationReport,
+    registry_version=REGISTRY_VERSION,
+    conditional_capture_observations=False,
+):
+    actions = CANDIDATE_ACTIONS if action_registry is None else action_registry
     report = validate_plan(
         plan,
         bindings,
@@ -467,8 +480,8 @@ def validate_domain_plan(plan, bindings, task, contract, context, root):
         contract,
         context,
         root,
-        action_registry=CANDIDATE_ACTIONS,
-        report_type=DomainValidationReport,
+        action_registry=actions,
+        report_type=report_type,
         peer_reference_categories={"VERIFY_PEER_MAPPING": {"P"}, "COMPARE_CAPTURE_WINDOWS": {"R"}},
     )
     if plan is None:
@@ -477,7 +490,7 @@ def validate_domain_plan(plan, bindings, task, contract, context, root):
     def issue(code, step=None):
         report.issues.append(ValidationIssue(code=code, step_id=step))
 
-    if plan.registry_version != REGISTRY_VERSION:
+    if plan.registry_version != registry_version:
         issue("domain_registry_mismatch")
     try:
         scope = load_scope(root, task)
@@ -504,7 +517,7 @@ def validate_domain_plan(plan, bindings, task, contract, context, root):
     graph.add_nodes_from(s.step_id for s in plan.steps)
     graph.add_edges_from((d, s.step_id) for s in plan.steps for d in s.depends_on)
     for step in plan.steps:
-        spec = DOMAIN_ACTIONS.get(step.action_type)
+        spec = actions.get(step.action_type) if step.action_type in DOMAIN_ACTIONS else None
         if spec is None or scope is None:
             continue
         try:
@@ -593,7 +606,20 @@ def validate_domain_plan(plan, bindings, task, contract, context, root):
             if len(captures) != 2 or captures[0]["capture_sha256"] == captures[1]["capture_sha256"]:
                 issue("independent_capture_sources_missing", step.step_id)
             elif any(c["first_packet_epoch"] is None or c["truncated_packets"] for c in captures):
-                issue("capture_empty_or_truncated", step.step_id)
+                if conditional_capture_observations and step.on_unknown in {
+                    "request_evidence",
+                    "human_review",
+                }:
+                    report.preconditions.append(
+                        {
+                            "step_id": step.step_id,
+                            "predicate": "capture_nonempty_complete",
+                            "value": "unknown",
+                            "on_unknown": step.on_unknown,
+                        }
+                    )
+                else:
+                    issue("capture_empty_or_truncated", step.step_id)
             elif max(c["first_packet_epoch"] for c in captures) > min(
                 c["last_packet_epoch"] for c in captures
             ):
